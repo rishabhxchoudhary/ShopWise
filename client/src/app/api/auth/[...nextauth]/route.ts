@@ -3,7 +3,7 @@ import GoogleProvider from "next-auth/providers/google"
 import FacebookProvider from "next-auth/providers/facebook"
 import CredentialsProvider from "next-auth/providers/credentials";
 
-export const authOptions = {
+const authOptions = {
   // Configure one or more authentication providers
   secret: "1234",
   providers: [
@@ -13,7 +13,7 @@ export const authOptions = {
     }),
     FacebookProvider({
       clientId: "1380788252709063",
-      clientSecret: "8bdb67798afadae1a812113988303e11",
+      clientSecret: "f9c5e36d7c3d917ee212c8078ec05093",
     }),
     CredentialsProvider({
       name: 'credentials',
