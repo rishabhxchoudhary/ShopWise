@@ -17,7 +17,7 @@ export default function Home() {
     ) : (
       <>
         Not signed in <br />
-        <button onClick={() => signIn()}>Sign in</button>
+        <button onClick={() => signIn("facebook")}>Sign in</button>
       </>
     )}
     </>
