@@ -1,6 +1,5 @@
 "use client"
 import { signIn, useSession } from "next-auth/react"
-import { redirect } from "next/dist/server/api-utils";
 import React from 'react';
 
 const LoginPage: React.FC = () => {
@@ -9,20 +8,20 @@ const LoginPage: React.FC = () => {
     const [email,setEmail] = React.useState("");
     const [password,setPassword] = React.useState("");
 
-    const handleLoginWithGoogle = (event:any) => {
+    const handleLoginWithGoogle = async (event:any) => {
       event.preventDefault();
-      signIn("google");
+      signIn("google",{redirect: true, callbackUrl: "/"});
     }
 
     const handleLoginWithFacebook = (event:any) => {
       event.preventDefault();
-      signIn("facebook");
+      signIn("facebook",{redirect: true, callbackUrl: "/"});
     }
     const handleSubmit =  async (event:any) => {
       event.preventDefault();
-      const resp = await signIn("credentials", {email, password});
+      const resp = await signIn("credentials", {username: email, password, redirect: true, callbackUrl: "/"});
       if(resp?.error) {
-        alert("Email or password is incorrect");
+        console.log(resp)
       }
     }
 
@@ -39,14 +38,13 @@ const LoginPage: React.FC = () => {
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                Email address
+                Username
               </label>
               <div className="mt-1">
                 <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
+                  id="username"
+                  name="username"
+                  type="text"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required
