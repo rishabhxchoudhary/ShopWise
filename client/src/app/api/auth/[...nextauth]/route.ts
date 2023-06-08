@@ -1,4 +1,4 @@
-import NextAuth from "next-auth"
+import NextAuth, { Awaitable, RequestInternal, User } from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
 import FacebookProvider from "next-auth/providers/facebook"
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -21,8 +21,8 @@ const authOptions = {
         username: { label: "Username", type: "text", placeholder: "jsmith" },
         password: {  label: "Password", type: "password" }
       },
-      async authorize(credentials:any, req:any): Promise<any> {
-        if (credentials.username==='admin' && credentials.password==='admin') {
+      async authorize(credentials:Record<string | number | symbol, string> | undefined, req:Pick<RequestInternal, "body" | "query" | "headers" | "method">): Promise<any> {
+        if (credentials?.username==='admin' && credentials.password==='admin') {
           const user = { id: 1, name: 'Admin', email: "admin@admin.com", image: "" }
           return user}
         else return null;

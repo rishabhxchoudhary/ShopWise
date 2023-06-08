@@ -1,6 +1,6 @@
 "use client"
 import { signIn, useSession } from "next-auth/react"
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 
 const LoginPage: React.FC = () => {
     const { data: session } = useSession({required: false});
@@ -8,16 +8,14 @@ const LoginPage: React.FC = () => {
     const [email,setEmail] = React.useState("");
     const [password,setPassword] = React.useState("");
 
-    const handleLoginWithGoogle = async (event:any) => {
-      event.preventDefault();
+    const handleLoginWithGoogle = async () => {
       signIn("google",{redirect: true, callbackUrl: "/"});
     }
 
-    const handleLoginWithFacebook = (event:any) => {
-      event.preventDefault();
+    const handleLoginWithFacebook = () => {
       signIn("facebook",{redirect: true, callbackUrl: "/"});
     }
-    const handleSubmit =  async (event:any) => {
+    const handleSubmit =  async (event:React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
       const resp = await signIn("credentials", {username: email, password, redirect: true, callbackUrl: "/"});
       if(resp?.error) {
