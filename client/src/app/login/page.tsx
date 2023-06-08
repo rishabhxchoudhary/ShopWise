@@ -1,9 +1,13 @@
 "use client"
 import { signIn, useSession } from "next-auth/react"
+import { redirect } from "next/dist/server/api-utils";
 import React from 'react';
 
 const LoginPage: React.FC = () => {
     const { data: session } = useSession({required: false});
+
+    const [email,setEmail] = React.useState("");
+    const [password,setPassword] = React.useState("");
 
     const handleLoginWithGoogle = (event:any) => {
       event.preventDefault();
@@ -14,6 +18,14 @@ const LoginPage: React.FC = () => {
       event.preventDefault();
       signIn("facebook");
     }
+    const handleSubmit =  async (event:any) => {
+      event.preventDefault();
+      const resp = await signIn("credentials", {email, password});
+      if(resp?.error) {
+        alert("Email or password is incorrect");
+      }
+    }
+
   return (
     <div className="bg-gray-100 min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
@@ -24,7 +36,7 @@ const LoginPage: React.FC = () => {
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-          <form className="space-y-6" action="#" method="POST">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">
                 Email address
@@ -35,6 +47,8 @@ const LoginPage: React.FC = () => {
                   name="email"
                   type="email"
                   autoComplete="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   required
                   className="appearance-none text-gray-700 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                 />
@@ -50,6 +64,8 @@ const LoginPage: React.FC = () => {
                   id="password"
                   name="password"
                   type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   autoComplete="current-password"
                   required
                   className="appearance-none text-gray-700 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"

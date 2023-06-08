@@ -3,11 +3,13 @@ import { useSession, signIn, signOut } from "next-auth/react"
 
 export default function Home() {
   const { data: session } = useSession()
+  console.log(session);
   return (
     <>
     <h1 className="text-4xl">Home Page</h1> 
     I am Rishabh. I am a full stack developer.
     this is e commerce website named ShopWise!.
+    <br></br>
     
     {session ? (
       <>
@@ -17,7 +19,7 @@ export default function Home() {
     ) : (
       <>
         Not signed in <br />
-        <button onClick={() => signIn("facebook")}>Sign in</button>
+        <button onClick={() => signIn()}>Sign in</button>
       </>
     )}
     </>
