@@ -1,12 +1,18 @@
 "use client"
 import { signIn, useSession } from "next-auth/react"
-import React, { MouseEventHandler } from 'react';
+import React from 'react';
+import { redirect } from 'next/navigation';
 
 const LoginPage: React.FC = () => {
-    const { data: session } = useSession({required: false});
-
+    const { data: session } = useSession();
     const [email,setEmail] = React.useState("");
     const [password,setPassword] = React.useState("");
+
+    React.useEffect(() => {
+      if(session) {
+        redirect("/")
+      }
+    });
 
     const handleLoginWithGoogle = async () => {
       signIn("google",{redirect: true, callbackUrl: "/"});
