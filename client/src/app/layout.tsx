@@ -1,3 +1,5 @@
+
+import Provider from './Provider'
 import './globals.css'
 import { Inter } from 'next/font/google'
 
@@ -9,13 +11,18 @@ export const metadata = {
 }
 
 export default function RootLayout({
-  children,
+  children
 }: {
   children: React.ReactNode
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Provider>
+          {children}
+        </Provider>
+
+        </body>
     </html>
   )
 }

@@ -1,13 +1,16 @@
 "use client"
 
+import { signIn } from 'next-auth/react';
 import React from 'react';
 
 const LoginPage: React.FC = () => {
-    const handleSignUpWithGoogle = () => {
-        window.location.href = "http://localhost:5000/auth/google";
+    const handleSignUpWithGoogle = (event:any) => {
+      event.preventDefault();
+      // signOut();
     }
-    const handleSignUpWithFacebook = () => {
-        window.location.href = "http://localhost:5000/auth/facebook";
+    const handleSignUpWithFacebook = (event:any) => {
+      event.preventDefault();
+      // signOut();
     }
   return (
     <div className="bg-gray-100 min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8">
