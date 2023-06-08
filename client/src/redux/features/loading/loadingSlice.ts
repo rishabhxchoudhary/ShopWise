@@ -5,7 +5,7 @@ export interface LoadingState {
 }
 
 const initialState: LoadingState = {
-    value: true
+    value: false
 }
 
 export const loadingSlice = createSlice({
