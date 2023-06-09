@@ -4,6 +4,7 @@ import Loading from "@/components/Loading";
 import { start, stop } from "@/redux/features/loading/loadingSlice";
 import { RootState } from "@/redux/store";
 import { useSession, signIn, signOut } from "next-auth/react"
+import Link from "next/link";
 import { useDispatch } from "react-redux";
 
 
@@ -24,7 +25,10 @@ export default function Home() {
         I am Rishabh. I am a full stack developer.
         this is e commerce website named ShopWise!.
         <br></br>
-        
+        <br></br>
+
+        <Link href={"/product/123"} className="border p-1">Product Page Here</Link><br/>
+        <br></br>
         {session ? (
           <>
             Signed in as {session?.user?.email} <br />
