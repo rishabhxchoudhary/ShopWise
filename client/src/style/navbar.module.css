@@ -1,0 +1,147 @@
+.navbar
+{
+    z-index: 10;
+    width: 100%;
+    height: 60px;
+    position: sticky;
+}
+
+.navbarContainer
+{
+    width: min(1200px, 90%);
+    margin: 0 auto;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navSection
+{
+    display: flex;
+    align-items: center;
+}
+
+.navLogo{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #02452f;
+    text-decoration: none;
+}
+
+.navLink{
+    gap: 5px;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #333;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    margin-left: 1rem;
+    display: flex;
+}
+
+.navHide{
+    display: none;
+}
+
+.categoryDrop{
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    width: 700px;
+    top: 60px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    justify-content: space-around;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.categoryDropItem{
+    box-sizing: border-box;
+    width: 40%;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    font-size: 1rem;
+    color: #777;
+    font-weight: 500;
+}
+
+.categoryDropItem:hover{
+    background-color: #eee;
+    color: #333;
+}
+
+
+.navSearch{
+    background-color: #eee;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #444;
+    padding-right: 1rem;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-left: 1rem;
+    display: flex;
+}
+
+.searchBoxFocus{
+    width: 700px;
+    background-color: #eee;
+    margin-right: 1rem;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: #444;
+    transition: width 200ms ease-out;
+}
+
+.searchBoxBlur
+{
+    width: 300px;
+    background-color: #eee;
+    margin-right: 1rem;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: #333;
+}
+
+.searchBoxFocus:focus
+{
+    outline: none;
+}
+
+.searchBoxBlur:focus
+{
+    outline: none;
+}
+
+.accountTab{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
+    top: 50px;
+    background-color: #fff;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+.accountTabItem{
+    color: #777;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 0.5rem 0;
+
+}
+
+.accountTabItem:hover{
+    color: #333;
+}

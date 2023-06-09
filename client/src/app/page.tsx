@@ -17,26 +17,30 @@ export default function Home() {
   }
   return (
     <>
-    <h1 className="text-4xl">Home Page</h1> 
-    I am Rishabh. I am a full stack developer.
-    this is e commerce website named ShopWise!.
-    <br></br>
-    
-    {session ? (
-      <>
-        Signed in as {session?.user?.email} <br />
-        <button className="border p-1" onClick={() => signOut()}>Sign out</button>
-      </>
-    ) : (
-      <>
-        Not signed in <br />
-        <button className="border p-1" onClick={() => signIn()}>Sign in</button>
-      </>
-    )}
-    <br></br>
-    <br></br>
-    <button className="border p-1" onClick={()=> load() }>Loading for 2s</button>
-    <br></br>
+    <div className="flex flex-col h-screen justify-between">
+      <div>
+        <h1 className="text-4xl">Home Page</h1> 
+        I am Rishabh. I am a full stack developer.
+        this is e commerce website named ShopWise!.
+        <br></br>
+        
+        {session ? (
+          <>
+            Signed in as {session?.user?.email} <br />
+            <button className="border p-1" onClick={() => signOut()}>Sign out</button>
+          </>
+        ) : (
+          <>
+            Not signed in <br />
+            <button className="border p-1" onClick={() => signIn()}>Sign in</button>
+          </>
+        )}
+        <br></br>
+        <br></br>
+        <button className="border p-1" onClick={()=> load() }>Loading for 2s</button>
+        <br></br>
+      </div>
+    </div>
     </>
 
   )
