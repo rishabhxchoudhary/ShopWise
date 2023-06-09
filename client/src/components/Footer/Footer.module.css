@@ -1,7 +1,5 @@
 .container{
-    position: absolute;
-    bottom: 0;
-    overflow: hidden;
+    /* overflow: hidden; */
     width: 100%;
     max-width: 1360px;
     margin-right: auto;
