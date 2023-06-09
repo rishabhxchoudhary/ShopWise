@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: any) {
   const data = await req.body;
   console.log(data);
-  
+
   const ProductData = {
     name: "Airpod- Max",
     description:
@@ -30,9 +30,12 @@ export async function POST(req: any) {
       },
     ],
     images: {
-      Red: "red_product_image.jpg",
-      Blue: "blue_product_image.jpg",
-      Green: "green_product_image.jpg",
+      Red: "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/airpods-max-hero-select-202011_FMT_WHH?wid=607&hei=556&fmt=jpeg&qlt=90&.v=1633623988000",
+      Blue: "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/airpods-max-hero-select-202011_FMT_WHH?wid=607&hei=556&fmt=jpeg&qlt=90&.v=1633623988000",
+      Green:
+        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/airpods-max-hero-select-202011_FMT_WHH?wid=607&hei=556&fmt=jpeg&qlt=90&.v=1633623988000",
+      Black:
+        "https://m.media-amazon.com/images/I/81jqUPkIVRL._AC_UF1000,1000_QL80_.jpg",
     },
     ratings: {
       average: 4.5,

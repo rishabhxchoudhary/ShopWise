@@ -1,0 +1,75 @@
+/* :root {
+    --orange: rgb(246,161,87);
+    --green: rgb(0,70,45);
+    --lightgreen: rgb(6,163,12);
+    --black: rgb(25,25,25);
+    --grey: rgb(120,120,120);
+    --lightgrey: rgb(247,247,247);
+} */
+
+/* 
+body { background-color: var(--orange); }
+*/
+
+.content{
+    width: 100%;
+    max-width: 1360px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 40px;
+    padding-left: 40px;
+    margin-top: auto;
+    height: 90vh;
+    display: flex;
+    gap: 20px;
+}
+
+.images, .info, .Price, .variants, .Quantity, .AddToCart{
+    /* border: 1px solid black; */
+}
+
+.images{
+    flex: 1;
+    grid-area: a;
+}
+
+
+.info{
+    flex: 1;
+    grid-area: b;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    word-wrap: break-word;
+    padding: 50px;
+}
+
+.info .name{
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: rgb(25,25,25);
+}
+
+.info .description{
+    color: rgb(120,120,120);
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+
+}
+
+.Price{
+    grid-area: c;
+}
+
+.variants{
+    grid-area: d;
+}
+
+.Quantity{
+    grid-area: e;
+}
+
+.AddToCart{
+    grid-area: f;
+}
