@@ -1,4 +1,5 @@
 "use client"
+import Footer from "@/components/Footer/Footer";
 import Loading from "@/components/Loading";
 import { start, stop } from "@/redux/features/loading/loadingSlice";
 import { RootState } from "@/redux/store";
@@ -37,6 +38,7 @@ export default function Home() {
     <br></br>
     <button className="border p-1" onClick={()=> load() }>Loading for 2s</button>
     <br></br>
+    <Footer/>
     </>
 
   )
