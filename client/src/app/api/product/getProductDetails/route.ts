@@ -3,7 +3,6 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: any) {
   const data = await req.body;
   console.log(data);
-
   const ProductData = {
     name: "Airpod- Max",
     description:
@@ -30,12 +29,10 @@ export async function POST(req: any) {
       },
     ],
     images: {
-      Red: "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/airpods-max-hero-select-202011_FMT_WHH?wid=607&hei=556&fmt=jpeg&qlt=90&.v=1633623988000",
-      Blue: "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/airpods-max-hero-select-202011_FMT_WHH?wid=607&hei=556&fmt=jpeg&qlt=90&.v=1633623988000",
-      Green:
-        "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/airpods-max-hero-select-202011_FMT_WHH?wid=607&hei=556&fmt=jpeg&qlt=90&.v=1633623988000",
+      Red: "https://d2j6dbq0eux0bg.cloudfront.net/images/1107006/2455892128.jpg",
+      Blue: "https://images-cdn.ubuy.co.in/63423544af43d07920174ee5-apple-airpods-max-sky-blue.jpg",
       Black:
-        "https://m.media-amazon.com/images/I/81jqUPkIVRL._AC_UF1000,1000_QL80_.jpg",
+        "https://cdn.shopify.com/s/files/1/0568/5942/7015/products/MGYH3HN_A_1.jpg?v=1678354048",
     },
     ratings: {
       average: 4.5,

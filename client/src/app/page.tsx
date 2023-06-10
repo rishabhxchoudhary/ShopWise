@@ -1,8 +1,5 @@
 "use client"
-import Footer from "@/components/Footer/Footer";
-import Loading from "@/components/Loading";
 import { start, stop } from "@/redux/features/loading/loadingSlice";
-import { RootState } from "@/redux/store";
 import { useSession, signIn, signOut } from "next-auth/react"
 import Link from "next/link";
 import { useDispatch } from "react-redux";
