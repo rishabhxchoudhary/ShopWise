@@ -3,10 +3,16 @@ import { start, stop } from "@/redux/features/loading/loadingSlice";
 import { useSession, signIn, signOut } from "next-auth/react"
 import Link from "next/link";
 import { useDispatch } from "react-redux";
+import HomePageCarousel from "@/components/HomePage/HomePageCarousel";
 
 
 export default function Home() {
   const { data: session } = useSession()
+  const products = [
+    { link: '/', image: '/homePageCarousel/banner1.jpeg' },
+    { link: '/', image: '/homePageCarousel/banner2.webp' },
+    { link: '/', image: '/homePageCarousel/banner3.webp' },
+  ];
   const dispatch = useDispatch()
   function load(){
     dispatch(start())
@@ -18,6 +24,7 @@ export default function Home() {
     <>
     <div className="flex flex-col h-screen justify-between">
       <div>
+        <HomePageCarousel products={products} />
         <h1 className="text-4xl">Home Page</h1> 
         I am Rishabh. I am a full stack developer.
         this is e commerce website named ShopWise!.

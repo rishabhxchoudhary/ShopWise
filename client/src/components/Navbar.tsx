@@ -83,7 +83,7 @@ export default function Navbar() {
                         </Link>
                     </div>
                     <div className={style.navSection}>
-                        <Link onClick={categoryFocus} onBlur={categoryBlur} href="/" className={searchActive ? style.navHide : style.navLink}>
+                        <div onClick={categoryFocus} onBlur={categoryBlur} className={searchActive ? style.navHide : style.navLink}>
                             <span>Categories</span>
                             <KeyboardArrowDownIcon />
                             <div className={categoryActive ? style.categoryDrop : style.navHide}>
@@ -97,15 +97,9 @@ export default function Navbar() {
                                     ))
                                 }
                             </div>
-                        </Link>
+                        </div>
                         <Link href="/" className={searchActive ? style.navHide : style.navLink}>
                             <span>Link 1</span>
-                        </Link>
-                        <Link href="/" className={searchActive ? style.navHide : style.navLink}>
-                            <span>Link 2</span>
-                        </Link>
-                        <Link href="/" className={searchActive ? style.navHide : style.navLink}>
-                            <span>Link 3</span>
                         </Link>
                         {/* search box with logo */}
                         <div className={style.navSearch}>
@@ -113,7 +107,7 @@ export default function Navbar() {
                             <button type="submit"><SearchIcon />
                             </button>
                         </div>
-                        <Link onClick={accountFocus} onBlur={accountBlur} href="/" className={style.navLink}>
+                        <div onClick={accountFocus} onBlur={accountBlur} className={style.navLink}>
                             <PersonIcon />
                             <span>Account</span>
                             <div className={accountActive ? style.accountTab : style.navHide}>
@@ -137,7 +131,7 @@ export default function Navbar() {
                                 }
 
                             </div>
-                        </Link>
+                        </div>
                         <Link href="/" className={style.navLink}>
                             <ShoppingCartIcon />
                             <span>Cart</span>
