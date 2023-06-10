@@ -42,6 +42,7 @@ interface ShippingOption {
 }
 
 interface Product {
+  _id: string;
   name: string;
   description: string;
   category: string;
@@ -60,8 +61,31 @@ interface Product {
   metaDescription: string;
 }
 
+interface CartProduct {
+  _id: string;
+  name: string;
+  image: string;
+  variant: {
+    option: string;
+    value: string;
+  }[];
+  price: number;
+  quantity: number;
+}
+
+type VariantOption = {
+  option: string;
+  values: string[];
+  availability: string[];
+};
+
+type VariantSelection = {
+  [option: string]: string;
+};
+
 const ProductPage = () => {
   const [product, setProduct] = useState<Product | null>(null);
+  const [selection, setSelection] = useState<VariantSelection>({});
   const [quantity,setQuantity] = useState(1);
   const dispatch = useDispatch()
 
@@ -90,6 +114,65 @@ const ProductPage = () => {
 
   }, []);
 
+  // function AddtoCart(){}
+
+  const AddtoCart = (): void => {
+    dispatch(start());
+    const storedCartData = localStorage.getItem('cart');
+    let cartData: CartProduct[] = [];
+    if (storedCartData) {
+      cartData = JSON.parse(storedCartData);
+    }
+
+    const cur_product: CartProduct = {
+      _id: product?._id || "",
+      name: product?.name || "",
+      image: product?.images[Object.keys(product?.images)[0]] || "",
+      variant: [],
+      quantity: quantity,
+      price: product?.price || 0,
+    }
+    Object.keys(selection).forEach((option) => {
+      cur_product.variant.push({
+        option,
+        value: selection[option],
+      });
+    });
+
+    const existingItemIndex = cartData.findIndex(
+      (item) => item._id === cur_product?._id && isEqual(item.variant, cur_product.variant )
+    );
+  
+    if (existingItemIndex !== -1) {
+      // Item with the same variant already exists, increase the quantity
+      cartData[existingItemIndex].quantity += cur_product.quantity;
+    } else {
+      // Item with the same variant doesn't exist, add the new product to the cart
+      cartData.push(cur_product);
+    }
+  
+    // Save the updated cart data to local storage
+    localStorage.setItem('cart', JSON.stringify(cartData));
+    dispatch(stop());
+  };
+  
+  const isEqual = (arr1: { option: string; value: string }[], arr2: { option: string; value: string }[]): boolean => {
+    if (arr1.length !== arr2.length) {
+      return false;
+    }
+    for (let i = 0; i < arr1.length; i++) {
+      if (arr1[i].option !== arr2[i].option || arr1[i].value !== arr2[i].value) {
+        return false;
+      }
+    }
+    return true;
+  };
+  
+
+  function BuyNow(){
+    console.log("Buy now clicked")
+  }
+
   if (!product) {
     return <div className='min-h-[90vh]'></div>
   }
@@ -115,7 +198,7 @@ const ProductPage = () => {
                 <div className={`${ProductPageCss.price} text-2xl font-semibold`}>Price: $ {product.price}</div>
             </div>
             <div className={ProductPageCss.variants}>
-              <Variants variants={variants} />
+              <Variants variants={variants} selection={selection} setSelection={setSelection}/>
             </div>
             <div className={ProductPageCss.Quantity}>
                 <div className={ProductPageCss.quantity}>
@@ -123,7 +206,7 @@ const ProductPage = () => {
                 </div>
             </div>
             <div className={ProductPageCss.AddToCart}>
-                <CartActions totalAmount={Math.round((quantity * product.price * 1000)/1000)} onAddToCart={() => {}} onBuy={() => {}} />
+                <CartActions totalAmount={Math.round((quantity * product.price * 1000)/1000)} onAddToCart={AddtoCart} onBuy={BuyNow} />
             </div>
         </div>
     </div>

@@ -12,10 +12,12 @@ type VariantSelection = {
 
 type VariantsProps = {
   variants: VariantOption[];
+  selection: VariantSelection;
+  setSelection: React.Dispatch<React.SetStateAction<VariantSelection>>;
 };
 
-const Variants: React.FC<VariantsProps> = ({ variants }) => {
-  const [selection, setSelection] = useState<VariantSelection>({});
+const Variants: React.FC<VariantsProps> = ({ variants, selection, setSelection }) => {
+  // const [selection, setSelection] = useState<VariantSelection>({});
 
   const handleOptionChange = (option: string, value: string) => {
     setSelection((prevSelection) => ({
@@ -67,9 +69,6 @@ const Variants: React.FC<VariantsProps> = ({ variants }) => {
           </div>
         </div>
       ))}
-      {/* <div>
-        <pre>{JSON.stringify(selection)}</pre>
-      </div> */}
     </div>
   );
 };

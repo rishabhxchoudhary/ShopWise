@@ -4,6 +4,7 @@ export async function POST(req: any) {
   const data = await req.body;
   console.log(data);
   const ProductData = {
+    _id: "1",
     name: "Airpod- Max",
     description:
       "A perfect example of exhilarating high quality audio and the efortless magic of AirPods. The ultimate personal listening experience is here.",
