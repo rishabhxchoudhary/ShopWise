@@ -1,7 +1,9 @@
 "use client"
 import CSS from '@/components/Cart/Cart.module.css';
 import Image from 'next/image';
-import { use, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { useDispatch } from "react-redux";
+import { start, stop } from "@/redux/features/loading/loadingSlice";
 
 interface CartProduct {
   _id: string;
@@ -16,24 +18,29 @@ interface CartProduct {
 }
 
 const CartPage: React.FC = () => {
-
+  const dispatch = useDispatch();
   const [cartData, setCartData] = useState<CartProduct[]>([]);
 
   useEffect(() => {
+    dispatch(start());
     const storedCartData = localStorage.getItem('cart');
     if (storedCartData) {
       setCartData(JSON.parse(storedCartData));
     }
+    dispatch(stop());
 
   },[]);
 
   useEffect(() => {
+    dispatch(start());
     if (cartData.length != 0) {
       localStorage.setItem('cart', JSON.stringify(cartData));
     }
+    dispatch(stop());
   }, [cartData]);
 
   const handleUpdateQuantity = (product: CartProduct, newQuantity: number) => {
+    dispatch(start());
     const updatedCart = cartData.map((p) => {
       if (p === product) {
         return { ...p, quantity: newQuantity };
@@ -41,11 +48,14 @@ const CartPage: React.FC = () => {
       return p;
     });
     setCartData(updatedCart);
+    dispatch(stop());
   };
 
-  const handleRemoveItem = (productId: string) => {
-    const updatedCart = cartData.filter((product) => product._id !== productId);
+  const handleRemoveItem = (product: CartProduct) => {
+    dispatch(start());
+    const updatedCart = cartData.filter((p) => p !== product);
     setCartData(updatedCart);
+    dispatch(stop());
   };
 
   return (
@@ -95,7 +105,7 @@ const CartPage: React.FC = () => {
                   />
                   <button
                     className="text-red-500 hover:text-red-700 ml-4"
-                    onClick={() => handleRemoveItem(product._id)}
+                    onClick={() => handleRemoveItem(product)}
                   >
                     Remove
                   </button>

@@ -108,7 +108,7 @@ const ProductPage = () => {
 
   }, []);
 
-  const AddtoCart = (): void => {
+  const AddtoCart = () => {
     dispatch(start());
     const storedCartData = localStorage.getItem('cart');
     let cartData: CartProduct[] = [];
@@ -145,6 +145,7 @@ const ProductPage = () => {
   
     // Save the updated cart data to local storage
     localStorage.setItem('cart', JSON.stringify(cartData));
+    alert("Added to cart")
     dispatch(stop());
   };
   
