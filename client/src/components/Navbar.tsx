@@ -132,7 +132,7 @@ export default function Navbar() {
 
                             </div>
                         </div>
-                        <Link href="/" className={style.navLink}>
+                        <Link href="/cart" className={style.navLink}>
                             <ShoppingCartIcon />
                             <span>Cart</span>
                         </Link>

@@ -73,12 +73,6 @@ interface CartProduct {
   quantity: number;
 }
 
-type VariantOption = {
-  option: string;
-  values: string[];
-  availability: string[];
-};
-
 type VariantSelection = {
   [option: string]: string;
 };
@@ -113,8 +107,6 @@ const ProductPage = () => {
     fetchProduct();
 
   }, []);
-
-  // function AddtoCart(){}
 
   const AddtoCart = (): void => {
     dispatch(start());
