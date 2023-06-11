@@ -243,43 +243,43 @@ export default function Home() {
     }, 2000);
   }
   return (
-    <>
-    <div className="flex flex-col h-screen justify-between">
-      <div>
-        <HomePageCarousel  products={banners} />
-      
-        <div className="container mx-auto py-8">
-          <div className="flex justify-center">
-            <h1 className="text-2xl font-bold uppercase">Our Featured Products</h1>
-          </div>
-      {Object.entries(groupedProducts).map(([category, products]) => (
-        <ProductSection key={category} title={category} products={products} />
-      ))}
-    </div>
+    <div className="main overflow-hidden">
+      <div className="flex flex-col justify-between">
+        <div>
+          <HomePageCarousel  products={banners} />
+        
+          <div className="container mx-auto py-8">
+            <div className="flex justify-center">
+              <h1 className="text-2xl font-bold uppercase">Our Featured Products</h1>
+            </div>
+        {Object.entries(groupedProducts).map(([category, products]) => (
+          <ProductSection key={category} title={category} products={products} />
+        ))}
+      </div>
 
 
-    {/* Extra Stuff */}
-
-        <Link href={"/product/123"} className="border p-1">Product Page Here</Link><br/>
-        <br></br>
-        {session ? (
-          <>
-            Signed in as {session?.user?.email} <br />
-            <button className="border p-1" onClick={() => signOut()}>Sign out</button>
-          </>
-        ) : (
-          <>
-            Not signed in <br />
-            <button className="border p-1" onClick={() => signIn()}>Sign in</button>
-          </>
-        )}
-        <br></br>
-        <br></br>
-        <button className="border p-1" onClick={()=> load() }>Loading for 2s</button>
-        <br></br>
+      {/* Extra Stuff */}
+{/* 
+          <Link href={"/product/123"} className="border p-1">Product Page Here</Link><br/>
+          <br></br>
+          {session ? (
+            <>
+              Signed in as {session?.user?.email} <br />
+              <button className="border p-1" onClick={() => signOut()}>Sign out</button>
+            </>
+          ) : (
+            <>
+              Not signed in <br />
+              <button className="border p-1" onClick={() => signIn()}>Sign in</button>
+            </>
+          )}
+          <br></br>
+          <br></br>
+          <button className="border p-1" onClick={()=> load() }>Loading for 2s</button>
+          <br></br> */}
+        </div>
       </div>
     </div>
-    </>
 
   )
 }

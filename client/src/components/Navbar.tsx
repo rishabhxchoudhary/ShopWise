@@ -75,7 +75,7 @@ export default function Navbar() {
     return (
         <>
 
-            <div className={style.navbar}>
+            <div className={`${style.navbar} sticky top-0 z-50`}>
                 <div className={style.navbarContainer}>
                     <div className={style.navSection}>
                         <Link href="/" className={style.navLogo}>
