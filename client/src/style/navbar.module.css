@@ -3,8 +3,8 @@
     z-index: 10;
     width: 100vw;
     height: 60px;
-    position: relative;
-    top: 0;
+    position : fixed;
+    top :0;
     background-color: white;
 }
 
@@ -29,6 +29,10 @@
     font-weight: 600;
     color: #02452f;
     text-decoration: none;
+}
+
+.navMenuIcon{
+    display: none;
 }
 
 .navLink{
@@ -148,28 +152,37 @@
     color: #333;
 }
 
+@media screen and (max-width: 768px)
+{
 
-@media (max-width: 768px) {
-    .navbarContainer {
-      flex-direction: column;
-      align-items: flex-start;
+    .navbar{
+        height: 100vh;
     }
-  
-    .navLink {
-      margin-left: 0;
-      margin-top: 1rem;
+
+    .navbarContainer
+    {
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
     }
-  
-    .categoryDrop {
-      width: 100%;
-      left: 0;
-      right: 0;
-      top: 60px;
+
+    .navSection
+    {
+        flex-direction: column;
     }
-  
-    .searchBoxFocus,
-    .searchBoxBlur {
-      width: 100%;
-      max-width: none;
+
+    .navLogo{
+        font-size: 2rem;
+        font-weight: 600;
+        color: #02452f;
+        text-decoration: none;
     }
-  }
+
+    .navMenuIcon{
+        display: block;
+        font-size: 1.5rem;
+        color: #02452f;
+        cursor: pointer;
+    }
+    
+}
