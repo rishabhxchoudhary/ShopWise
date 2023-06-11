@@ -55,6 +55,12 @@ const CartPage: React.FC = () => {
 
   const handleRemoveItem = (product: CartProduct) => {
     dispatch(start());
+    if (cartData.length === 1) {
+      setCartData([]);
+      localStorage.setItem('cart', JSON.stringify([]));
+      dispatch(stop());
+      return;
+    }
     const updatedCart = cartData.filter((p) => p !== product);
     setCartData(updatedCart);
     dispatch(stop());
@@ -62,26 +68,33 @@ const CartPage: React.FC = () => {
 
   return (
     <div className={`flex flex-col md:flex-row`}>
-      <div className={`${CSS.left} lg:max-h-[80vh]`}>
+      
+        {cartData.length === 0 ? (<>
+        <div className='py-10 min-h-50vh'>
+          <p>No Items in your Cart</p>
+        </div>
+        </>) : (
+        <>
+        <div className={`${CSS.left} lg:max-h-[80vh]`}>
         {cartData.map((product) => (
-            <div
-              key={product._id}
-              className="flex flex-wrap items-center border-b py-4"
-            >
+          <div
+          key={product._id}
+          className="flex flex-wrap items-center border-b py-4"
+          >
               <Image
                 height={100}
                 width={100}
                 src={product.image}
                 alt={product.name}
                 className="w-24 h-24 object-cover rounded mr-2"
-              />
+                />
               <div className="flex-grow">
                 <h2 className="text-lg font-semibold mb-2">
                   {product.name}
                   <button
                     className="text-red-500 hover:text-red-700 ml-4"
                     onClick={() => handleRemoveItem(product)}
-                  >
+                    >
                     <svg className='h-[20px] w-[20px]' xmlns="http://www.w3.org/2000/svg" viewBox="0,0,256,256" width="30px" height="30px" fill-rule="nonzero">
                       <g fill="#ff0000" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none">
                         <g transform="scale(8.53333,8.53333)">
@@ -106,9 +119,9 @@ const CartPage: React.FC = () => {
                     handleUpdateQuantity(
                       product,
                       product.quantity - 1
-                    )
-                  }}
-                >
+                      )
+                    }}
+                    >
                   -
                 </button>
                 <input
@@ -116,13 +129,13 @@ const CartPage: React.FC = () => {
                   className="w-16 focus:outline-none px-3 py-2 text-center border-t border-b border-gray-300"
                   value={product.quantity}
                   readOnly
-                />
+                  />
                 <button
                   className="px-3 py-2 border border-gray-300 rounded-r"
                   onClick={()=>{
                     handleUpdateQuantity(product, product.quantity + 1);
                   }}
-                >
+                  >
                   +
                 </button>
                 </div>
@@ -133,6 +146,7 @@ const CartPage: React.FC = () => {
       <div className={`${CSS.right}`}>
         <CheckoutComponent cartData={cartData}/>
       </div>
+                 </>)}
     </div>
   );
 };
