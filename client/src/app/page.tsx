@@ -243,7 +243,7 @@ export default function Home() {
     }, 2000);
   }
   return (
-    <div className="main overflow-hidden">
+    // <div className="main">
       <div className="flex flex-col justify-between">
         <div>
           <HomePageCarousel  products={banners} />
@@ -279,7 +279,7 @@ export default function Home() {
           <br></br> */}
         </div>
       </div>
-    </div>
+    // </div>
 
   )
 }
