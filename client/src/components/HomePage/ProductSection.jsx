@@ -70,6 +70,8 @@ const ProductSection = ({ title, products }) => {
         ))}
       </div>
       <div className="flex justify-center mt-4">
+        {/* show this button only if there are more than 4 products */}
+        {products.length > maxVisibleCards && (
         <button
           className="text-gray-500 bg-transparent border border-solid border-gray-500 hover:bg-gray-500 hover:text-white active:bg-gray-600 font-bold uppercase text-xs px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
           type="button"
@@ -77,6 +79,7 @@ const ProductSection = ({ title, products }) => {
         >
           {showAll ? 'Hide All' : 'Show All'}
         </button>
+        )}
       </div>
     </div>
   );

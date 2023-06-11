@@ -193,7 +193,7 @@ export default function Home() {
       id: 22,
       name: "Product 22",
       image: "/shopwise.png",
-      category: "Category 8",
+      category: "Category 1",
       price: 21,
       discount: 15,
       rating: 4.5,
@@ -202,7 +202,7 @@ export default function Home() {
       id: 23,
       name: "Product 23",
       image: "/shopwise.png",
-      category: "Category 8",
+      category: "Category 1",
       price: 11,
       rating: 3.5,
     },
@@ -210,7 +210,7 @@ export default function Home() {
       id: 24,
       name: "Product 24",
       image: "/shopwise.png",
-      category: "Category 8",
+      category: "Category 1",
       price: 33,
       rating: 4.0,
     },
@@ -218,7 +218,7 @@ export default function Home() {
       id: 25,
       name: "Product 25",
       image: "/shopwise.png",
-      category: "Category 8",
+      category: "Category 1",
       price: 9,
       rating: 3.5,
     },
@@ -246,10 +246,9 @@ export default function Home() {
     <>
     <div className="flex flex-col h-screen justify-between">
       <div>
-        <HomePageCarousel products={banners} />
+        <HomePageCarousel  products={banners} />
       
         <div className="container mx-auto py-8">
-          {/* styled heading in middle */}
           <div className="flex justify-center">
             <h1 className="text-2xl font-bold uppercase">Our Featured Products</h1>
           </div>
@@ -257,6 +256,9 @@ export default function Home() {
         <ProductSection key={category} title={category} products={products} />
       ))}
     </div>
+
+
+    {/* Extra Stuff */}
 
         <Link href={"/product/123"} className="border p-1">Product Page Here</Link><br/>
         <br></br>

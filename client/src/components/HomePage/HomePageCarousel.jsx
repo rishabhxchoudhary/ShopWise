@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const HomePageCarousel = ({ products }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -10,6 +10,16 @@ const HomePageCarousel = ({ products }) => {
   const handlePreviousSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide === 0 ? products.length - 1 : prevSlide - 1));
   };
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNextSlide();
+    }, 5000); // Slide changes every 5 seconds
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
 
   return (
     <div className="relative w-full max-w-full mx-auto">
