@@ -14,14 +14,14 @@ const HomePageCarousel = ({ products }) => {
   return (
     <div className="relative w-full max-w-full mx-auto">
       <div className="overflow-hidden">
-        <div className="flex flex-row">
+        <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
           {products.map((product, index) => (
             <div key={index} className="w-full flex-shrink-0">
               <a href={product.link} className="block">
                 <img
                   src={product.image}
                   alt="Product"
-                  className="w-full object-cover"
+                  className="w-full h-auto object-cover"
                   style={{ maxHeight: '60vh' }}
                 />
               </a>
@@ -69,7 +69,9 @@ const HomePageCarousel = ({ products }) => {
           <div
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 mx-1 rounded-full ${currentSlide === index ? 'bg-green-800' : 'bg-gray-400'}`}
+            className={`w-3 h-3 mx-1 rounded-full ${
+              currentSlide === index ? 'bg-green-800' : 'bg-gray-400'
+            }`}
           ></div>
         ))}
       </div>
