@@ -12,17 +12,17 @@ const HomePageCarousel = ({ products }) => {
   };
 
   return (
-    <div className="relative w-full h-[60vh] max-w-full mx-auto">
-      <div className="overflow-hidden h-full">
-        <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+    <div className="relative w-full max-w-full mx-auto">
+      <div className="overflow-hidden">
+        <div className="flex flex-row">
           {products.map((product, index) => (
             <div key={index} className="w-full flex-shrink-0">
-              <a href={product.link} className="block h-full">
+              <a href={product.link} className="block">
                 <img
                   src={product.image}
                   alt="Product"
-                  className="w-full h-full object-cover"
-                  style={{ maxHeight: '100%' }}
+                  className="w-full object-cover"
+                  style={{ maxHeight: '60vh' }}
                 />
               </a>
             </div>
