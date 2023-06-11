@@ -34,8 +34,8 @@ const ProductSection = ({ title, products }) => {
                 transition={{ duration: 0.5 }}
                 className="bg-white rounded-lg p-6 shadow-lg cursor-pointer"
               >
-                <div className="flex justify-center mb-4">
-                  <img src="/shopwise.png" alt="Product" className="w-48 h-48 object-contain" />
+                <div className="flex justify-center mb-6">
+                  <img src={product.image} alt="Product" className="w-auto h-48 object-contain" />
                 </div>
                 <div className="mb-4">
                   <h3 className="text-xl font-bold mb-2">{product.name}</h3>

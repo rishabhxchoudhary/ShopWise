@@ -192,7 +192,7 @@ export default function Home() {
     {
       id: 22,
       name: "Product 22",
-      image: "/shopwise.png",
+      image: "/homePageCarousel/banner1.jpeg",
       category: "Category 1",
       price: 21,
       discount: 15,
