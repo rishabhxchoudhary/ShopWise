@@ -176,6 +176,7 @@
         width: auto;
         background-color: #fff;
         justify-content: space-around;
+        align-items: center;
         padding: 1rem;
         gap: 1rem;
     }
@@ -197,7 +198,7 @@
     .mobSideSection{
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: 0.5rem;
     }
 
     .mobSearch{
@@ -210,7 +211,8 @@
 
     .searchBoxFocus{
         display: block;
-        width: 200px;
+        /* expand to available width */
+        width: fit-content;
     }
 
 

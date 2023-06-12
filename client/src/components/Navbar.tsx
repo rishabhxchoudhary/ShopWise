@@ -50,8 +50,7 @@ export default function Navbar() {
 
   const searchFocus = () => {
     setSearchActive(!searchActive)
-    setCategoryActive(false)
-    setAccountActive(false)
+    setCategoryActive
   }
 
   const categoryFocus = () => {
@@ -116,9 +115,9 @@ export default function Navbar() {
                 {
                   session ? (
                     <div>
-                      <div className={style.accountTabItem}>
+                      <Link href="/orders" className={style.accountTabItem}>
                         <span>Your Orders</span>
-                      </div>
+                      </Link>
                       <div className={style.accountTabItem}>
                         <div onClick={() => signOut()}>Sign Out</div>
                       </div>
