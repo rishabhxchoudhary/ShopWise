@@ -23,7 +23,9 @@ export default function RootLayout({
       <body className={inter.className} suppressHydrationWarning={true} >
         <Providers>
           <Loading/>
-          <Navbar/>
+          <div className='navfix sticky top-0 z-50'>
+            <Navbar/>
+          </div>
           <div className="main">
             {children}
           </div>
