@@ -29,7 +29,6 @@ const CartPage: React.FC = () => {
       setCartData(JSON.parse(storedCartData));
     }
     dispatch(stop());
-
   },[]);
 
   useEffect(() => {

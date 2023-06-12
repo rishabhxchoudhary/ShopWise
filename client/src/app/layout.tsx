@@ -23,7 +23,7 @@ export default function RootLayout({
       <body className={inter.className} suppressHydrationWarning={true} >
         <Providers>
           <Loading/>
-          <Navbar/>
+          {/* <Navbar/> */}
           <div className="main">
             {children}
           </div>
