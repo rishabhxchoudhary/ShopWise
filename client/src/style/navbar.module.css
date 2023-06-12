@@ -3,8 +3,6 @@
     z-index: 10;
     width: 100vw;
     height: 60px;
-    position : fixed;
-    top :0;
     background-color: white;
 }
 
@@ -44,6 +42,7 @@
     text-decoration: none;
     margin-left: 1rem;
     display: flex;
+    cursor: pointer;
 }
 
 .navHide{
@@ -152,37 +151,68 @@
     color: #333;
 }
 
+.mobNavbarContainer
+{
+    display: none;
+}
+
 @media screen and (max-width: 768px)
 {
-
-    .navbar{
-        height: 100vh;
+    .navbarContainer{
+        display: none;
     }
 
-    .navbarContainer
-    {
+    .mobNavbarContainer{
+        display: flex;
+        padding: 1rem;
+        justify-content: space-between;
+    }
+
+    .mobDrop{
+        position: absolute;
+        display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
-        align-items: center;
+        top: 60px;
+        width: auto;
+        background-color: #fff;
+        justify-content: space-around;
+        padding: 1rem;
+        gap: 1rem;
     }
 
-    .navSection
-    {
-        flex-direction: column;
-    }
-
-    .navLogo{
-        font-size: 2rem;
-        font-weight: 600;
-        color: #02452f;
+    .mobDropItem{
+        color: #555;
+        font-size: 1rem;
+        font-weight: 300;
+        cursor: pointer;
         text-decoration: none;
     }
 
-    .navMenuIcon{
-        display: block;
-        font-size: 1.5rem;
-        color: #02452f;
-        cursor: pointer;
+    .mobDropItem:hover{
+        color: #333;
+        font-weight: 500;
+        border-bottom: 1px solid #333;
     }
-    
+
+    .mobSideSection{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .mobSearch{
+        display: flex;
+    }
+
+    .searchBoxBlur{
+        display: none;
+    }
+
+    .searchBoxFocus{
+        display: block;
+        width: 200px;
+    }
+
+
+
 }
