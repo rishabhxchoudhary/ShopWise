@@ -102,7 +102,7 @@ const CheckoutPage: React.FC = () => {
     },[selectedAddressId])
 
     return (
-    <div className='my-10'>
+    <div className='mb-10'>
         <DeliverySelection 
         addresses={data.addresses} 
         selectedAddressId={selectedAddressId}
