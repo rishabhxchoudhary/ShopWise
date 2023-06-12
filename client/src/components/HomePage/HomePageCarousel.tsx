@@ -36,7 +36,7 @@ const HomePageCarousel: React.FC<HomePageCarouselProps> = ({ products }) => {
   }, []);
 
   return (
-    <div className="relative w-full max-w-full mx-auto border border-red-500">
+    <div className="relative w-full max-w-full mx-auto">
       <div className="overflow-hidden">
         <div
           className="flex transition-transform duration-500"
