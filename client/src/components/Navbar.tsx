@@ -50,7 +50,7 @@ export default function Navbar() {
 
   const searchFocus = () => {
     setSearchActive(!searchActive)
-    setCategoryActive
+    setCategoryActive(false)
   }
 
   const categoryFocus = () => {
@@ -162,7 +162,7 @@ export default function Navbar() {
               </div>
             <div onClick={accountFocus}>
               <PersonIcon fontSize='large' />
-              <div className={!accountActive ? style.mobDropp : style.navHide}>
+              <div className={!accountActive ? style.mobSearch : style.navHide}>
                 {
                   session ? (
                     <div className={style.mobDrop}>
