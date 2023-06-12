@@ -1,7 +1,6 @@
 "use client"
 import { start, stop } from "@/redux/features/loading/loadingSlice";
 import { useSession, signIn, signOut } from "next-auth/react"
-import Link from "next/link";
 import { useDispatch } from "react-redux";
 import HomePageCarousel from "@/components/HomePage/HomePageCarousel";
 import ProductSection from "@/components/HomePage/ProductSection";
@@ -256,27 +255,6 @@ export default function Home() {
           <ProductSection key={category} title={category} products={products} />
         ))}
       </div>
-
-
-      {/* Extra Stuff */}
-{/* 
-          <Link href={"/product/123"} className="border p-1">Product Page Here</Link><br/>
-          <br></br>
-          {session ? (
-            <>
-              Signed in as {session?.user?.email} <br />
-              <button className="border p-1" onClick={() => signOut()}>Sign out</button>
-            </>
-          ) : (
-            <>
-              Not signed in <br />
-              <button className="border p-1" onClick={() => signIn()}>Sign in</button>
-            </>
-          )}
-          <br></br>
-          <br></br>
-          <button className="border p-1" onClick={()=> load() }>Loading for 2s</button>
-          <br></br> */}
         </div>
       </div>
     // </div>

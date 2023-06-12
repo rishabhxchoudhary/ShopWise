@@ -1,14 +1,28 @@
+import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 
-const HomePageCarousel = ({ products }) => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+interface Product {
+  link: string;
+  image: string;
+}
+
+interface HomePageCarouselProps {
+  products: Product[];
+}
+
+const HomePageCarousel: React.FC<HomePageCarouselProps> = ({ products }) => {
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
 
   const handleNextSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide === products.length - 1 ? 0 : prevSlide + 1));
+    setCurrentSlide((prevSlide) =>
+      prevSlide === products.length - 1 ? 0 : prevSlide + 1
+    );
   };
 
   const handlePreviousSlide = () => {
-    setCurrentSlide((prevSlide) => (prevSlide === 0 ? products.length - 1 : prevSlide - 1));
+    setCurrentSlide((prevSlide) =>
+      prevSlide === 0 ? products.length - 1 : prevSlide - 1
+    );
   };
 
   useEffect(() => {
@@ -22,13 +36,18 @@ const HomePageCarousel = ({ products }) => {
   }, []);
 
   return (
-    <div className="relative w-full max-w-full mx-auto">
+    <div className="relative w-full max-w-full mx-auto border border-red-500">
       <div className="overflow-hidden">
-        <div className="flex transition-transform duration-500" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
+        <div
+          className="flex transition-transform duration-500"
+          style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+        >
           {products.map((product, index) => (
             <div key={index} className="w-full flex-shrink-0">
               <a href={product.link} className="block">
-                <img
+                <Image
+                  height={2000}
+                  width={2000}
                   src={product.image}
                   alt="Product"
                   className="w-full h-auto object-cover"
@@ -52,7 +71,12 @@ const HomePageCarousel = ({ products }) => {
             stroke="currentColor"
             className="w-4 h-4 text-white"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
           </svg>
         </button>
       </div>
@@ -69,7 +93,12 @@ const HomePageCarousel = ({ products }) => {
             stroke="currentColor"
             className="w-4 h-4 text-white"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M9 5l7 7-7 7"
+            />
           </svg>
         </button>
       </div>
