@@ -1,4 +1,4 @@
-import NextAuth, { Awaitable, RequestInternal } from "next-auth";
+import NextAuth, { RequestInternal } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 import FacebookProvider from "next-auth/providers/facebook";
 import CredentialsProvider from "next-auth/providers/credentials";
