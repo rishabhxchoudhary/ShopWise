@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 export async function POST(req: any) {
   const data = await req.body;
   const ProductData = {
-    _id: "1",
+    _id: 1,
     name: "Airpod- Max",
     description:
       "A perfect example of exhilarating high quality audio and the efortless magic of AirPods. The ultimate personal listening experience is here.",
@@ -86,21 +86,6 @@ export async function POST(req: any) {
         "5 minutes of charge time provides around 1.5 hours of listening time6",
       ],
       "Charging Case": ["Charging via Lightning connector"],
-    },
-    warranty: "1-year manufacturer warranty",
-    shippingDetails: {
-      shippingOptions: [
-        {
-          option: "Standard Shipping",
-          cost: 5.99,
-          estimatedDelivery: "3-5 business days",
-        },
-        {
-          option: "Express Shipping",
-          cost: 9.99,
-          estimatedDelivery: "1-2 business days",
-        },
-      ],
     },
     tags: ["Apple", "Headphones", "Airpods", "Max"],
     metaDescription:

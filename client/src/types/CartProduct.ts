@@ -8,5 +8,4 @@ interface CartProduct {
     }[];
     price: number;
     quantity: number;
-  }
-  
+}

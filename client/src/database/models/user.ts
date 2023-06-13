@@ -6,6 +6,15 @@ interface IUser extends Document {
   image?: string;
   addresses: string[];
   isAdmin: boolean;
+  cart: {
+    _id: number;
+    variant: {
+      option: string;
+      value: string;
+    }[];
+    quantity: number;
+  }[];
+  orders: number[];
 }
 
 const UserSchema: Schema = new Schema(
@@ -21,6 +30,7 @@ const UserSchema: Schema = new Schema(
     },
     image: {
       type: String,
+      default: "",
     },
     addresses: {
       type: [String],
@@ -29,6 +39,14 @@ const UserSchema: Schema = new Schema(
     isAdmin: {
       type: Boolean,
       default: false,
+    },
+    cart: {
+      type: [Object],
+      default: [],
+    },
+    orders: {
+      type: [Number],
+      default: [],
     },
   },
   { timestamps: true }

@@ -5,4 +5,4 @@ interface Product {
     category: string;
     price: number;
     rating: number;
-  }
+}

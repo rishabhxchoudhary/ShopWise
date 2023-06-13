@@ -1,112 +1,116 @@
 import { Document, Schema, Model, model } from "mongoose";
+interface ProductVariant {
+  option: string;
+  values: string[];
+  availability: string[];
+}
 
-interface IProduct extends Document {
+interface ProductImages {
+  [key: string]: string;
+}
+
+interface ProductRating {
+  average: number;
+  count: number;
+}
+
+interface ProductReview {
+  author: string;
+  rating: number;
+  comment: string;
+}
+
+interface ProductSpecifications {
+  [key: string]: string[];
+}
+
+interface Product {
+  _id: number;
   name: string;
   description: string;
   category: string;
   brand: string;
   price: number;
-  availability: string;
-  variants: {
-    option: string;
-    values: string[];
-    availability: string[];
-  }[];
-  images: Record<string, string>;
-  ratings: {
-    average: number;
-    count: number;
-  };
-  reviews: {
-    author: string;
-    rating: number;
-    comment: string;
-  }[];
-  specifications: {
-    dimensions: string;
-    weight: string;
-    material: string;
-  };
-  sku: string;
-  condition: string;
-  upc: string;
-  mpn: string;
-  gtin: string;
-  isbn: string;
-  ean: string;
-  warranty: string;
-  shippingDetails: {
-    shippingOptions: {
-      option: string;
-      cost: number;
-      estimatedDelivery: string;
-    }[];
-  };
-  relatedItems: string[];
+  variants: ProductVariant[];
+  images: ProductImages;
+  ratings: ProductRating;
+  reviews: ProductReview[];
+  specifications: ProductSpecifications;
   tags: string[];
-  promotions?: {
-    discount: number;
-    validUntil: Date;
-  };
   metaDescription: string;
 }
 
-// Define the Mongoose schema for the Product collection
-const productSchema = new Schema<IProduct>({
-  name: { type: String, required: true },
-  description: { type: String, required: true },
-  category: { type: String, required: true },
-  brand: { type: String, required: true },
-  price: { type: Number, required: true },
-  availability: { type: String, required: true },
-  variants: [
-    {
-      option: { type: String, required: true },
-      values: { type: [String], required: true },
-      availability: { type: [String], required: true },
-    },
-  ],
-  images: { type: Map, of: String, required: true },
+interface IProduct extends Document {
+  _id: number;
+  name: string;
+  description: string;
+  category: string;
+  brand: string;
+  price: number;
+  variants: ProductVariant[];
+  images: ProductImages;
+  ratings: ProductRating;
+  reviews: ProductReview[];
+  specifications: ProductSpecifications;
+  tags: string[];
+  metaDescription: string;
+}
+
+const productSchema: Schema = new Schema({
+  _id: {
+    type: Number,
+    required: true,
+    unique: true,
+  },
+  name: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  description: {
+    type: String,
+    require: true,
+  },
+  category: {
+    type: String,
+    required: true,
+  },
+  brand: {
+    type: String,
+    required: true,
+  },
+  price: {
+    type: Number,
+    required: true,
+  },
+  variants: {
+    type: [Object],
+    required: true,
+  },
+  images: {
+    type: Object,
+    required: true,
+  },
   ratings: {
-    average: { type: Number, required: true },
-    count: { type: Number, required: true },
+    type: Object,
+    default: {},
   },
-  reviews: [
-    {
-      author: { type: String, required: true },
-      rating: { type: Number, required: true },
-      comment: { type: String, required: true },
-    },
-  ],
+  reviews: {
+    type: [Object],
+    default: [],
+  },
   specifications: {
-    dimensions: { type: String, required: true },
-    weight: { type: String, required: true },
-    material: { type: String, required: true },
+    type: Object,
+    required: true,
   },
-  sku: { type: String, required: true },
-  condition: { type: String, required: true },
-  upc: { type: String, required: true },
-  mpn: { type: String, required: true },
-  gtin: { type: String, required: true },
-  isbn: { type: String, required: true },
-  ean: { type: String, required: true },
-  warranty: { type: String, required: true },
-  shippingDetails: {
-    shippingOptions: [
-      {
-        option: { type: String, required: true },
-        cost: { type: Number, required: true },
-        estimatedDelivery: { type: String, required: true },
-      },
-    ],
+  tags: {
+    type: [String],
+    default: [],
   },
-  relatedItems: [{ type: String }],
-  tags: [{ type: String }],
-  promotions: {
-    discount: { type: Number },
-    validUntil: { type: Date },
+  metaDescription: {
+    type: String,
+    default: "",
   },
-  metaDescription: { type: String, required: true },
 });
 
 const Product: Model<IProduct> = model<IProduct>("Product", productSchema);
