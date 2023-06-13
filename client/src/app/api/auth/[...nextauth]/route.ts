@@ -3,7 +3,7 @@ import GoogleProvider from "next-auth/providers/google";
 import FacebookProvider from "next-auth/providers/facebook";
 import CredentialsProvider from "next-auth/providers/credentials";
 import connectToDatabase from "@/database/db";
-import User from "@/database/models/user";
+import User from "@/database/models/User";
 
 const authOptions = {
   secret: "1234",
