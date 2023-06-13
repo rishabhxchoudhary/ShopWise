@@ -1,5 +1,6 @@
 // This file sets up a reusable connection to the MongoDB database using Mongoose.
 import mongoose, { Connection } from "mongoose";
+// import Product from "./models/Product";
 
 const MONGODB_URI = "mongodb+srv://root:root@cluster0.smibz3t.mongodb.net/";
 
@@ -35,4 +36,6 @@ async function connectToDatabase(): Promise<Connection> {
   return cached.conn;
 }
 
+// const db = connectToDatabase();
+// Product.find();
 export default connectToDatabase;

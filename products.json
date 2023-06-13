@@ -1,0 +1,2344 @@
+[{
+  "_id": {
+    "$oid": "64888c06685a3fb23018c9a8"
+  },
+  "name": "Samsung Galaxy S9",
+  "description": "Samsung Galaxy S9 64GB Unlocked GSM 4G LTE Phone w/ 12MP Camera - Midnight Black",
+  "category": "Electronics",
+  "brand": "Samsung",
+  "price": 599.99,
+  "variants": [
+    {
+      "option": "Color",
+      "values": [
+        "Midnight Black",
+        "Coral Blue",
+        "Lilac Purple"
+      ],
+      "availability": [
+        "In Stock",
+        "Out Of Stock",
+        "In Stock"
+      ]
+    }
+  ],
+  "images": {
+    "Midnight Black": "https://images-na.ssl-images-amazon.com/images/I/61%2BQNG8IiPL._SX679_.jpg",
+    "Coral Blue": "https://images-na.ssl-images-amazon.com/images/I/71OxJeyywSL._SX679_.jpg",
+    "Lilac Purple": "https://images-na.ssl-images-amazon.com/images/I/71z2dc%2BcD-L._SX679_.jpg"
+  },
+  "ratings": {
+    "average": 4.5,
+    "count": 12
+  },
+  "reviews": [
+    {
+      "author": "John Smith",
+      "rating": 4,
+      "comment": "Great product!"
+    },
+    {
+      "author": "Amy Adams",
+      "rating": 5,
+      "comment": "No complaints."
+    }
+  ],
+  "specifications": {
+    "Manufacturer": [
+      "Samsung"
+    ],
+    "Operating System": [
+      "Android"
+    ],
+    "Display": [
+      "5.8-inch",
+      "6.2-inch"
+    ],
+    "Storage": [
+      "64GB",
+      "128GB"
+    ],
+    "Cameras": [
+      "12MP",
+      "8MP"
+    ],
+    "Battery": [
+      "3000 mAh",
+      "3500 mAh"
+    ],
+    "Security": [
+      "Iris Scanner",
+      "Fingerprint Scanner"
+    ],
+    "Biometrics": [
+      "Iris Scanner",
+      "Fingerprint Scanner"
+    ],
+    "Water Resistance": [
+      "Yes"
+    ],
+    "Wireless Charging": [
+      "Yes"
+    ],
+    "Weight": [
+      "163g",
+      "189g"
+    ],
+    "Dimensions": [
+      "147.7 x 68.7 x 8.5 mm",
+      "158.1 x 73.8 x 8.5 mm"
+    ]
+  },
+  "tags": [
+    "Samsung",
+    "Galaxy",
+    "S9",
+    "Unlocked"
+  ],
+  "metaDescription": "Samsung Galaxy S9 64GB Unlocked GSM 4G LTE Phone w/ 12MP Camera - Midnight Black"
+},{
+  "_id": {
+    "$oid": "64888cc2685a3fb23018c9a9"
+  },
+  "name": "Apple MacBook Pro",
+  "description": "Apple MacBook Pro with Touch Bar (16-inch, 16GB RAM, 512GB Storage, 2.6GHz Intel Core i7) - Space Gray",
+  "category": "Electronics",
+  "brand": "Apple",
+  "price": 2399.99,
+  "variants": [
+    {
+      "option": "Color",
+      "values": [
+        "Space Gray",
+        "Silver"
+      ],
+      "availability": [
+        "In Stock",
+        "In Stock"
+      ]
+    }
+  ],
+  "images": {
+    "Space Gray": "https://images-na.ssl-images-amazon.com/images/I/71pC69I3lzL._AC_SX679_.jpg",
+    "Silver": "https://images-na.ssl-images-amazon.com/images/I/71pBVKFaRwL._AC_SX679_.jpg"
+  },
+  "ratings": {
+    "average": 4.8,
+    "count": 18
+  },
+  "reviews": [
+    {
+      "author": "Emily Johnson",
+      "rating": 5,
+      "comment": "Amazing laptop!"
+    },
+    {
+      "author": "David Thompson",
+      "rating": 4,
+      "comment": "Fast and powerful."
+    }
+  ],
+  "specifications": {
+    "Manufacturer": [
+      "Apple"
+    ],
+    "Operating System": [
+      "macOS"
+    ],
+    "Display": [
+      "16-inch"
+    ],
+    "Storage": [
+      "512GB",
+      "1TB"
+    ],
+    "Processor": [
+      "2.6GHz Intel Core i7",
+      "2.3GHz Intel Core i9"
+    ],
+    "RAM": [
+      "16GB",
+      "32GB"
+    ],
+    "Graphics": [
+      "AMD Radeon Pro 5300M",
+      "AMD Radeon Pro 5500M"
+    ],
+    "Battery": [
+      "100-watt-hour"
+    ],
+    "Weight": [
+      "4.3 pounds"
+    ],
+    "Dimensions": [
+      "14.09 x 9.68 x 0.64 inches"
+    ]
+  },
+  "tags": [
+    "Apple",
+    "MacBook",
+    "Pro",
+    "Laptop"
+  ],
+  "metaDescription": "Apple MacBook Pro with Touch Bar (16-inch, 16GB RAM, 512GB Storage, 2.6GHz Intel Core i7) - Space Gray"
+},{
+  "_id": {
+    "$oid": "64888d12685a3fb23018c9aa"
+  },
+  "name": "Nike Air Max 90",
+  "description": "Nike Air Max 90 Men's Sneakers - White/Black",
+  "category": "Fashion",
+  "brand": "Nike",
+  "price": 119.99,
+  "variants": [
+    {
+      "option": "Color",
+      "values": [
+        "White/Black",
+        "Black/White",
+        "Red/White"
+      ],
+      "availability": [
+        "In Stock",
+        "Out Of Stock",
+        "In Stock"
+      ]
+    }
+  ],
+  "images": {
+    "White/Black": "https://images.nike.com/is/image/DotCom/CD0881_103_A_PREM?$SNKRS_COVER_WD$",
+    "Black/White": "https://images.nike.com/is/image/DotCom/CD0881_001_A_PREM?$SNKRS_COVER_WD$",
+    "Red/White": "https://images.nike.com/is/image/DotCom/CD0881_102_A_PREM?$SNKRS_COVER_WD$"
+  },
+  "ratings": {
+    "average": 4.2,
+    "count": 10
+  },
+  "reviews": [
+    {
+      "author": "Michael Clark",
+      "rating": 4,
+      "comment": "Comfortable and stylish."
+    },
+    {
+      "author": "Sarah Johnson",
+      "rating": 5,
+      "comment": "Love these sneakers!"
+    }
+  ],
+  "specifications": {
+    "Brand": [
+      "Nike"
+    ],
+    "Color": [
+      "White/Black",
+      "Black/White",
+      "Red/White"
+    ],
+    "Closure": [
+      "Lace-Up"
+    ],
+    "Upper Material": [
+      "Leather",
+      "Mesh"
+    ],
+    "Outsole Material": [
+      "Rubber"
+    ],
+    "Sole Material": [
+      "Foam",
+      "Air"
+    ],
+    "Fit": [
+      "True to size"
+    ]
+  },
+  "tags": [
+    "Nike",
+    "Air Max",
+    "Sneakers",
+    "Men's Shoes"
+  ],
+  "metaDescription": "Nike Air Max 90 Men's Sneakers - White/Black"
+},{
+  "_id": {
+    "$oid": "64888d4a685a3fb23018c9ab"
+  },
+  "name": "Sony PlayStation 5",
+  "description": "Sony PlayStation 5 Console - 4K Ultra HD Blu-ray Edition",
+  "category": "Electronics",
+  "brand": "Sony",
+  "price": 499.99,
+  "variants": [
+    {
+      "option": "Edition",
+      "values": [
+        "4K Ultra HD Blu-ray",
+        "Digital Edition"
+      ],
+      "availability": [
+        "In Stock",
+        "Out Of Stock"
+      ]
+    }
+  ],
+  "images": {
+    "4K Ultra HD Blu-ray": "https://images-na.ssl-images-amazon.com/images/I/619BkvKW35L._AC_SL1500_.jpg",
+    "Digital Edition": "https://images-na.ssl-images-amazon.com/images/I/61CiqVTRBEL._AC_SL1500_.jpg"
+  },
+  "ratings": {
+    "average": 4.9,
+    "count": 20
+  },
+  "reviews": [
+    {
+      "author": "Jason Davis",
+      "rating": 5,
+      "comment": "Best gaming console ever!"
+    },
+    {
+      "author": "Laura Thompson",
+      "rating": 4,
+      "comment": "Great graphics and performance."
+    }
+  ],
+  "specifications": {
+    "Manufacturer": [
+      "Sony"
+    ],
+    "Console Type": [
+      "Home Console"
+    ],
+    "Resolution": [
+      "4K UHD"
+    ],
+    "Storage Capacity": [
+      "825GB"
+    ],
+    "Optical Drive": [
+      "4K Ultra HD Blu-ray"
+    ],
+    "Wireless Connectivity": [
+      "Wi-Fi 6",
+      "Bluetooth 5.1"
+    ],
+    "Dimensions": [
+      "15.35 x 10.23 x 4.09 inches"
+    ]
+  },
+  "tags": [
+    "Sony",
+    "PlayStation",
+    "PS5",
+    "Gaming"
+  ],
+  "metaDescription": "Sony PlayStation 5 Console - 4K Ultra HD Blu-ray Edition"
+},{
+  "_id": {
+    "$oid": "64888dc9685a3fb23018c9ac"
+  },
+  "name": "Amazon Echo Dot",
+  "description": "Amazon Echo Dot (4th Generation) Smart Speaker with Alexa - Charcoal",
+  "category": "Electronics",
+  "brand": "Amazon",
+  "price": 49.99,
+  "variants": [
+    {
+      "option": "Color",
+      "values": [
+        "Charcoal",
+        "Glacier White",
+        "Twilight Blue"
+      ],
+      "availability": [
+        "In Stock",
+        "In Stock",
+        "Out Of Stock"
+      ]
+    }
+  ],
+  "images": {
+    "Charcoal": "https://images-na.ssl-images-amazon.com/images/I/61u48FEs0rL._AC_SL1000_.jpg",
+    "Glacier White": "https://images-na.ssl-images-amazon.com/images/I/61iOBiZlqDL._AC_SL1000_.jpg",
+    "Twilight Blue": "https://images-na.ssl-images-amazon.com/images/I/61z9rVgBxqL._AC_SL1000_.jpg"
+  },
+  "ratings": {
+    "average": 4.6,
+    "count": 15
+  },
+  "reviews": [
+    {
+      "author": "Mark Wilson",
+      "rating": 4,
+      "comment": "Convenient and easy to use."
+    },
+    {
+      "author": "Jessica Thompson",
+      "rating": 5,
+      "comment": "Love having Alexa at home!"
+    }
+  ],
+  "specifications": {
+    "Manufacturer": [
+      "Amazon"
+    ],
+    "Speaker Type": [
+      "Smart Speaker"
+    ],
+    "Voice Assistant": [
+      "Alexa"
+    ],
+    "Connectivity Technology": [
+      "Bluetooth",
+      "Wi-Fi"
+    ],
+    "Dimensions": [
+      "3.9 x 3.9 x 3.5 inches"
+    ]
+  },
+  "tags": [
+    "Amazon",
+    "Echo",
+    "Dot",
+    "Smart Speaker",
+    "Alexa"
+  ],
+  "metaDescription": "Amazon Echo Dot (4th Generation) Smart Speaker with Alexa - Charcoal"
+},{
+  "_id": {
+    "$oid": "64888e10685a3fb23018c9ad"
+  },
+  "name": "Adidas Ultraboost",
+  "description": "Adidas Ultraboost Men's Running Shoes - Core Black/White",
+  "category": "Fashion",
+  "brand": "Adidas",
+  "price": 179.99,
+  "variants": [
+    {
+      "option": "Color",
+      "values": [
+        "Core Black/White",
+        "Cloud White/Core Black",
+        "Grey/White"
+      ],
+      "availability": [
+        "In Stock",
+        "In Stock",
+        "Out Of Stock"
+      ]
+    }
+  ],
+  "images": {
+    "Core Black/White": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/2c1dc594365d4bc8a762ad5d01703295_9366/Ultraboost_21_Shoes_Black_FY0375_01_standard.jpg",
+    "Cloud White/Core Black": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/aa1498de5a0749c9b09dadb0011b8187_9366/Ultraboost_21_Shoes_White_GY0956_01_standard.jpg",
+    "Grey/White": "https://assets.adidas.com/images/h_840,f_auto,q_auto:sensitive,fl_lossy/82b8600fdaa54a459791ad87015f6e09_9366/Ultraboost_21_Shoes_Grey_H68683_01_standard.jpg"
+  },
+  "ratings": {
+    "average": 4.4,
+    "count": 8
+  },
+  "reviews": [
+    {
+      "author": "Eric Thompson",
+      "rating": 4,
+      "comment": "Great for running."
+    },
+    {
+      "author": "Olivia Clark",
+      "rating": 5,
+      "comment": "Comfortable and stylish."
+    }
+  ],
+  "specifications": {
+    "Brand": [
+      "Adidas"
+    ],
+    "Color": [
+      "Core Black/White",
+      "Cloud White/Core Black",
+      "Grey/White"
+    ],
+    "Closure": [
+      "Lace-Up"
+    ],
+    "Upper Material": [
+      "Textile",
+      "Synthetic"
+    ],
+    "Outsole Material": [
+      "Rubber"
+    ],
+    "Midsole Material": [
+      "Boost"
+    ],
+    "Fit": [
+      "True to size"
+    ]
+  },
+  "tags": [
+    "Adidas",
+    "Ultraboost",
+    "Running Shoes",
+    "Men's Shoes"
+  ],
+  "metaDescription": "Adidas Ultraboost Men's Running Shoes - Core Black/White"
+},{
+  "_id": {
+    "$oid": "64888e8d685a3fb23018c9ae"
+  },
+  "name": "Apple iPhone 12",
+  "description": "Apple iPhone 12 128GB Unlocked Smartphone - Black",
+  "category": "Electronics",
+  "brand": "Apple",
+  "price": 799.99,
+  "variants": [
+    {
+      "option": "Color",
+      "values": [
+        "Black",
+        "White",
+        "Red",
+        "Blue",
+        "Green"
+      ],
+      "availability": [
+        "In Stock",
+        "In Stock",
+        "In Stock",
+        "Out Of Stock",
+        "In Stock"
+      ]
+    }
+  ],
+  "images": {
+    "Black": "https://images-na.ssl-images-amazon.com/images/I/71DVgBTdyLL._AC_SX679_.jpg",
+    "White": "https://images-na.ssl-images-amazon.com/images/I/71sNNCTfMuL._AC_SX679_.jpg",
+    "Red": "https://images-na.ssl-images-amazon.com/images/I/71ZOtNdaZCL._AC_SX679_.jpg",
+    "Blue": "https://images-na.ssl-images-amazon.com/images/I/71ZOtNdaZCL._AC_SX679_.jpg",
+    "Green": "https://images-na.ssl-images-amazon.com/images/I/71MHTD3uL4L._AC_SX679_.jpg"
+  },
+  "ratings": {
+    "average": 4.7,
+    "count": 25
+  },
+  "reviews": [
+    {
+      "author": "Alex Johnson",
+      "rating": 5,
+      "comment": "Excellent smartphone!"
+    },
+    {
+      "author": "Sarah Davis",
+      "rating": 4,
+      "comment": "Great camera quality."
+    }
+  ],
+  "specifications": {
+    "Manufacturer": [
+      "Apple"
+    ],
+    "Operating System": [
+      "iOS"
+    ],
+    "Display": [
+      "6.1-inch Super Retina XDR"
+    ],
+    "Storage": [
+      "128GB",
+      "256GB",
+      "512GB"
+    ],
+    "Cameras": [
+      "12MP",
+      "12MP Ultra Wide"
+    ],
+    "Battery": [
+      "2815 mAh"
+    ],
+    "Security": [
+      "Face ID"
+    ],
+    "Wireless Charging": [
+      "Yes"
+    ],
+    "Weight": [
+      "164g"
+    ],
+    "Dimensions": [
+      "146.7 x 71.5 x 7.4 mm"
+    ]
+  },
+  "tags": [
+    "Apple",
+    "iPhone",
+    "Smartphone",
+    "Unlocked"
+  ],
+  "metaDescription": "Apple iPhone 12 128GB Unlocked Smartphone - Black"
+},{
+  "_id": {
+    "$oid": "64888eb7685a3fb23018c9af"
+  },
+  "name": "Sony 65-Inch 4K Smart TV",
+  "description": "Sony X90J 65 Inch TV: BRAVIA XR Full Array LED 4K Ultra HD Smart Google TV with Dolby Vision",
+  "category": "Electronics",
+  "brand": "Sony",
+  "price": 1499.99,
+  "variants": [
+    {
+      "option": "Size",
+      "values": [
+        "65-Inch",
+        "75-Inch",
+        "85-Inch"
+      ],
+      "availability": [
+        "In Stock",
+        "Out Of Stock",
+        "Out Of Stock"
+      ]
+    }
+  ],
+  "images": {
+    "65-Inch": "https://images-na.ssl-images-amazon.com/images/I/81PQwI-M2QL._AC_SL1500_.jpg",
+    "75-Inch": "https://images-na.ssl-images-amazon.com/images/I/91vcCTtlfeL._AC_SL1500_.jpg",
+    "85-Inch": "https://images-na.ssl-images-amazon.com/images/I/91-nCIy7k1L._AC_SL1500_.jpg"
+  },
+  "ratings": {
+    "average": 4.8,
+    "count": 18
+  },
+  "reviews": [
+    {
+      "author": "Chris Anderson",
+      "rating": 5,
+      "comment": "Impressive picture quality!"
+    },
+    {
+      "author": "Emily Wilson",
+      "rating": 4,
+      "comment": "Great smart features."
+    }
+  ],
+  "specifications": {
+    "Manufacturer": [
+      "Sony"
+    ],
+    "Display Type": [
+      "LED"
+    ],
+    "Screen Size": [
+      "65 inches",
+      "75 inches",
+      "85 inches"
+    ],
+    "Resolution": [
+      "4K Ultra HD"
+    ],
+    "Operating System": [
+      "Google TV"
+    ],
+    "HDR Format": [
+      "Dolby Vision"
+    ],
+    "HDMI Ports": [
+      "4"
+    ],
+    "Smart Features": [
+      "Google Assistant",
+      "Chromecast built-in"
+    ],
+    "Weight": [
+      "48.5 lbs"
+    ],
+    "Dimensions": [
+      "57 x 32 1/2 x 2 7/8 inches"
+    ]
+  },
+  "tags": [
+    "Sony",
+    "TV",
+    "4K",
+    "Smart TV"
+  ],
+  "metaDescription": "Sony X90J 65 Inch TV: BRAVIA XR Full Array LED 4K Ultra HD Smart Google TV with Dolby Vision"
+},{
+  "_id": {
+    "$oid": "64888ee7685a3fb23018c9b0"
+  },
+  "name": "Canon EOS Rebel T7",
+  "description": "Canon EOS Rebel T7 DSLR Camera Bundle with Canon EF-S 18-55mm f/3.5-5.6 is II Lens",
+  "category": "Electronics",
+  "brand": "Canon",
+  "price": 599.99,
+  "variants": [
+    {
+      "option": "Configuration",
+      "values": [
+        "Camera Body",
+        "Camera Bundle"
+      ],
+      "availability": [
+        "In Stock",
+        "In Stock"
+      ]
+    }
+  ],
+  "images": {
+    "Camera Body": "https://images-na.ssl-images-amazon.com/images/I/61I5z3nYmRL._AC_SL1000_.jpg",
+    "Camera Bundle": "https://images-na.ssl-images-amazon.com/images/I/81M4HvHza-L._AC_SL1500_.jpg"
+  },
+  "ratings": {
+    "average": 4.6,
+    "count": 22
+  },
+  "reviews": [
+    {
+      "author": "Mark Thompson",
+      "rating": 5,
+      "comment": "Great camera for beginners."
+    },
+    {
+      "author": "Jessica White",
+      "rating": 4,
+      "comment": "Good value for the price."
+    }
+  ],
+  "specifications": {
+    "Manufacturer": [
+      "Canon"
+    ],
+    "Camera Type": [
+      "DSLR"
+    ],
+    "Resolution": [
+      "24.1 MP"
+    ],
+    "Sensor Size": [
+      "APS-C"
+    ],
+    "ISO Sensitivity": [
+      "100-6400"
+    ],
+    "Lens Mount": [
+      "Canon EF",
+      "Canon EF-S"
+    ],
+    "Display": [
+      "3-inch LCD"
+    ],
+    "Video Recording": [
+      "Full HD 1080p"
+    ],
+    "Connectivity": [
+      "Wi-Fi",
+      "NFC"
+    ],
+    "Weight": [
+      "1.75 lbs"
+    ],
+    "Dimensions": [
+      "5.08 x 3.99 x 3.06 inches"
+    ]
+  },
+  "tags": [
+    "Canon",
+    "Camera",
+    "DSLR",
+    "Photography"
+  ],
+  "metaDescription": "Canon EOS Rebel T7 DSLR Camera Bundle with Canon EF-S 18-55mm f/3.5-5.6 is II Lens"
+},{
+  "_id": {
+    "$oid": "64888f00685a3fb23018c9b1"
+  },
+  "name": "Nike Air Max 270",
+  "description": "Nike Men's Air Max 270 Shoes - Black/White",
+  "category": "Fashion",
+  "brand": "Nike",
+  "price": 149.99,
+  "variants": [
+    {
+      "option": "Color",
+      "values": [
+        "Black/White",
+        "White/Black",
+        "Blue/White"
+      ],
+      "availability": [
+        "In Stock",
+        "In Stock",
+        "Out Of Stock"
+      ]
+    }
+  ],
+  "images": {
+    "Black/White": "https://images-na.ssl-images-amazon.com/images/I/71HBrpWmzOL._AC_UX679_.jpg",
+    "White/Black": "https://images-na.ssl-images-amazon.com/images/I/71nVn2qDsuL._AC_UX679_.jpg",
+    "Blue/White": "https://images-na.ssl-images-amazon.com/images/I/81z8zzDeEUL._AC_UX679_.jpg"
+  },
+  "ratings": {
+    "average": 4.5,
+    "count": 30
+  },
+  "reviews": [
+    {
+      "author": "Michael Brown",
+      "rating": 4,
+      "comment": "Comfortable and stylish shoes."
+    },
+    {
+      "author": "Laura Martinez",
+      "rating": 5,
+      "comment": "Great for running and everyday wear."
+    }
+  ],
+  "specifications": {
+    "Brand": [
+      "Nike"
+    ],
+    "Style": [
+      "Athletic Sneakers"
+    ],
+    "Upper Material": [
+      "Synthetic",
+      "Textile"
+    ],
+    "Closure": [
+      "Lace-Up"
+    ],
+    "Sole Material": [
+      "Rubber"
+    ],
+    "Fit": [
+      "True to size"
+    ],
+    "Weight": [
+      "12.9 oz"
+    ]
+  },
+  "tags": [
+    "Nike",
+    "Air Max",
+    "Shoes",
+    "Men's Shoes"
+  ],
+  "metaDescription": "Nike Men's Air Max 270 Shoes - Black/White"
+},{
+  "_id": {
+    "$oid": "64888f14685a3fb23018c9b2"
+  },
+  "name": "Dell XPS 13 Laptop",
+  "description": "Dell XPS 13 9310 Laptop: Intel Core i7-1165G7, 13.4 inch FHD+ Touch Display, 16GB RAM, 512GB SSD",
+  "category": "Electronics",
+  "brand": "Dell",
+  "price": 1499.99,
+  "variants": [
+    {
+      "option": "Processor",
+      "values": [
+        "Intel Core i7-1165G7",
+        "Intel Core i5-1135G7"
+      ],
+      "availability": [
+        "In Stock",
+        "Out Of Stock"
+      ]
+    }
+  ],
+  "images": {
+    "Intel Core i7-1165G7": "https://images-na.ssl-images-amazon.com/images/I/71gD8W%2BbLoL._AC_SL1500_.jpg",
+    "Intel Core i5-1135G7": "https://images-na.ssl-images-amazon.com/images/I/71YayE5a4GL._AC_SL1500_.jpg"
+  },
+  "ratings": {
+    "average": 4.7,
+    "count": 28
+  },
+  "reviews": [
+    {
+      "author": "David Johnson",
+      "rating": 5,
+      "comment": "Amazing performance and stunning display!"
+    },
+    {
+      "author": "Julia Brown",
+      "rating": 4,
+      "comment": "Fast and lightweight laptop."
+    }
+  ],
+  "specifications": {
+    "Brand": [
+      "Dell"
+    ],
+    "Processor": [
+      "Intel Core i7-1165G7",
+      "Intel Core i5-1135G7"
+    ],
+    "Display": [
+      "13.4 inch FHD+ Touch"
+    ],
+    "RAM": [
+      "16GB"
+    ],
+    "Storage": [
+      "512GB SSD"
+    ],
+    "Graphics": [
+      "Intel Iris Xe Graphics"
+    ],
+    "Operating System": [
+      "Windows 10 Home"
+    ],
+    "Weight": [
+      "2.64 lbs"
+    ],
+    "Dimensions": [
+      "11.64 x 7.82 x 0.58 inches"
+    ]
+  },
+  "tags": [
+    "Dell",
+    "Laptop",
+    "XPS 13",
+    "Intel Core i7"
+  ],
+  "metaDescription": "Dell XPS 13 9310 Laptop: Intel Core i7-1165G7, 13.4 inch FHD+ Touch Display, 16GB RAM, 512GB SSD"
+},{
+  "_id": {
+    "$oid": "64888f47685a3fb23018c9b3"
+  },
+  "name": "KitchenAid Stand Mixer",
+  "description": "KitchenAid KSM150PSER Artisan Tilt-Head Stand Mixer with Pouring Shield - Empire Red",
+  "category": "Home & Kitchen",
+  "brand": "KitchenAid",
+  "price": 379.99,
+  "variants": [
+    {
+      "option": "Color",
+      "values": [
+        "Empire Red",
+        "Onyx Black",
+        "Silver"
+      ],
+      "availability": [
+        "In Stock",
+        "Out Of Stock",
+        "In Stock"
+      ]
+    }
+  ],
+  "images": {
+    "Empire Red": "https://images-na.ssl-images-amazon.com/images/I/81tERzIKbEL._AC_SL1500_.jpg",
+    "Onyx Black": "https://images-na.ssl-images-amazon.com/images/I/61FJtVq9qHL._AC_SL1000_.jpg",
+    "Silver": "https://images-na.ssl-images-amazon.com/images/I/71t5t0yFeqL._AC_SL1000_.jpg"
+  },
+  "ratings": {
+    "average": 4.9,
+    "count": 32
+  },
+  "reviews": [
+    {
+      "author": "Emily Davis",
+      "rating": 5,
+      "comment": "Love this stand mixer!"
+    },
+    {
+      "author": "Daniel Wilson",
+      "rating": 4,
+      "comment": "Great for baking enthusiasts."
+    }
+  ],
+  "specifications": {
+    "Brand": [
+      "KitchenAid"
+    ],
+    "Series": [
+      "Artisan"
+    ],
+    "Color": [
+      "Empire Red",
+      "Onyx Black",
+      "Silver"
+    ],
+    "Bowl Capacity": [
+      "5 Quarts"
+    ],
+    "Speed Settings": [
+      "10"
+    ],
+    "Power": [
+      "325 Watts"
+    ],
+    "Attachments Included": [
+      "Flat Beater",
+      "Wire Whip",
+      "Dough Hook"
+    ],
+    "Weight": [
+      "26 lbs"
+    ],
+    "Dimensions": [
+      "14.13 x 8.75 x 13.94 inches"
+    ]
+  },
+  "tags": [
+    "KitchenAid",
+    "Stand Mixer",
+    "Baking",
+    "Kitchen Appliances"
+  ],
+  "metaDescription": "KitchenAid KSM150PSER Artisan Tilt-Head Stand Mixer with Pouring Shield - Empire Red"
+},{
+  "_id": {
+    "$oid": "64888f64685a3fb23018c9b4"
+  },
+  "name": "Sony WH-1000XM4 Wireless Headphones",
+  "description": "Sony WH-1000XM4 Wireless Noise-Canceling Overhead Headphones - Black",
+  "category": "Electronics",
+  "brand": "Sony",
+  "price": 349.99,
+  "variants": [
+    {
+      "option": "Color",
+      "values": [
+        "Black",
+        "Silver"
+      ],
+      "availability": [
+        "In Stock",
+        "Out Of Stock"
+      ]
+    }
+  ],
+  "images": {
+    "Black": "https://images-na.ssl-images-amazon.com/images/I/71o8Q5XJS5L._AC_SL1500_.jpg",
+    "Silver": "https://images-na.ssl-images-amazon.com/images/I/71wVE7Owf0L._AC_SL1500_.jpg"
+  },
+  "ratings": {
+    "average": 4.8,
+    "count": 26
+  },
+  "reviews": [
+    {
+      "author": "Jennifer Thompson",
+      "rating": 5,
+      "comment": "Best noise-canceling headphones I've ever owned."
+    },
+    {
+      "author": "Matthew Davis",
+      "rating": 4,
+      "comment": "Excellent sound quality."
+    }
+  ],
+  "specifications": {
+    "Brand": [
+      "Sony"
+    ],
+    "Color": [
+      "Black",
+      "Silver"
+    ],
+    "Headphone Type": [
+      "Overhead"
+    ],
+    "Wireless Connectivity": [
+      "Bluetooth"
+    ],
+    "Noise-Canceling": [
+      "Yes"
+    ],
+    "Battery Life": [
+      "Up to 30 hours"
+    ],
+    "Voice Assistant": [
+      "Google Assistant",
+      "Alexa"
+    ],
+    "Weight": [
+      "8.96 oz"
+    ],
+    "Dimensions": [
+      "7.27 x 3.03 x 9.94 inches"
+    ]
+  },
+  "tags": [
+    "Sony",
+    "Headphones",
+    "Wireless",
+    "Noise-Canceling"
+  ],
+  "metaDescription": "Sony WH-1000XM4 Wireless Noise-Canceling Overhead Headphones - Black"
+},{
+  "_id": {
+    "$oid": "64888f87685a3fb23018c9b5"
+  },
+  "name": "Samsung 55-Inch QLED TV",
+  "description": "Samsung QN55Q80AAFXZA 55-Inch QLED 4K Smart TV with Alexa Built-in",
+  "category": "Electronics",
+  "brand": "Samsung",
+  "price": 1299.99,
+  "variants": [
+    {
+      "option": "Size",
+      "values": [
+        "55-Inch",
+        "65-Inch",
+        "75-Inch"
+      ],
+      "availability": [
+        "In Stock",
+        "Out Of Stock",
+        "Out Of Stock"
+      ]
+    }
+  ],
+  "images": {
+    "55-Inch": "https://images-na.ssl-images-amazon.com/images/I/81iNpU6mREL._AC_SL1500_.jpg",
+    "65-Inch": "https://images-na.ssl-images-amazon.com/images/I/71zb4tOss-L._AC_SL1500_.jpg",
+    "75-Inch": "https://images-na.ssl-images-amazon.com/images/I/71RiKBKH9XL._AC_SL1500_.jpg"
+  },
+  "ratings": {
+    "average": 4.7,
+    "count": 29
+  },
+  "reviews": [
+    {
+      "author": "Ryan Johnson",
+      "rating": 5,
+      "comment": "Impressive picture quality and vibrant colors."
+    },
+    {
+      "author": "Sophia Wilson",
+      "rating": 4,
+      "comment": "Great smart features and easy setup."
+    }
+  ],
+  "specifications": {
+    "Brand": [
+      "Samsung"
+    ],
+    "Series": [
+      "Q80A"
+    ],
+    "Screen Size": [
+      "55 inches",
+      "65 inches",
+      "75 inches"
+    ],
+    "Display Type": [
+      "QLED"
+    ],
+    "Resolution": [
+      "4K Ultra HD"
+    ],
+    "Smart Features": [
+      "Alexa Built-in",
+      "Google Assistant"
+    ],
+    "HDMI Ports": [
+      "4"
+    ],
+    "Weight": [
+      "47.8 lbs"
+    ],
+    "Dimensions": [
+      "48.3 x 9.9 x 30.8 inches"
+    ]
+  },
+  "tags": [
+    "Samsung",
+    "TV",
+    "QLED",
+    "4K",
+    "Smart TV"
+  ],
+  "metaDescription": "Samsung QN55Q80AAFXZA 55-Inch QLED 4K Smart TV with Alexa Built-in"
+},{
+  "_id": {
+    "$oid": "64888fab685a3fb23018c9b6"
+  },
+  "name": "Apple iPad Air",
+  "description": "Apple iPad Air (10.9-inch, Wi-Fi, 64GB) - Sky Blue (Latest Model, 4th Generation)",
+  "category": "Electronics",
+  "brand": "Apple",
+  "price": 599,
+  "variants": [
+    {
+      "option": "Color",
+      "values": [
+        "Sky Blue",
+        "Rose Gold",
+        "Green"
+      ],
+      "availability": [
+        "In Stock",
+        "Out Of Stock",
+        "In Stock"
+      ]
+    }
+  ],
+  "images": {
+    "Sky Blue": "https://images-na.ssl-images-amazon.com/images/I/71huSR%2B7cwL._AC_SL1500_.jpg",
+    "Rose Gold": "https://images-na.ssl-images-amazon.com/images/I/71p8yHcuhzL._AC_SL1500_.jpg",
+    "Green": "https://images-na.ssl-images-amazon.com/images/I/71zlbT%2B3A5L._AC_SL1500_.jpg"
+  },
+  "ratings": {
+    "average": 4.8,
+    "count": 25
+  },
+  "reviews": [
+    {
+      "author": "Sarah Anderson",
+      "rating": 5,
+      "comment": "Sleek design and powerful performance."
+    },
+    {
+      "author": "John Smith",
+      "rating": 4,
+      "comment": "Great for productivity and multimedia."
+    }
+  ],
+  "specifications": {
+    "Brand": [
+      "Apple"
+    ],
+    "Series": [
+      "iPad Air"
+    ],
+    "Color": [
+      "Sky Blue",
+      "Rose Gold",
+      "Green"
+    ],
+    "Screen Size": [
+      "10.9 inches"
+    ],
+    "Storage": [
+      "64GB"
+    ],
+    "Connectivity": [
+      "Wi-Fi"
+    ],
+    "Weight": [
+      "1 lb"
+    ],
+    "Dimensions": [
+      "9.74 x 7 x 0.24 inches"
+    ]
+  },
+  "tags": [
+    "Apple",
+    "iPad Air",
+    "Tablet",
+    "10.9-inch"
+  ],
+  "metaDescription": "Apple iPad Air (10.9-inch, Wi-Fi, 64GB) - Sky Blue (Latest Model, 4th Generation)"
+},{
+  "_id": {
+    "$oid": "64888fdb685a3fb23018c9b7"
+  },
+  "name": "Fitbit Versa 3 Smartwatch",
+  "description": "Fitbit Versa 3 Health & Fitness Smartwatch with GPS, 24/7 Heart Rate, Alexa Built-in - Black",
+  "category": "Electronics",
+  "brand": "Fitbit",
+  "price": 229.95,
+  "variants": [
+    {
+      "option": "Color",
+      "values": [
+        "Black",
+        "Pink",
+        "Midnight Blue"
+      ],
+      "availability": [
+        "In Stock",
+        "Out Of Stock",
+        "In Stock"
+      ]
+    }
+  ],
+  "images": {
+    "Black": "https://images-na.ssl-images-amazon.com/images/I/71Swqqe7XAL._AC_SL1500_.jpg",
+    "Pink": "https://images-na.ssl-images-amazon.com/images/I/71xBLK2vq5L._AC_SL1500_.jpg",
+    "Midnight Blue": "https://images-na.ssl-images-amazon.com/images/I/61x3qJbSsXL._AC_SL1500_.jpg"
+  },
+  "ratings": {
+    "average": 4.6,
+    "count": 27
+  },
+  "reviews": [
+    {
+      "author": "Michelle Thompson",
+      "rating": 5,
+      "comment": "Accurate tracking and stylish design."
+    },
+    {
+      "author": "Robert Johnson",
+      "rating": 4,
+      "comment": "Helps me stay motivated and monitor my health."
+    }
+  ],
+  "specifications": {
+    "Brand": [
+      "Fitbit"
+    ],
+    "Series": [
+      "Versa 3"
+    ],
+    "Color": [
+      "Black",
+      "Pink",
+      "Midnight Blue"
+    ],
+    "Display": [
+      "AMOLED"
+    ],
+    "Heart Rate Monitoring": [
+      "24/7"
+    ],
+    "GPS": [
+      "Built-in"
+    ],
+    "Voice Assistant": [
+      "Alexa"
+    ],
+    "Water Resistance": [
+      "Up to 50 meters"
+    ],
+    "Battery Life": [
+      "Up to 6 days"
+    ],
+    "Weight": [
+      "1.41 oz"
+    ],
+    "Dimensions": [
+      "1.59 x 1.59 x 0.49 inches"
+    ]
+  },
+  "tags": [
+    "Fitbit",
+    "Smartwatch",
+    "Fitness Tracker",
+    "Health"
+  ],
+  "metaDescription": "Fitbit Versa 3 Health & Fitness Smartwatch with GPS, 24/7 Heart Rate, Alexa Built-in - Black"
+},{
+  "_id": {
+    "$oid": "6488903e685a3fb23018c9b8"
+  },
+  "name": "Canon EOS Rebel T7i DSLR Camera",
+  "description": "Canon EOS Rebel T7i DSLR Camera with 18-55mm Lens and Accessory Bundle",
+  "category": "Electronics",
+  "brand": "Canon",
+  "price": 799.99,
+  "variants": [
+    {
+      "option": "Color",
+      "values": [
+        "Black"
+      ],
+      "availability": [
+        "In Stock"
+      ]
+    }
+  ],
+  "images": {
+    "Black": "https://images-na.ssl-images-amazon.com/images/I/81kW5R3Kj8L._AC_SL1500_.jpg"
+  },
+  "ratings": {
+    "average": 4.4,
+    "count": 18
+  },
+  "reviews": [
+    {
+      "author": "Emily Johnson",
+      "rating": 4,
+      "comment": "Great camera for beginners."
+    },
+    {
+      "author": "Michael Thompson",
+      "rating": 5,
+      "comment": "Excellent image quality and versatile lens."
+    }
+  ],
+  "specifications": {
+    "Brand": [
+      "Canon"
+    ],
+    "Series": [
+      "EOS Rebel"
+    ],
+    "Color": [
+      "Black"
+    ],
+    "Camera Type": [
+      "DSLR"
+    ],
+    "Lens": [
+      "18-55mm"
+    ],
+    "Image Sensor": [
+      "24.2 MP APS-C"
+    ],
+    "Display": [
+      "3.0-inch Vari-angle Touchscreen"
+    ],
+    "Connectivity": [
+      "Wi-Fi, NFC"
+    ],
+    "Weight": [
+      "1.18 lbs"
+    ],
+    "Dimensions": [
+      "5.16 x 3.93 x 3.00 inches"
+    ]
+  },
+  "tags": [
+    "Canon",
+    "Camera",
+    "DSLR",
+    "Photography"
+  ],
+  "metaDescription": "Canon EOS Rebel T7i DSLR Camera with 18-55mm Lens and Accessory Bundle"
+},{
+  "_id": {
+    "$oid": "6488905f685a3fb23018c9ba"
+  },
+  "name": "Nike Air Max 270 Sneakers",
+  "description": "Nike Air Max 270 Men's Running Shoes - Black/White",
+  "category": "Fashion",
+  "brand": "Nike",
+  "price": 150,
+  "variants": [
+    {
+      "option": "Size",
+      "values": [
+        "8",
+        "9",
+        "10"
+      ],
+      "availability": [
+        "In Stock",
+        "Out Of Stock",
+        "In Stock"
+      ]
+    }
+  ],
+  "images": {
+    "8": "https://images-na.ssl-images-amazon.com/images/I/71KCvA1aOaL._AC_UX575_.jpg",
+    "9": "https://images-na.ssl-images-amazon.com/images/I/71kc9ZXlDGL._AC_UX575_.jpg",
+    "10": "https://images-na.ssl-images-amazon.com/images/I/71lzOgiDMhL._AC_UX575_.jpg"
+  },
+  "ratings": {
+    "average": 4.7,
+    "count": 42
+  },
+  "reviews": [
+    {
+      "author": "David Wilson",
+      "rating": 5,
+      "comment": "Comfortable and stylish sneakers."
+    },
+    {
+      "author": "Jennifer Davis",
+      "rating": 4,
+      "comment": "Great cushioning for running."
+    }
+  ],
+  "specifications": {
+    "Brand": [
+      "Nike"
+    ],
+    "Color": [
+      "Black/White"
+    ],
+    "Shoe Type": [
+      "Running Shoes"
+    ],
+    "Upper Material": [
+      "Synthetic, Textile"
+    ],
+    "Sole Material": [
+      "Rubber"
+    ],
+    "Closure": [
+      "Lace-Up"
+    ],
+    "Weight": [
+      "12 oz"
+    ],
+    "Dimensions": [
+      "12.8 x 8.8 x 4.6 inches"
+    ]
+  },
+  "tags": [
+    "Nike",
+    "Sneakers",
+    "Running Shoes",
+    "Air Max"
+  ],
+  "metaDescription": "Nike Air Max 270 Men's Running Shoes - Black/White"
+},{
+  "_id": {
+    "$oid": "6488908f685a3fb23018c9bb"
+  },
+  "name": "Amazon Echo Dot (3rd Generation)",
+  "description": "Amazon Echo Dot (3rd Generation) Smart Speaker with Alexa - Charcoal",
+  "category": "Electronics",
+  "brand": "Amazon",
+  "price": 49.99,
+  "variants": [
+    {
+      "option": "Color",
+      "values": [
+        "Charcoal",
+        "Heather Gray",
+        "Sandstone"
+      ],
+      "availability": [
+        "In Stock",
+        "Out Of Stock",
+        "In Stock"
+      ]
+    }
+  ],
+  "images": {
+    "Charcoal": "https://images-na.ssl-images-amazon.com/images/I/61IyAEsNVqL._AC_SL1000_.jpg",
+    "Heather Gray": "https://images-na.ssl-images-amazon.com/images/I/61%2BBtemYnUL._AC_SL1000_.jpg",
+    "Sandstone": "https://images-na.ssl-images-amazon.com/images/I/61EXU8BuGZL._AC_SL1000_.jpg"
+  },
+  "ratings": {
+    "average": 4.5,
+    "count": 35
+  },
+  "reviews": [
+    {
+      "author": "Lisa Smith",
+      "rating": 4,
+      "comment": "Convenient voice control for smart home devices."
+    },
+    {
+      "author": "Mark Thompson",
+      "rating": 5,
+      "comment": "Great sound quality for a small speaker."
+    }
+  ],
+  "specifications": {
+    "Brand": [
+      "Amazon"
+    ],
+    "Model": [
+      "Echo Dot (3rd Generation)"
+    ],
+    "Color": [
+      "Charcoal",
+      "Heather Gray",
+      "Sandstone"
+    ],
+    "Speaker Configuration": [
+      "1 x 1.6-inch speaker"
+    ],
+    "Connectivity": [
+      "Bluetooth, Wi-Fi"
+    ],
+    "Voice Assistant": [
+      "Alexa"
+    ],
+    "Weight": [
+      "10.6 oz"
+    ],
+    "Dimensions": [
+      "3.9 x 3.9 x 1.7 inches"
+    ]
+  },
+  "tags": [
+    "Amazon",
+    "Echo Dot",
+    "Smart Speaker",
+    "Alexa"
+  ],
+  "metaDescription": "Amazon Echo Dot (3rd Generation) Smart Speaker with Alexa - Charcoal"
+},{
+  "_id": {
+    "$oid": "648890a5685a3fb23018c9bc"
+  },
+  "name": "Levi's 501 Original Fit Jeans",
+  "description": "Levi's 501 Original Fit Men's Jeans - Dark Stonewash",
+  "category": "Fashion",
+  "brand": "Levi's",
+  "price": 59.99,
+  "variants": [
+    {
+      "option": "Size",
+      "values": [
+        "30x32",
+        "32x32",
+        "34x32"
+      ],
+      "availability": [
+        "In Stock",
+        "Out Of Stock",
+        "In Stock"
+      ]
+    }
+  ],
+  "images": {
+    "30x32": "https://images-na.ssl-images-amazon.com/images/I/81m%2BV%2BMFD1L._AC_UX679_.jpg",
+    "32x32": "https://images-na.ssl-images-amazon.com/images/I/81ppjKAd%2BtL._AC_UX679_.jpg",
+    "34x32": "https://images-na.ssl-images-amazon.com/images/I/81%2Bq%2BIMfdFL._AC_UX679_.jpg"
+  },
+  "ratings": {
+    "average": 4.3,
+    "count": 24
+  },
+  "reviews": [
+    {
+      "author": "Sarah Davis",
+      "rating": 4,
+      "comment": "Classic jeans with a comfortable fit."
+    },
+    {
+      "author": "Andrew Wilson",
+      "rating": 5,
+      "comment": "Durable denim and stylish design."
+    }
+  ],
+  "specifications": {
+    "Brand": [
+      "Levi's"
+    ],
+    "Model": [
+      "501 Original Fit"
+    ],
+    "Color": [
+      "Dark Stonewash"
+    ],
+    "Material": [
+      "100% Cotton"
+    ],
+    "Closure": [
+      "Button Fly"
+    ],
+    "Fit": [
+      "Regular Fit"
+    ],
+    "Weight": [
+      "14.5 oz"
+    ],
+    "Dimensions": [
+      "14 x 12 x 1 inches"
+    ]
+  },
+  "tags": [
+    "Levi's",
+    "Jeans",
+    "Denim",
+    "Fashion"
+  ],
+  "metaDescription": "Levi's 501 Original Fit Men's Jeans - Dark Stonewash"
+},{
+  "_id": {
+    "$oid": "648890b9685a3fb23018c9bd"
+  },
+  "name": "Apple iPad Pro (11-inch)",
+  "description": "Apple iPad Pro (11-inch, Wi-Fi, 256GB) - Space Gray (Latest Model)",
+  "category": "Electronics",
+  "brand": "Apple",
+  "price": 999,
+  "variants": [
+    {
+      "option": "Color",
+      "values": [
+        "Space Gray",
+        "Silver"
+      ],
+      "availability": [
+        "In Stock",
+        "In Stock"
+      ]
+    }
+  ],
+  "images": {
+    "Space Gray": "https://images-na.ssl-images-amazon.com/images/I/81u3YpEv2qL._AC_SL1500_.jpg",
+    "Silver": "https://images-na.ssl-images-amazon.com/images/I/71W2tRc%2BZ2L._AC_SL1500_.jpg"
+  },
+  "ratings": {
+    "average": 4.8,
+    "count": 63
+  },
+  "reviews": [
+    {
+      "author": "John Smith",
+      "rating": 5,
+      "comment": "Powerful tablet with a beautiful display."
+    },
+    {
+      "author": "Jessica Thompson",
+      "rating": 4,
+      "comment": "Fast and versatile device for productivity."
+    }
+  ],
+  "specifications": {
+    "Brand": [
+      "Apple"
+    ],
+    "Model": [
+      "iPad Pro (11-inch)"
+    ],
+    "Color": [
+      "Space Gray",
+      "Silver"
+    ],
+    "Display Size": [
+      "11 inches"
+    ],
+    "Storage Capacity": [
+      "256GB"
+    ],
+    "Operating System": [
+      "iOS"
+    ],
+    "Processor": [
+      "Apple M1"
+    ],
+    "Connectivity": [
+      "Wi-Fi"
+    ],
+    "Weight": [
+      "1.03 lbs"
+    ],
+    "Dimensions": [
+      "9.74 x 7.02 x 0.23 inches"
+    ]
+  },
+  "tags": [
+    "Apple",
+    "iPad",
+    "Tablet",
+    "iOS"
+  ],
+  "metaDescription": "Apple iPad Pro (11-inch, Wi-Fi, 256GB) - Space Gray (Latest Model)"
+},{
+  "_id": {
+    "$oid": "64889152685a3fb23018c9bf"
+  },
+  "name": "Fitbit Charge 4 Fitness and Activity Tracker",
+  "description": "Fitbit Charge 4 Fitness and Activity Tracker with Built-in GPS - Black",
+  "category": "Electronics",
+  "brand": "Fitbit",
+  "price": 149.95,
+  "variants": [
+    {
+      "option": "Color",
+      "values": [
+        "Black",
+        "Rosewood"
+      ],
+      "availability": [
+        "In Stock",
+        "Out Of Stock"
+      ]
+    }
+  ],
+  "images": {
+    "Black": "https://images-na.ssl-images-amazon.com/images/I/71smqRr0pmL._AC_SL1500_.jpg",
+    "Rosewood": "https://images-na.ssl-images-amazon.com/images/I/71YOopwZmsL._AC_SL1500_.jpg"
+  },
+  "ratings": {
+    "average": 4.2,
+    "count": 52
+  },
+  "reviews": [
+    {
+      "author": "Alex Johnson",
+      "rating": 4,
+      "comment": "Accurate tracking and long battery life."
+    },
+    {
+      "author": "Emma Wilson",
+      "rating": 5,
+      "comment": "Helps me stay motivated and reach my fitness goals."
+    }
+  ],
+  "specifications": {
+    "Brand": [
+      "Fitbit"
+    ],
+    "Model": [
+      "Charge 4"
+    ],
+    "Color": [
+      "Black",
+      "Rosewood"
+    ],
+    "Display Size": [
+      "1.0 inch"
+    ],
+    "Sensors": [
+      "GPS, Heart Rate, Accelerometer"
+    ],
+    "Water Resistance": [
+      "Up to 50 meters"
+    ],
+    "Battery Life": [
+      "Up to 7 days"
+    ],
+    "Weight": [
+      "1 oz"
+    ],
+    "Dimensions": [
+      "1.13 x 9.72 x 0.49 inches"
+    ]
+  },
+  "tags": [
+    "Fitbit",
+    "Fitness Tracker",
+    "Activity Tracker",
+    "GPS"
+  ],
+  "metaDescription": "Fitbit Charge 4 Fitness and Activity Tracker with Built-in GPS - Black"
+},{
+  "_id": {
+    "$oid": "6488916f685a3fb23018c9c0"
+  },
+  "name": "Samsung 55-inch 4K Smart QLED TV",
+  "description": "Samsung 55-inch Class QLED Q60A Series - 4K UHD Dual LED Quantum HDR Smart TV with Alexa Built-in (QN55Q60AAFXZA, 2021 Model)",
+  "category": "Electronics",
+  "brand": "Samsung",
+  "price": 999.99,
+  "variants": [
+    {
+      "option": "Size",
+      "values": [
+        "55-inch",
+        "65-inch",
+        "75-inch"
+      ],
+      "availability": [
+        "In Stock",
+        "Out Of Stock",
+        "In Stock"
+      ]
+    }
+  ],
+  "images": {
+    "55-inch": "https://images-na.ssl-images-amazon.com/images/I/91w1cK9vEaL._AC_SL1500_.jpg",
+    "65-inch": "https://images-na.ssl-images-amazon.com/images/I/81uZzC%2BcMvL._AC_SL1500_.jpg",
+    "75-inch": "https://images-na.ssl-images-amazon.com/images/I/91rfm4vQPBL._AC_SL1500_.jpg"
+  },
+  "ratings": {
+    "average": 4.7,
+    "count": 39
+  },
+  "reviews": [
+    {
+      "author": "Ryan Davis",
+      "rating": 5,
+      "comment": "Stunning picture quality and great smart features."
+    },
+    {
+      "author": "Olivia Wilson",
+      "rating": 4,
+      "comment": "Easy to set up and navigate through apps."
+    }
+  ],
+  "specifications": {
+    "Brand": [
+      "Samsung"
+    ],
+    "Model": [
+      "Q60A Series"
+    ],
+    "Size": [
+      "55-inch",
+      "65-inch",
+      "75-inch"
+    ],
+    "Resolution": [
+      "4K UHD"
+    ],
+    "Display Technology": [
+      "QLED"
+    ],
+    "HDR Technology": [
+      "Quantum HDR"
+    ],
+    "Smart Platform": [
+      "Tizen"
+    ],
+    "Voice Assistant": [
+      "Alexa, Bixby"
+    ],
+    "Weight": [
+      "41.7 lbs"
+    ],
+    "Dimensions": [
+      "48.3 x 9.6 x 30.8 inches"
+    ]
+  },
+  "tags": [
+    "Samsung",
+    "QLED TV",
+    "4K TV",
+    "Smart TV"
+  ],
+  "metaDescription": "Samsung 55-inch Class QLED Q60A Series - 4K UHD Dual LED Quantum HDR Smart TV with Alexa Built-in (QN55Q60AAFXZA, 2021 Model)"
+},{
+  "_id": {
+    "$oid": "6488919b685a3fb23018c9c1"
+  },
+  "name": "KitchenAid Artisan Stand Mixer",
+  "description": "KitchenAid Artisan Series 5-Qt. Stand Mixer with Pouring Shield - Empire Red",
+  "category": "Home & Kitchen",
+  "brand": "KitchenAid",
+  "price": 379,
+  "variants": [
+    {
+      "option": "Color",
+      "values": [
+        "Empire Red",
+        "Onyx Black",
+        "Contour Silver"
+      ],
+      "availability": [
+        "In Stock",
+        "Out Of Stock",
+        "In Stock"
+      ]
+    }
+  ],
+  "images": {
+    "Empire Red": "https://images-na.ssl-images-amazon.com/images/I/81Nnfu8EmOL._AC_SL1500_.jpg",
+    "Onyx Black": "https://images-na.ssl-images-amazon.com/images/I/81ax%2BObm7vL._AC_SL1500_.jpg",
+    "Contour Silver": "https://images-na.ssl-images-amazon.com/images/I/81F0Pp3hFPL._AC_SL1500_.jpg"
+  },
+  "ratings": {
+    "average": 4.9,
+    "count": 87
+  },
+  "reviews": [
+    {
+      "author": "Emily Johnson",
+      "rating": 5,
+      "comment": "Powerful and versatile mixer, perfect for baking."
+    },
+    {
+      "author": "Michael Thompson",
+      "rating": 4,
+      "comment": "Solid construction and multiple useful attachments."
+    }
+  ],
+  "specifications": {
+    "Brand": [
+      "KitchenAid"
+    ],
+    "Model": [
+      "Artisan Series"
+    ],
+    "Color": [
+      "Empire Red",
+      "Onyx Black",
+      "Contour Silver"
+    ],
+    "Bowl Capacity": [
+      "5 Quarts"
+    ],
+    "Number of Speeds": [
+      "10"
+    ],
+    "Attachments": [
+      "Flat Beater, Dough Hook, Wire Whip"
+    ],
+    "Power": [
+      "325 watts"
+    ],
+    "Weight": [
+      "26 lbs"
+    ],
+    "Dimensions": [
+      "14.1 x 8.7 x 13.9 inches"
+    ]
+  },
+  "tags": [
+    "KitchenAid",
+    "Stand Mixer",
+    "Kitchen Appliance",
+    "Baking"
+  ],
+  "metaDescription": "KitchenAid Artisan Series 5-Qt. Stand Mixer with Pouring Shield - Empire Red"
+},{
+  "_id": {
+    "$oid": "648891b3685a3fb23018c9c2"
+  },
+  "name": "Canon EOS Rebel T7 DSLR Camera",
+  "description": "Canon EOS Rebel T7 DSLR Camera with 18-55mm Lens - Black",
+  "category": "Electronics",
+  "brand": "Canon",
+  "price": 499,
+  "variants": [
+    {
+      "option": "Color",
+      "values": [
+        "Black"
+      ],
+      "availability": [
+        "In Stock"
+      ]
+    }
+  ],
+  "images": {
+    "Black": "https://images-na.ssl-images-amazon.com/images/I/61z4yw%2Bb6ZL._AC_SL1000_.jpg"
+  },
+  "ratings": {
+    "average": 4.5,
+    "count": 62
+  },
+  "reviews": [
+    {
+      "author": "David Wilson",
+      "rating": 4,
+      "comment": "Great entry-level DSLR for photography enthusiasts."
+    },
+    {
+      "author": "Sophie Davis",
+      "rating": 5,
+      "comment": "High-quality images and user-friendly interface."
+    }
+  ],
+  "specifications": {
+    "Brand": [
+      "Canon"
+    ],
+    "Model": [
+      "EOS Rebel T7"
+    ],
+    "Color": [
+      "Black"
+    ],
+    "Lens": [
+      "18-55mm"
+    ],
+    "Sensor Size": [
+      "APS-C"
+    ],
+    "Resolution": [
+      "24.1 megapixels"
+    ],
+    "ISO Range": [
+      "100-6400"
+    ],
+    "Shutter Speed": [
+      "1/4000 to 30 seconds"
+    ],
+    "Weight": [
+      "17.11 oz"
+    ],
+    "Dimensions": [
+      "5.08 x 3.99 x 3.06 inches"
+    ]
+  },
+  "tags": [
+    "Canon",
+    "DSLR Camera",
+    "Photography",
+    "Digital Camera"
+  ],
+  "metaDescription": "Canon EOS Rebel T7 DSLR Camera with 18-55mm Lens - Black"
+},{
+  "_id": {
+    "$oid": "6488928a685a3fb23018c9c4"
+  },
+  "name": "Sony WH-1000XM4",
+  "description": "Sony WH-1000XM4 Wireless Noise-Cancelling Headphones - Black",
+  "category": "Electronics",
+  "brand": "Sony",
+  "price": 349.99,
+  "variants": [
+    {
+      "option": "Color",
+      "values": [
+        "Black",
+        "Silver"
+      ],
+      "availability": [
+        "In Stock",
+        "Out Of Stock"
+      ]
+    }
+  ],
+  "images": {
+    "Black": "https://images-na.ssl-images-amazon.com/images/I/71o8Q5XJS5L._AC_SL1500_.jpg",
+    "Silver": "https://images-na.ssl-images-amazon.com/images/I/61D4ZqqqKWL._AC_SL1500_.jpg"
+  },
+  "ratings": {
+    "average": 4.8,
+    "count": 56
+  },
+  "reviews": [
+    {
+      "author": "Michelle Thompson",
+      "rating": 5,
+      "comment": "Superb sound quality and excellent noise cancellation."
+    },
+    {
+      "author": "Ryan Johnson",
+      "rating": 4,
+      "comment": "Comfortable to wear for extended periods and long battery life."
+    }
+  ],
+  "specifications": {
+    "Brand": [
+      "Sony"
+    ],
+    "Model": [
+      "WH-1000XM4"
+    ],
+    "Color": [
+      "Black",
+      "Silver"
+    ],
+    "Wireless Connectivity": [
+      "Bluetooth"
+    ],
+    "Noise Cancellation": [
+      "Yes"
+    ],
+    "Battery Life": [
+      "Up to 30 hours"
+    ],
+    "Weight": [
+      "8.96 ounces"
+    ]
+  },
+  "tags": [
+    "Sony",
+    "Headphones",
+    "Wireless",
+    "Noise-Cancelling"
+  ],
+  "metaDescription": "Sony WH-1000XM4 Wireless Noise-Cancelling Headphones - Black"
+},{
+  "_id": {
+    "$oid": "648892ab685a3fb23018c9c5"
+  },
+  "name": "Canon EOS R6",
+  "description": "Canon EOS R6 Mirrorless Camera Body - Full-Frame, 20.1 Megapixel, 4K Video Recording, Wi-Fi, Bluetooth",
+  "category": "Electronics",
+  "brand": "Canon",
+  "price": 2499,
+  "variants": [
+    {
+      "option": "Color",
+      "values": [
+        "Black"
+      ],
+      "availability": [
+        "In Stock"
+      ]
+    }
+  ],
+  "images": {
+    "Black": "https://images-na.ssl-images-amazon.com/images/I/91IJm6YzGHL._AC_SL1500_.jpg"
+  },
+  "ratings": {
+    "average": 4.9,
+    "count": 84
+  },
+  "reviews": [
+    {
+      "author": "Daniel Wilson",
+      "rating": 5,
+      "comment": "Exceptional image quality and advanced features for professional photography."
+    },
+    {
+      "author": "Sophia Anderson",
+      "rating": 4,
+      "comment": "Easy to use with excellent autofocus capabilities."
+    }
+  ],
+  "specifications": {
+    "Brand": [
+      "Canon"
+    ],
+    "Model": [
+      "EOS R6"
+    ],
+    "Color": [
+      "Black"
+    ],
+    "Sensor Type": [
+      "CMOS"
+    ],
+    "Resolution": [
+      "20.1 Megapixels"
+    ],
+    "Video Recording": [
+      "4K"
+    ],
+    "Connectivity": [
+      "Wi-Fi",
+      "Bluetooth"
+    ],
+    "Weight": [
+      "1.5 pounds"
+    ]
+  },
+  "tags": [
+    "Canon",
+    "Camera",
+    "Mirrorless",
+    "Photography"
+  ],
+  "metaDescription": "Canon EOS R6 Mirrorless Camera Body - Full-Frame, 20.1 Megapixel, 4K Video Recording, Wi-Fi, Bluetooth"
+},{
+  "_id": {
+    "$oid": "648892cd685a3fb23018c9c6"
+  },
+  "name": "Samsung QN90A",
+  "description": "Samsung QN90A Neo QLED 4K Smart TV (2021) - 75-inch, Quantum HDR 32X, Direct Full Array 32X, Alexa Built-in",
+  "category": "Electronics",
+  "brand": "Samsung",
+  "price": 3499.99,
+  "variants": [
+    {
+      "option": "Size",
+      "values": [
+        "75-inch",
+        "85-inch"
+      ],
+      "availability": [
+        "In Stock",
+        "Out Of Stock"
+      ]
+    }
+  ],
+  "images": {
+    "75-inch": "https://images-na.ssl-images-amazon.com/images/I/91pG8uZm%2B0L._AC_SL1500_.jpg",
+    "85-inch": "https://images-na.ssl-images-amazon.com/images/I/91A2uqWH%2B-L._AC_SL1500_.jpg"
+  },
+  "ratings": {
+    "average": 4.7,
+    "count": 92
+  },
+  "reviews": [
+    {
+      "author": "Michael Davis",
+      "rating": 5,
+      "comment": "Stunning picture quality and impressive brightness levels."
+    },
+    {
+      "author": "Emily Wilson",
+      "rating": 4,
+      "comment": "Great for gaming with low input lag and smooth motion handling."
+    }
+  ],
+  "specifications": {
+    "Brand": [
+      "Samsung"
+    ],
+    "Model": [
+      "QN90A"
+    ],
+    "Size": [
+      "75-inch",
+      "85-inch"
+    ],
+    "Display Type": [
+      "QLED"
+    ],
+    "Resolution": [
+      "4K Ultra HD"
+    ],
+    "HDR": [
+      "Quantum HDR 32X"
+    ],
+    "Smart Features": [
+      "Built-in Wi-Fi",
+      "Voice Assistant"
+    ],
+    "Weight": [
+      "75-inch: 83.6 lbs",
+      "85-inch: 122.8 lbs"
+    ]
+  },
+  "tags": [
+    "Samsung",
+    "Smart TV",
+    "QLED",
+    "4K"
+  ],
+  "metaDescription": "Samsung QN90A Neo QLED 4K Smart TV (2021) - 75-inch, Quantum HDR 32X, Direct Full Array 32X, Alexa Built-in"
+},{
+  "_id": {
+    "$oid": "648892e5685a3fb23018c9c7"
+  },
+  "name": "Bose QuietComfort Earbuds",
+  "description": "Bose QuietComfort Noise Cancelling Earbuds - True Wireless Bluetooth Earphones - Triple Black",
+  "category": "Electronics",
+  "brand": "Bose",
+  "price": 279,
+  "variants": [
+    {
+      "option": "Color",
+      "values": [
+        "Triple Black",
+        "Soapstone"
+      ],
+      "availability": [
+        "In Stock",
+        "Out Of Stock"
+      ]
+    }
+  ],
+  "images": {
+    "Triple Black": "https://images-na.ssl-images-amazon.com/images/I/81Kb-axkZML._AC_SL1500_.jpg",
+    "Soapstone": "https://images-na.ssl-images-amazon.com/images/I/81EfK4jhB-L._AC_SL1500_.jpg"
+  },
+  "ratings": {
+    "average": 4.6,
+    "count": 71
+  },
+  "reviews": [
+    {
+      "author": "Jessica Adams",
+      "rating": 5,
+      "comment": "Excellent sound quality and effective noise cancellation."
+    },
+    {
+      "author": "Andrew Thompson",
+      "rating": 4,
+      "comment": "Comfortable fit and long battery life."
+    }
+  ],
+  "specifications": {
+    "Brand": [
+      "Bose"
+    ],
+    "Model": [
+      "QuietComfort Earbuds"
+    ],
+    "Color": [
+      "Triple Black",
+      "Soapstone"
+    ],
+    "Wireless Connectivity": [
+      "Bluetooth"
+    ],
+    "Noise Cancellation": [
+      "Yes"
+    ],
+    "Battery Life": [
+      "Up to 6 hours"
+    ],
+    "Weight": [
+      "0.3 ounces"
+    ]
+  },
+  "tags": [
+    "Bose",
+    "Earbuds",
+    "Noise-Cancelling",
+    "Bluetooth"
+  ],
+  "metaDescription": "Bose QuietComfort Noise Cancelling Earbuds - True Wireless Bluetooth Earphones - Triple Black"
+}]

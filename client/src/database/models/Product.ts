@@ -1,4 +1,4 @@
-import { Document, Schema, Model, model } from "mongoose";
+import { Document, Schema, Model, model, models } from "mongoose";
 interface ProductVariant {
   option: string;
   values: string[];
@@ -24,24 +24,7 @@ interface ProductSpecifications {
   [key: string]: string[];
 }
 
-interface Product {
-  _id: number;
-  name: string;
-  description: string;
-  category: string;
-  brand: string;
-  price: number;
-  variants: ProductVariant[];
-  images: ProductImages;
-  ratings: ProductRating;
-  reviews: ProductReview[];
-  specifications: ProductSpecifications;
-  tags: string[];
-  metaDescription: string;
-}
-
 interface IProduct extends Document {
-  _id: number;
   name: string;
   description: string;
   category: string;
@@ -57,11 +40,6 @@ interface IProduct extends Document {
 }
 
 const productSchema: Schema = new Schema({
-  _id: {
-    type: Number,
-    required: true,
-    unique: true,
-  },
   name: {
     type: String,
     required: true,
@@ -113,6 +91,5 @@ const productSchema: Schema = new Schema({
   },
 });
 
-const Product: Model<IProduct> = model<IProduct>("Product", productSchema);
-
-export default Product;
+export default (models.Product as Model<IProduct>) ||
+  model<IProduct>("Product", productSchema);
