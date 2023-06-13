@@ -2,7 +2,6 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(req: any) {
   const data = await req.body;
-  console.log(data);
   const ProductData = {
     _id: "1",
     name: "Airpod- Max",

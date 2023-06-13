@@ -1,4 +1,4 @@
-import User, { IUser } from '../models/user';
+import User, { IUser } from '../models/User';
 
 // Example of creating a new user
 const createUser = async (req, res) => {

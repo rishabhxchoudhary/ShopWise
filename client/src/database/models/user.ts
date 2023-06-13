@@ -1,18 +1,38 @@
-// Example of schema
-import { Document, model, Schema } from 'mongoose';
+import { Schema, Document, model, models, Model } from "mongoose";
 
-export interface IUser extends Document {
-  name: string;
+interface IUser extends Document {
   email: string;
-  password: string;
+  name: string;
+  image?: string;
+  addresses: string[];
+  isAdmin: boolean;
 }
 
-const userSchema = new Schema<IUser>({
-  name: String,
-  email: String,
-  password: String,
-});
+const UserSchema: Schema = new Schema(
+  {
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    name: {
+      type: String,
+      required: true,
+    },
+    image: {
+      type: String,
+    },
+    addresses: {
+      type: [String],
+      default: [],
+    },
+    isAdmin: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  { timestamps: true }
+);
 
-const User = model<IUser>('User', userSchema);
-
-export default User;
+export default (models.User as Model<IUser>) ||
+  model<IUser>("User", UserSchema);

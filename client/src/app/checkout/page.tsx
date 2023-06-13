@@ -15,7 +15,7 @@ interface Address {
     city: string;
     state: string;
     country: string;
-  }
+}
 
 const paymentMethods = [
     {
