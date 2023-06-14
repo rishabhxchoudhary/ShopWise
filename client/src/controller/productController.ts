@@ -8,6 +8,7 @@ async function getProductById(id: string) {
 }
 
 async function getHomeProducts() {
+  await connectToDatabase();
   const data = await Product.find(
     {},
     { _id: 1, name: 1, images: 1, category: 1, ratings: 1, price: 1 }
