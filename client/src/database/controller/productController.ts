@@ -1,7 +1,7 @@
-import Product from "@/database/models/product";
+import { product } from "@/database/db";
 
 async function getProductById(id: string) {
-  const data = await Product.findOne({ _id: id });
+  const data = await product.findOne({ _id: id });
   return data;
 }
 
