@@ -3,8 +3,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 
+// Product:
+// {
+// _id : {$oid: "60f6d9b6e3c7d0001c000001"}
+// }
+
 interface Product {
-  id: string;
+  _id: { $oid: string }
   image: string;
   name: string;
   category: string;
@@ -39,8 +44,8 @@ const ProductSection: React.FC<ProductSectionProps> = ({ title, products }) => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 z-10 lg:grid-cols-4 gap-4">
         {visibleProducts.map((product, index) => (
-          <AnimatePresence initial={false} key={product.id}>
-            <Link href={`/product/${product.id}`}>
+          <AnimatePresence initial={false} key={String(product._id)}>
+            <Link href={`/product/${product._id}`}>
               <motion.div
                 initial="hidden"
                 animate="visible"

@@ -5,9 +5,10 @@ import React from 'react'
 
 export default function Page() {
     const id = useParams().id;
+    console.log(id);
     return (
         <div>
-            <ProductPage/>
+            <ProductPage id={id}/>
         </div>
     )
 }

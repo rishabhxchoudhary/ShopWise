@@ -1,3 +1,4 @@
+"use client"
 import { useEffect, useState } from 'react';
 import ProductPageCss from './ProductPage.module.css'
 import ImageCarousel from './ImageCarousal';
@@ -77,7 +78,11 @@ type VariantSelection = {
   [option: string]: string;
 };
 
-const ProductPage = () => {
+type Prop = {
+  id: string;
+}
+
+const ProductPage = ({id}: Prop) => {
   const [product, setProduct] = useState<Product | null>(null);
   const [selection, setSelection] = useState<VariantSelection>({});
   const [quantity,setQuantity] = useState(1);
@@ -95,7 +100,7 @@ const ProductPage = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                id: "1232"
+                id: id
             })});
         const data = await response.json();
         setProduct(data.data);
