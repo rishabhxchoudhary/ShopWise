@@ -45,7 +45,7 @@ const Variants: React.FC<VariantsProps> = ({ variants, selection, setSelection }
               <label
                 key={value}
                 className={`flex items-center justify-center rounded-md px-4 py-2 border ${
-                  variant.availability[index] === 'in stock'
+                  variant.availability[index] === 'In Stock'
                     ? 'cursor-pointer'
                     : 'border-gray-300 bg-slate-100 cursor-not-allowed'
                 } ${
@@ -59,7 +59,7 @@ const Variants: React.FC<VariantsProps> = ({ variants, selection, setSelection }
                   name={variant.option}
                   value={value}
                   checked={selection[variant.option] === value}
-                  disabled={variant.availability[index] !== 'in stock'}
+                  disabled={variant.availability[index] !== 'In Stock'}
                   onChange={() => handleOptionChange(variant.option, value)}
                   className="hidden"
                 />

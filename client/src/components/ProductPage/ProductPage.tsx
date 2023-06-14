@@ -104,6 +104,7 @@ const ProductPage = ({id}: Prop) => {
             })});
         const data = await response.json();
         setProduct(data.data);
+        console.log(data.data)
       } catch (error) {
         console.error('Error fetching product:', error);
       }
