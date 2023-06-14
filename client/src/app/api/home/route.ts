@@ -1,13 +1,8 @@
 import { NextResponse } from "next/server";
-import connectToDatabase, { product } from "@/database/db";
-// import Product from "@/database/models/product";
+import { getHomeProducts } from "@/controller/productController";
 
-export async function GET(req: any) {
-  const db = await connectToDatabase();
-  const products = await product.find(
-    {},
-    { _id: 1, name: 1, images: 1, category: 1, ratings: 1, price: 1 }
-  );
+export async function GET() {
+  const products = await getHomeProducts();
   const data: any = [];
   products.forEach((product: any) => {
     const { _id, name, images, category, ratings, price } = product;
@@ -21,5 +16,16 @@ export async function GET(req: any) {
     });
   });
 
-  return NextResponse.json({ data: data });
+  const x: { [key: string]: any[] } = data.reduce(
+    (result: any, product: any) => {
+      if (!result[product.category]) {
+        result[product.category] = [];
+      }
+      result[product.category].push(product);
+      return result;
+    },
+    {} as { [key: string]: any[] }
+  );
+
+  return NextResponse.json({ data: x });
 }

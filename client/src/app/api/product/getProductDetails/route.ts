@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { getProductById } from "@/database/controller/productController";
+import { getProductById } from "@/controller/productController";
 
 export async function POST(request: Request) {
   const body = await request.json();
