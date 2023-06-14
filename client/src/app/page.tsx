@@ -228,7 +228,7 @@ export default function Home() {
   useEffect(() => {
     async function getData(){
       dispatch(start());
-      const res = await fetch('http://localhost:3000/api/home');
+      const res = await fetch('/api/home');
       const data = await res.json();
       const products = data.data;
       console.log(products);
