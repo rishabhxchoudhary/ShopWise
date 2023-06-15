@@ -3,8 +3,10 @@ import Link from 'next/link'
 import Image from 'next/image'
 import style from '../style/navbar.module.css'
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSession, signIn, signOut } from "next-auth/react"
+import { useDispatch } from "react-redux";
+import { start, stop } from "@/redux/features/loading/loadingSlice";
 
 
 import SearchIcon from '@mui/icons-material/Search';
@@ -21,32 +23,20 @@ export default function Navbar() {
   const [categoryActive, setCategoryActive] = useState(false)
   const [accountActive, setAccountActive] = useState(false)
 
-  const categories = [
-    {
-      name: "Electronics",
-      photo: "https://images.unsplash.com/photo-1550009158-9ebf69173e03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2402&q=80"
-    },
-    {
-      name: "Clothing",
-      photo: "https://images.unsplash.com/photo-1550009158-9ebf69173e03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2402&q=80"
-    },
-    {
-      name: "Home",
-      photo: "https://images.unsplash.com/photo-1550009158-9ebf69173e03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2402&q=80"
-    },
-    {
-      name: "Toys",
-      photo: "https://images.unsplash.com/photo-1550009158-9ebf69173e03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2402&q=80"
-    },
-    {
-      name: "Sports",
-      photo: "https://images.unsplash.com/photo-1550009158-9ebf69173e03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2402&q=80"
-    },
-    {
-      name: "Books",
-      photo: "https://images.unsplash.com/photo-1550009158-9ebf69173e03?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2402&q=80"
-    },
-  ]
+  const dispatch = useDispatch()
+
+  const [groupedProducts, setGroupedProducts] = useState<{ [key: string]: any[] }>({})
+  useEffect(() => {
+    async function getData(){
+      dispatch(start());
+      const res = await fetch('/api/home');
+      const data = await res.json();
+      const products = data.data;
+      setGroupedProducts(products);
+      dispatch(stop());
+    }
+    getData();
+  },[])
 
   const searchFocus = () => {
     setSearchActive(!searchActive)
@@ -89,11 +79,12 @@ export default function Navbar() {
               <KeyboardArrowDownIcon />
               <div className={categoryActive ? style.categoryDrop : style.navHide}>
                 {
-                  categories.map((category, index) => (
+                  groupedProducts && Object.entries(groupedProducts).map(([category, products]) => (
 
-                    <div className={style.categoryDropItem} key={index}>
-                      <Image src={category.photo} alt={category.name} width={70} height={70} />
-                      <span>{category.name}</span>
+                    <div className={style.categoryDropItem} key={category}>
+                      <Link href="/">
+                        {category}
+                      </Link>
                     </div>
                   ))
                 }
@@ -144,11 +135,10 @@ export default function Navbar() {
             <CategoryIcon fontSize='large' />
             <div className={categoryActive ? style.mobDrop : style.navHide}>
               {
-                categories.map((category, index) => (
-
-                  <div className={style.mobDropItem} key={index}>
+                groupedProducts && Object.entries(groupedProducts).map(([category, products]) => (
+                  <div className={style.mobDropItem} key={category}>
                     <Link href="/">
-                      {category.name}
+                      {category}
                     </Link>
                   </div>
                 ))
@@ -165,10 +155,10 @@ export default function Navbar() {
               <div className={accountActive ? style.mobSearch : style.navHide}>
                 {
                   session ? (
-                    <div className={style.mobDrop}>
-                      <div className={style.mobDropItem}>
+                    <div className={style.mobDrop}  style={{left: 'auto', right: '0'}}>
+                      <Link href="/orders" className={style.mobDropItem}>
                         <span>Your Orders</span>
-                      </div>
+                      </Link>
                       <div className={style.mobDropItem}>
                         <div onClick={() => signOut()}>Sign Out</div>
                       </div>

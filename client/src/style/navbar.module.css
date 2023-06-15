@@ -52,19 +52,18 @@
 .categoryDrop{
     position: absolute;
     display: flex;
-    flex-wrap: wrap;
-    width: 700px;
+    flex-direction: column;
+    width: 300px;
     top: 60px;
+    transform: translateX(-30%);
     background-color: #fff;
     border: 1px solid #ccc;
     justify-content: space-around;
     padding: 1rem;
-    border-radius: 5px;
 }
 
 .categoryDropItem{
     box-sizing: border-box;
-    width: 40%;
     margin: 0.5rem;
     padding: 0.5rem;
     border-radius: 5px;
@@ -130,11 +129,18 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    width: 150px;
-    top: 50px;
+    width: 200px;
+    top: 60px;
     background-color: #fff;
-    padding: 0.5rem;
-    border-radius: 5px;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    transform: translateX(-20%);
+}
+
+.accountTab > div{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .accountTabItem{
@@ -143,12 +149,13 @@
     font-weight: 500;
     cursor: pointer;
     text-decoration: none;
-    margin: 0.5rem 0;
+    padding: 0.5rem;
 
 }
 
 .accountTabItem:hover{
     color: #333;
+    background-color: #eee;
 }
 
 .mobNavbarContainer
@@ -172,11 +179,13 @@
         position: absolute;
         display: flex;
         flex-direction: column;
-        top: 60px;
+        top: 59px;
+        left: 0;
         width: auto;
         background-color: #fff;
         justify-content: space-around;
-        align-items: center;
+        align-items: flex-start;
+        box-shadow: 0px 5px 5px 5px rgba(0,0,0,0.05);
         padding: 1rem;
         gap: 1rem;
     }
@@ -187,6 +196,7 @@
         font-weight: 300;
         cursor: pointer;
         text-decoration: none;
+        white-space: nowrap;
     }
 
     .mobDropItem:hover{
