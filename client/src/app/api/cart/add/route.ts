@@ -33,9 +33,9 @@ export async function POST(req: Request) {
       isEqual(item.variant, cur_product.variant)
   );
 
-  if (existingItemIndex !== -1) {
+  if (existingItemIndex && existingItemIndex !== -1) {
     // Item with the same variant already exists, increase the quantity
-    cartData[existingItemIndex].quantity += cur_product.quantity;
+    if (cartData) cartData[existingItemIndex].quantity += cur_product.quantity;
   } else {
     // Item with the same variant doesn't exist, add the new product to the cart
     cartData?.push(cur_product);
