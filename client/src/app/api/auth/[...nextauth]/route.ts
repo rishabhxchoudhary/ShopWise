@@ -4,8 +4,9 @@ import FacebookProvider from "next-auth/providers/facebook";
 import CredentialsProvider from "next-auth/providers/credentials";
 import connectToDatabase from "@/database/db";
 import User from "@/models/user";
+import Cart from "@/models/cart";
 
-const authOptions = {
+export const authOptions = {
   secret: "1234",
   providers: [
     GoogleProvider({
@@ -50,19 +51,25 @@ const authOptions = {
     async session(session: any) {
       let user = session.session.user;
       if (user && user.email) {
-        const db = await connectToDatabase();
+        await connectToDatabase();
         const existingUser = await User.findOne({ email: user.email }).exec();
 
         if (!existingUser) {
           // Create a new user document
+          const cart = await Cart.create({ items: [] });
           await User.create({
             email: user.email,
             name: user.name,
             image: user.image,
             isAdmin: false,
+            cart: cart._id,
           });
         }
-        session.user = { ...user, isAdmin: existingUser?.isAdmin };
+        session.user = {
+          ...user,
+          isAdmin: existingUser?.isAdmin,
+          cart: existingUser?.cart,
+        };
       }
       return session;
     },

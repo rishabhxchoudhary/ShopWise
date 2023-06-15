@@ -1,6 +1,6 @@
 "use client"
 import { start, stop } from "@/redux/features/loading/loadingSlice";
-import { useSession, signIn, signOut } from "next-auth/react"
+// import { useSession } from "next-auth/react"
 import { useDispatch } from "react-redux";
 import HomePageCarousel from "@/components/HomePage/HomePageCarousel";
 import ProductSection from "@/components/HomePage/ProductSection";
@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 
 
 export default function Home() {
-  const { data: session } = useSession()
+  // const { data: session } = useSession()
   const banners = [
     { link: '/', image: '/homePageCarousel/banner1.jpeg' },
     { link: '/', image: '/homePageCarousel/banner2.webp' },
@@ -29,8 +29,7 @@ export default function Home() {
     }
     getData();
   },[])
-  
-  console.log(groupedProducts)
+
 
   return (
       <div className="flex flex-col justify-between">

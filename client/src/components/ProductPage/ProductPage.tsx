@@ -1,4 +1,5 @@
 "use client"
+import { useSession } from "next-auth/react"
 import { useEffect, useState } from 'react';
 import ProductPageCss from './ProductPage.module.css'
 import ImageCarousel from './ImageCarousal';
@@ -83,6 +84,7 @@ type Prop = {
 }
 
 const ProductPage = ({id}: Prop) => {
+  const { data:session } = useSession();
   const [product, setProduct] = useState<Product | null>(null);
   const [selection, setSelection] = useState<VariantSelection>({});
   const [quantity,setQuantity] = useState(1);
@@ -104,7 +106,6 @@ const ProductPage = ({id}: Prop) => {
             })});
         const data = await response.json();
         setProduct(data.data);
-        console.log(data.data)
       } catch (error) {
         console.error('Error fetching product:', error);
       }
@@ -114,13 +115,8 @@ const ProductPage = ({id}: Prop) => {
 
   }, []);
 
-  const AddtoCart = () => {
+  const AddtoCart = async () => {
     dispatch(start());
-    const storedCartData = localStorage.getItem('cart');
-    let cartData: CartProduct[] = [];
-    if (storedCartData) {
-      cartData = JSON.parse(storedCartData);
-    }
 
     const cur_product: CartProduct = {
       _id: product?._id || "",
@@ -137,34 +133,16 @@ const ProductPage = ({id}: Prop) => {
       });
     });
 
-    const existingItemIndex = cartData.findIndex(
-      (item) => item._id === cur_product?._id && isEqual(item.variant, cur_product.variant )
-    );
-  
-    if (existingItemIndex !== -1) {
-      // Item with the same variant already exists, increase the quantity
-      cartData[existingItemIndex].quantity += cur_product.quantity;
-    } else {
-      // Item with the same variant doesn't exist, add the new product to the cart
-      cartData.push(cur_product);
-    }
-  
-    // Save the updated cart data to local storage
-    localStorage.setItem('cart', JSON.stringify(cartData));
-    alert("Added to cart")
+    // Push cur_product to the backend api usng fetch
+    await fetch(`/api/cart/add`,{
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+          product: cur_product
+      })});
     dispatch(stop());
-  };
-  
-  const isEqual = (arr1: { option: string; value: string }[], arr2: { option: string; value: string }[]): boolean => {
-    if (arr1.length !== arr2.length) {
-      return false;
-    }
-    for (let i = 0; i < arr1.length; i++) {
-      if (arr1[i].option !== arr2[i].option || arr1[i].value !== arr2[i].value) {
-        return false;
-      }
-    }
-    return true;
   };
   
 
