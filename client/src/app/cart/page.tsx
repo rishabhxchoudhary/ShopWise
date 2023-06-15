@@ -32,6 +32,7 @@ const CartPage: React.FC = () => {
         },
       });
       const cartData = await cart.json();
+      console.log(cartData.data)
       setCartData(cartData.data);
       dispatch(stop());
     }

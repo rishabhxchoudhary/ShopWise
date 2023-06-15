@@ -7,10 +7,13 @@ export async function GET() {
   try {
     const session = await getServerSession(authOptions);
     const cartId = session.user.cart;
+    console.log(cartId);
     const data = await getCart(cartId);
     const cartData = data?.items;
+    console.log(cartData);
     return NextResponse.json({ data: cartData });
   } catch (error) {
-    return NextResponse.json({ data: [] });
+    console.log(error);
+    return NextResponse.json({ data: [error] });
   }
 }
