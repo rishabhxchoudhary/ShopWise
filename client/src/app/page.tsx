@@ -29,8 +29,6 @@ export default function Home() {
     }
     getData();
   },[])
-  
-  console.log(groupedProducts)
 
   return (
       <div className="flex flex-col justify-between">
@@ -44,6 +42,7 @@ export default function Home() {
         {groupedProducts && Object.entries(groupedProducts).map(([category, products]) => (
           <ProductSection key={category} title={category} products={products} />
         ))}
+
       </div>
         </div>
       </div>
