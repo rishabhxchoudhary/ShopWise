@@ -162,7 +162,7 @@ export default function Navbar() {
               </div>
             <div onClick={accountFocus}>
               <PersonIcon fontSize='large' />
-              <div className={!accountActive ? style.mobSearch : style.navHide}>
+              <div className={accountActive ? style.mobSearch : style.navHide}>
                 {
                   session ? (
                     <div className={style.mobDrop}>
