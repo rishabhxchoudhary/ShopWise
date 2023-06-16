@@ -39,13 +39,13 @@ const CartPage: React.FC = () => {
     getcart();
   },[]);
 
-  useEffect(() => {
-    dispatch(start());
-    if (cartData.length != 0) {
-      localStorage.setItem('cart', JSON.stringify(cartData));
-    }
-    dispatch(stop());
-  }, [cartData]);
+  // useEffect(() => {
+  //   dispatch(start());
+  //   if (cartData.length != 0) {
+  //     localStorage.setItem('cart', JSON.stringify(cartData));
+  //   }
+  //   dispatch(stop());
+  // }, [cartData]);
 
   const handleUpdateQuantity = async (product: CartProduct, newQuantity: number) => {
     if (newQuantity<1) return;
