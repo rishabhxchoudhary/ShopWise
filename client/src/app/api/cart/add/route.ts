@@ -45,3 +45,5 @@ export async function POST(req: Request) {
   await updateCart(cart, cartData);
   NextResponse.json({ data: "added" });
 }
+
+export const dynamic = "force-dynamic";

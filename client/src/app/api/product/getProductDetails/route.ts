@@ -7,3 +7,4 @@ export async function POST(request: Request) {
   const data = await getProductById(id);
   return NextResponse.json({ data: data });
 }
+export const dynamic = "force-dynamic";

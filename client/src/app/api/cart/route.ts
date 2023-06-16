@@ -10,10 +10,12 @@ export async function GET() {
     console.log(cartId);
     const data = await getCart(cartId);
     const cartData = data?.items;
-    console.log(cartData);
+    cartData;
     return NextResponse.json({ data: cartData });
   } catch (error) {
-    console.log(error);
+    error;
     return NextResponse.json({ data: [error] });
   }
 }
+
+export const dynamic = "force-dynamic";

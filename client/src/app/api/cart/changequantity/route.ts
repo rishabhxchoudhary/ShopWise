@@ -24,3 +24,5 @@ export async function PUT(req: Request) {
     return NextResponse.json({ data: [] });
   }
 }
+
+export const dynamic = "force-dynamic";
