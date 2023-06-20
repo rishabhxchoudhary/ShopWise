@@ -23,45 +23,61 @@ const CartPage: React.FC = () => {
   const [cartData, setCartData] = useState<CartProduct[]>([]);
 
   useEffect(() => {
-    dispatch(start());
-    const storedCartData = localStorage.getItem('cart');
-    if (storedCartData) {
-      setCartData(JSON.parse(storedCartData));
+    const getcart = async () =>{
+      dispatch(start());
+      const cart = await fetch('/api/cart',{
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const cartData = await cart.json();
+      console.log(cartData.data)
+      setCartData(cartData.data);
+      dispatch(stop());
     }
-    dispatch(stop());
+    getcart();
   },[]);
 
-  useEffect(() => {
-    dispatch(start());
-    if (cartData.length != 0) {
-      localStorage.setItem('cart', JSON.stringify(cartData));
-    }
-    dispatch(stop());
-  }, [cartData]);
+  // useEffect(() => {
+  //   dispatch(start());
+  //   if (cartData.length != 0) {
+  //     localStorage.setItem('cart', JSON.stringify(cartData));
+  //   }
+  //   dispatch(stop());
+  // }, [cartData]);
 
-  const handleUpdateQuantity = (product: CartProduct, newQuantity: number) => {
+  const handleUpdateQuantity = async (product: CartProduct, newQuantity: number) => {
     if (newQuantity<1) return;
     dispatch(start());
-    const updatedCart = cartData.map((p) => {
-      if (p === product) {
-        return { ...p, quantity: newQuantity };
-      }
-      return p;
+    const cart = await fetch('/api/cart/changequantity',{
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        productid: product._id,
+        quantity: newQuantity,
+      }),
     });
-    setCartData(updatedCart);
+    const data = await cart.json();
+    setCartData(data.data);
     dispatch(stop());
   };
 
-  const handleRemoveItem = (product: CartProduct) => {
+  const handleRemoveItem = async (product: CartProduct) => {
     dispatch(start());
-    if (cartData.length === 1) {
-      setCartData([]);
-      localStorage.setItem('cart', JSON.stringify([]));
-      dispatch(stop());
-      return;
-    }
-    const updatedCart = cartData.filter((p) => p !== product);
-    setCartData(updatedCart);
+    const cart = await fetch('/api/cart/remove',{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        productid: product._id,
+      }),
+    })
+    const data = await cart.json();
+    setCartData(data.data);
     dispatch(stop());
   };
 

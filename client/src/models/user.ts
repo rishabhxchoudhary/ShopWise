@@ -6,14 +6,7 @@ interface IUser extends Document {
   image?: string;
   addresses: string[];
   isAdmin: boolean;
-  cart: {
-    _id: number;
-    variant: {
-      option: string;
-      value: string;
-    }[];
-    quantity: number;
-  }[];
+  cart: string;
   orders: number[];
 }
 
@@ -41,8 +34,8 @@ const UserSchema: Schema = new Schema(
       default: false,
     },
     cart: {
-      type: [Object],
-      default: [],
+      type: String,
+      required: true,
     },
     orders: {
       type: [Number],

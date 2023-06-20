@@ -1,5 +1,7 @@
 "use client"
+import { start, stop } from "@/redux/features/loading/loadingSlice";
 import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 
 interface Address {
   id: number;
@@ -37,6 +39,7 @@ interface SummaryProps {
 const Summary: React.FC<SummaryProps> = ({ address, paymentMethod }) => {
   const [orderId, setOrderId] = useState("");
   const [cartData, setCartData] = useState<CartProduct[]>([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const generateOrderId = () => {
@@ -45,10 +48,19 @@ const Summary: React.FC<SummaryProps> = ({ address, paymentMethod }) => {
       const generatedId = randomNum * timestamp;
       setOrderId(String(generatedId));
     };
-    const storedCartData = localStorage.getItem('cart');
-    if (storedCartData) {
-      setCartData(JSON.parse(storedCartData));
+    const getcart = async () =>{
+      dispatch(start());
+      const cart = await fetch('/api/cart',{
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+      const cartData = await cart.json();
+      setCartData(cartData.data);
+      dispatch(stop());
     }
+    getcart();
     generateOrderId();
   }, []);
 

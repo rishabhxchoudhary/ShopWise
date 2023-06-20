@@ -5,7 +5,6 @@ import { Inter } from 'next/font/google'
 import Navbar from '@/components/Navbar'
 import Footer from "@/components/Footer/Footer";
 
-
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
@@ -13,7 +12,7 @@ export const metadata = {
   description: 'Shopping made easier',
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children
 }: {
   children: React.ReactNode

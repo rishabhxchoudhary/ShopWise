@@ -24,9 +24,6 @@ const LoginPage: React.FC = () => {
     const handleSubmit =  async (event:React.FormEvent<HTMLFormElement>) => {
       event.preventDefault();
       const resp = await signIn("credentials", {username: email, password, redirect: true, callbackUrl: "/"});
-      if(resp?.error) {
-        console.log(resp)
-      }
     }
 
   return (
