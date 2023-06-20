@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import style from '../style/navbar.module.css'
+import { useRouter } from 'next/navigation'
 
 import { useState, useEffect } from 'react';
 import { useSession, signIn, signOut } from "next-auth/react"
@@ -22,6 +23,9 @@ export default function Navbar() {
   const [searchActive, setSearchActive] = useState(false)
   const [categoryActive, setCategoryActive] = useState(false)
   const [accountActive, setAccountActive] = useState(false)
+
+  const [searchQuery, setSearchQuery] = useState('')
+  const router = useRouter()
 
   const dispatch = useDispatch()
 
@@ -63,6 +67,17 @@ export default function Navbar() {
     setAccountActive(false)
   }
 
+  const searchHandler = (e: any) => {
+    setSearchQuery(e.target.value)
+  }
+
+  const handleSubmit = (e: any) => {
+    console.log(searchQuery)
+    e.preventDefault()
+    router.push(`/searchresults/${searchQuery}`)
+  }
+
+
   return (
     <>
 
@@ -95,9 +110,10 @@ export default function Navbar() {
             </Link>
             {/* search box with logo */}
             <div className={style.navSearch}>
-              <input onFocus={searchFocus} onBlur={searchBlur} className={searchActive ? style.searchBoxFocus : style.searchBoxBlur} type="text" placeholder="Search Products" name="search" autoComplete='off' />
-              <button type="submit"><SearchIcon />
-              </button>
+              <form onSubmit={handleSubmit}>
+              <input onFocus={searchFocus} onBlur={searchBlur} onChange={(e) => {searchHandler(e)}} className={searchActive ? style.searchBoxFocus : style.searchBoxBlur} type="text" placeholder="Search Products" name="search" autoComplete='off' />
+              <button type="submit"><SearchIcon /></button>
+              </form>
             </div>
             <div onClick={accountFocus} className={style.navLink}>
               <PersonIcon />
