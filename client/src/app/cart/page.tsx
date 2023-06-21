@@ -44,9 +44,8 @@ const CartPage: React.FC = () => {
       setCartData(cartData.data);
       dispatch(stop());
     }
-    getcart();
 
-    if (session && localStorage.getItem('cart'))
+    if (localStorage.getItem('cart'))
     {
       const mergeCart = async () => {
         const cart = JSON.parse(localStorage.getItem('cart') || '[]');
@@ -56,17 +55,19 @@ const CartPage: React.FC = () => {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ cart }),
+          body: JSON.stringify({ newCart:cart }),
         });
         const data = await res.json();
         setCartData(data.data);
-        localStorage.setItem('cart', JSON.stringify([]));
+        console.log(data.data)
+        localStorage.removeItem('cart');
       };
       mergeCart();
       console.log('cart merged');
     }
+    getcart();
     
-  },[]);
+  },[session]);
 
   // useEffect(() => {
   //   dispatch(start());
@@ -138,7 +139,7 @@ const CartPage: React.FC = () => {
         </>) : (
         <>
         <div className={`${CSS.left} lg:max-h-[80vh]`}>
-        {cartData.map((product) => (
+        {cartData?.map((product) => (
           <div
           key={product._id}
           className="flex flex-wrap items-center border-b py-4"
@@ -166,13 +167,13 @@ const CartPage: React.FC = () => {
                     </svg>
                   </button>
                 </h2>
-                { product.variant.map((option) => (
+                { product.variant?.map((option) => (
                   <p key={option.option} className="text-sm mb-1">
                     {option.option}: {option.value}
                   </p>
                 ))}
                 <p className="text-gray-500 mb-2">
-                  Price: ${product.price.toFixed(2)}
+                  Price: ${product.price?.toFixed(2)}
                 </p>
                 <div className="flex items-center">
                 <button
