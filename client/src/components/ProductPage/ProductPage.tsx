@@ -133,6 +133,14 @@ const ProductPage = ({id}: Prop) => {
       });
     });
 
+    if (!session) {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      cart.push(cur_product);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      dispatch(stop());
+      return;
+    }
+
     // Push cur_product to the backend api usng fetch
     await fetch(`/api/cart/add`,{
       method: 'POST',

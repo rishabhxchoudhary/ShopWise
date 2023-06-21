@@ -163,8 +163,10 @@ export default function Navbar() {
           </div>
           <div className={style.mobSideSection}>
             <div className={style.mobSearch}>
-              <input className={searchActive ? style.searchBoxFocus : style.searchBoxBlur} type="text" placeholder="Search Products" name="search" autoComplete='off' />
-              <SearchIcon onClick={searchFocus} fontSize='large' />
+              <form onSubmit={handleSubmit}>
+              <input onChange={(e) => {searchHandler(e)}} className={searchActive ? style.searchBoxFocus : style.searchBoxBlur} type="text" placeholder="Search Products" name="search" autoComplete='off' />
+              <button type="submit"><SearchIcon onClick={searchFocus} fontSize='large'/></button>
+              </form>
               </div>
             <div onClick={accountFocus}>
               <PersonIcon fontSize='large' />

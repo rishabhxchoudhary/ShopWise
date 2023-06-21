@@ -13,4 +13,13 @@ async function updateCart(id: String, items: any) {
   return data;
 }
 
-export { getCart, updateCart };
+async function mergeCarts(oldCart: any, newCart: any) {
+  await connectToDatabase();
+  const data = await Cart.updateOne(
+    { _id: oldCart._id },
+    { items: [...oldCart.items, ...newCart.items] }
+  );
+  return data;
+}
+
+export { getCart, updateCart, mergeCarts };

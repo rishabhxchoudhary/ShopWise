@@ -5,10 +5,13 @@ import { useDispatch } from "react-redux";
 import HomePageCarousel from "@/components/HomePage/HomePageCarousel";
 import ProductSection from "@/components/HomePage/ProductSection";
 import { useEffect, useState } from "react";
+import { useSession } from "next-auth/react";
 
 
 export default function Home() {
   // const { data: session } = useSession()
+
+  const { data: session } = useSession()
   const banners = [
     { link: '/', image: '/homePageCarousel/banner1.jpeg' },
     { link: '/', image: '/homePageCarousel/banner2.webp' },
@@ -18,6 +21,7 @@ export default function Home() {
   const dispatch = useDispatch()
 
   const [groupedProducts, setGroupedProducts] = useState<{ [key: string]: any[] }>({})
+  
   useEffect(() => {
     async function getData(){
       dispatch(start());
@@ -28,7 +32,14 @@ export default function Home() {
       dispatch(stop());
     }
     getData();
-  },[])
+
+    //if user is not signed in and cart item is not created in local storage then create it
+    if (!session && !localStorage.getItem('cart')) {
+      localStorage.setItem('cart', JSON.stringify([]));
+      console.log('cart created in local storage');
+    }
+
+  }, []);
 
   return (
       <div className="flex flex-col justify-between">

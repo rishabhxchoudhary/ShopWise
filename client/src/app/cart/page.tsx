@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { useDispatch } from "react-redux";
 import { start, stop } from "@/redux/features/loading/loadingSlice";
+import { useSession } from 'next-auth/react';
 import CheckoutComponent from '@/components/Cart/Checkout';
 
 interface CartProduct {
@@ -20,9 +21,16 @@ interface CartProduct {
 
 const CartPage: React.FC = () => {
   const dispatch = useDispatch();
+  const { data: session } = useSession()
   const [cartData, setCartData] = useState<CartProduct[]>([]);
 
   useEffect(() => {
+
+    if (!session ) {
+      setCartData(JSON.parse(localStorage.getItem('cart') || '[]'));
+      return;
+    }
+
     const getcart = async () =>{
       dispatch(start());
       const cart = await fetch('/api/cart',{
@@ -37,6 +45,27 @@ const CartPage: React.FC = () => {
       dispatch(stop());
     }
     getcart();
+
+    if (session && localStorage.getItem('cart'))
+    {
+      const mergeCart = async () => {
+        const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+        if (cart.length === 0) return;
+        const res = await fetch('/api/cart/merge', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ cart }),
+        });
+        const data = await res.json();
+        setCartData(data.data);
+        localStorage.setItem('cart', JSON.stringify([]));
+      };
+      mergeCart();
+      console.log('cart merged');
+    }
+    
   },[]);
 
   // useEffect(() => {
@@ -48,6 +77,15 @@ const CartPage: React.FC = () => {
   // }, [cartData]);
 
   const handleUpdateQuantity = async (product: CartProduct, newQuantity: number) => {
+    if (!session) {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const index = cart.findIndex((item: CartProduct) => item._id === product._id);
+      if (index === -1) return;
+      cart[index].quantity = newQuantity;
+      setCartData(cart);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      return;
+    }
     if (newQuantity<1) return;
     dispatch(start());
     const cart = await fetch('/api/cart/changequantity',{
@@ -66,6 +104,15 @@ const CartPage: React.FC = () => {
   };
 
   const handleRemoveItem = async (product: CartProduct) => {
+    if (!session) {
+      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+      const index = cart.findIndex((item: CartProduct) => item._id === product._id);
+      if (index === -1) return;
+      cart.splice(index, 1);
+      setCartData(cart);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      return;
+    }
     dispatch(start());
     const cart = await fetch('/api/cart/remove',{
       method: 'POST',
@@ -119,7 +166,7 @@ const CartPage: React.FC = () => {
                     </svg>
                   </button>
                 </h2>
-                {product.variant.map((option) => (
+                { product.variant.map((option) => (
                   <p key={option.option} className="text-sm mb-1">
                     {option.option}: {option.value}
                   </p>
