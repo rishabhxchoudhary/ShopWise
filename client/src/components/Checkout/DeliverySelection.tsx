@@ -16,14 +16,15 @@ import { useState } from "react";
 
 interface DeliverySelectionProps {
   addresses: Address[];
+  setAddresses: (addresses: Address[]) => void;
     selectedAddressId: number | null;
     setSelectedAddressId: (addressId: number | null) => void;
 }
 
-const DeliverySelection: React.FC<DeliverySelectionProps> = ({ addresses,selectedAddressId,setSelectedAddressId }) => {
+const DeliverySelection: React.FC<DeliverySelectionProps> = ({ addresses,setAddresses,selectedAddressId,setSelectedAddressId }) => {
   const [showAddForm, setShowAddForm] = useState(false);
   const [newAddress, setNewAddress] = useState<Address>({
-    id: 0,
+    id: Date.now(),
     name: "",
     mobile: "",
     addressLine1: "",
@@ -41,11 +42,20 @@ const DeliverySelection: React.FC<DeliverySelectionProps> = ({ addresses,selecte
 
   const handleAddFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    addresses.push(newAddress);
+    setAddresses([...addresses, newAddress]);
+    fetch("/api/address/add",{
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            "newAddress": newAddress,
+        }),
+    })
     // createAddress(newAddress); // Replace `createAddress` with your actual API call function
     setShowAddForm(false);
     setNewAddress({
-      id: 0,
+      id: Date.now(),
       name: "",
       mobile: "",
       addressLine1: "",
@@ -60,6 +70,16 @@ const DeliverySelection: React.FC<DeliverySelectionProps> = ({ addresses,selecte
 
   const handleDeleteAddress = (addressId: number) => {
     // deleteAddress(addressId); // Replace `deleteAddress` with your actual API call function
+    setAddresses(addresses.filter((address) => address.id !== addressId));
+    fetch("/api/address/remove",{
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            "addressId": addressId,
+        }),
+    })
   };
 
   return (

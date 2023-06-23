@@ -56,44 +56,58 @@ const paymentMethods = [
     // And more.
 ];
 
-const data = {
-    "addresses": [
-      {
-        "id": 1,
-        "name": "John Doe",
-        "mobile": "1234567890",
-        "addressLine1": "123 Main St",
-        "addressLine2": "Apartment 4B",
-        "pincode": "10001",
-        "landmark": "Central Park",
-        "city": "New York",
-        "state": "NY",
-        "country": "USA"
-      },
-      {
-        "id": 2,
-        "name": "Jane Smith",
-        "mobile": "9876543210",
-        "addressLine1": "456 Elm St",
-        "addressLine2": "Unit 5",
-        "pincode": "90001",
-        "landmark": "Hollywood Walk of Fame",
-        "city": "Los Angeles",
-        "state": "CA",
-        "country": "USA"
-      }
-    ]
-}
+// const data = {
+//     "addresses": [
+//       {
+//         "id": 1,
+//         "name": "John Doe",
+//         "mobile": "1234567890",
+//         "addressLine1": "123 Main St",
+//         "addressLine2": "Apartment 4B",
+//         "pincode": "10001",
+//         "landmark": "Central Park",
+//         "city": "New York",
+//         "state": "NY",
+//         "country": "USA"
+//       },
+//       {
+//         "id": 2,
+//         "name": "Jane Smith",
+//         "mobile": "9876543210",
+//         "addressLine1": "456 Elm St",
+//         "addressLine2": "Unit 5",
+//         "pincode": "90001",
+//         "landmark": "Hollywood Walk of Fame",
+//         "city": "Los Angeles",
+//         "state": "CA",
+//         "country": "USA"
+//       }
+//     ]
+// }
 
 const CheckoutPage: React.FC = () => {
-
+    const [addresses, setAddresses] = useState<Address[]>([]);
     const [selectedPaymentMethod, setSelectedPaymentMethod] = useState<string | null>(null);
     const [selectedAddressId, setSelectedAddressId] = useState<number | null>(1);
     const [selectedAddress, setSelectedAddress] = useState<Address | undefined>(undefined);
 
     useEffect(() => {
+        const getAddresses = async () =>{
+            const response = await fetch('/api/address/fetch',{
+                method: 'GET',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+            });
+            const data = await response.json();
+            setAddresses(data.data.addresses);
+        }
+        getAddresses();
+    },[])
+
+    useEffect(() => {
         if (selectedAddressId) {
-            const address = data.addresses.find((address) => address.id === selectedAddressId);
+            const address = addresses.find((address) => address.id === selectedAddressId);
             setSelectedAddress(address);
         }
         else{
@@ -104,7 +118,8 @@ const CheckoutPage: React.FC = () => {
     return (
     <div className='mb-10'>
         <DeliverySelection 
-        addresses={data.addresses} 
+        addresses={addresses} 
+        setAddresses={setAddresses}
         selectedAddressId={selectedAddressId}
         setSelectedAddressId={setSelectedAddressId}
         />

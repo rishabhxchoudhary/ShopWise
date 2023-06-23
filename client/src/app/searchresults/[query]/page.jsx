@@ -1,4 +1,3 @@
-
 "use client"
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -27,7 +26,6 @@ export default function Page() {
         });
         const data = await response.json();
         setSearchData(data.data);
-        console.log(data.data);
       } catch (error) {
         console.error('Error fetching search data: ', error);
       }

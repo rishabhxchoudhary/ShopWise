@@ -40,7 +40,6 @@ const CartPage: React.FC = () => {
         },
       });
       const cartData = await cart.json();
-      console.log(cartData.data)
       setCartData(cartData.data);
       dispatch(stop());
     }
@@ -59,7 +58,6 @@ const CartPage: React.FC = () => {
         });
         const data = await res.json();
         setCartData(data.data);
-        console.log(data.data)
         localStorage.removeItem('cart');
       };
       mergeCart();
