@@ -14,6 +14,7 @@
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.13.4",
     "@reduxjs/toolkit": "^1.9.5",
+    "@stripe/stripe-js": "^1.54.1",
     "@types/mongoose": "^5.11.97",
     "@types/node": "20.2.5",
     "@types/react": "18.2.8",
@@ -29,6 +30,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-redux": "^8.0.7",
+    "stripe": "^12.10.0",
     "tailwindcss": "3.3.2",
     "typescript": "5.1.3"
   }

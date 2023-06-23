@@ -24,6 +24,7 @@ const PaymentSelection: React.FC<PaymentSelectionProps> = ({
   return (
     <div className="mx-auto pb-8">
         <h2 className="text-2xl font-bold mb-4">Payment Selection</h2>
+          {selectedPaymentMethod == null && (<p className="text-sm text-red-500">*Please select a payment Method</p>)}
         <div className="flex flex-wrap justify-start gap-2">
             {paymentMethods.map(({ method, image }) => (
                 <div

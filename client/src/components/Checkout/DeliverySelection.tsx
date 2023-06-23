@@ -87,6 +87,7 @@ const DeliverySelection: React.FC<DeliverySelectionProps> = ({ addresses,setAddr
         <div className="container mx-auto py-8">
             <h2 className="text-2xl font-bold mb-4">Delivery Selection</h2>
             {/* Render past addresses */}
+            {selectedAddressId == null && (<p className="text-red-500 text-sm">*Please Select an Address {selectedAddressId}</p>)}
             {addresses.map((address) => (
                 <div key={address.id} onClick={() => handleAddressSelection(address.id)} className={`bg-white shadow border rounded p-4 m-1 ${
                     selectedAddressId === address.id ? "border-blue-500" : ""
