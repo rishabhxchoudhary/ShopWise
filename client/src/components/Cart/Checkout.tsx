@@ -40,7 +40,7 @@ const CheckoutComponent: React.FC<CheckoutComponentProps> = ({cartData}) => {
       <h2 className="text-2xl font-bold mb-4">Price Details</h2>
       <div className="text-black rounded-lg p-6 w-1/2">
 
-        <p className="text-lg mb-2">Price({cartQuantity} items): <span className='text-green-500 font-semibold'>${cartTotal}</span> </p>
+        <p className="text-lg mb-2">Price({cartQuantity} items): <span className='text-green-500 font-semibold'>₹{cartTotal}</span> </p>
         {session?.user ? (
           <>
             <Link href={"/checkout"} className="bg-black text-white px-4 py-2 rounded-md mt-4">

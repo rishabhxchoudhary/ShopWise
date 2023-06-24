@@ -16,14 +16,15 @@ import { useState } from "react";
 
 interface DeliverySelectionProps {
   addresses: Address[];
+  setAddresses: (addresses: Address[]) => void;
     selectedAddressId: number | null;
     setSelectedAddressId: (addressId: number | null) => void;
 }
 
-const DeliverySelection: React.FC<DeliverySelectionProps> = ({ addresses,selectedAddressId,setSelectedAddressId }) => {
+const DeliverySelection: React.FC<DeliverySelectionProps> = ({ addresses,setAddresses,selectedAddressId,setSelectedAddressId }) => {
   const [showAddForm, setShowAddForm] = useState(false);
   const [newAddress, setNewAddress] = useState<Address>({
-    id: 0,
+    id: Date.now(),
     name: "",
     mobile: "",
     addressLine1: "",
@@ -41,11 +42,20 @@ const DeliverySelection: React.FC<DeliverySelectionProps> = ({ addresses,selecte
 
   const handleAddFormSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    addresses.push(newAddress);
+    setAddresses([...addresses, newAddress]);
+    fetch("/api/address/add",{
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            "newAddress": newAddress,
+        }),
+    })
     // createAddress(newAddress); // Replace `createAddress` with your actual API call function
     setShowAddForm(false);
     setNewAddress({
-      id: 0,
+      id: Date.now(),
       name: "",
       mobile: "",
       addressLine1: "",
@@ -60,6 +70,16 @@ const DeliverySelection: React.FC<DeliverySelectionProps> = ({ addresses,selecte
 
   const handleDeleteAddress = (addressId: number) => {
     // deleteAddress(addressId); // Replace `deleteAddress` with your actual API call function
+    setAddresses(addresses.filter((address) => address.id !== addressId));
+    fetch("/api/address/remove",{
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+            "addressId": addressId,
+        }),
+    })
   };
 
   return (
@@ -67,6 +87,7 @@ const DeliverySelection: React.FC<DeliverySelectionProps> = ({ addresses,selecte
         <div className="container mx-auto py-8">
             <h2 className="text-2xl font-bold mb-4">Delivery Selection</h2>
             {/* Render past addresses */}
+            {selectedAddressId == null && (<p className="text-red-500 text-sm">*Please Select an Address {selectedAddressId}</p>)}
             {addresses.map((address) => (
                 <div key={address.id} onClick={() => handleAddressSelection(address.id)} className={`bg-white shadow border rounded p-4 m-1 ${
                     selectedAddressId === address.id ? "border-blue-500" : ""

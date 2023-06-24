@@ -1,7 +1,9 @@
 "use client"
 import { start, stop } from "@/redux/features/loading/loadingSlice";
+import getStripe from "@/utils/get-stripe";
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import Stripe from "stripe";
 
 interface Address {
   id: number;
@@ -90,65 +92,33 @@ const Summary: React.FC<SummaryProps> = ({ address, paymentMethod }) => {
             {cartData.map((item) => (
               <div key={item._id} className="flex justify-start">
                 <span className="font-bold pr-2">{item.name}</span> {item.variant.map((variant) => ( <span className="pr-1" key={variant.option}> {variant.option}: {variant.value},</span>) )}
-                <span> {item.quantity} x ${item.price}</span>
+                <span> {item.quantity} x ₹{item.price}</span>
               </div>
             ))}
             </div>
-            <div className="py-2"> <span className="font-bold">Total Amount: </span>${getTotalAmount()}</div>
+            <div className="py-2"> <span className="font-bold">Total Amount: </span>₹{getTotalAmount()}</div>
           </div>
-          <button disabled={true} className='bg-black text-white px-6 py-2'>Place Order</button>
+          <button onClick={async ()=>{
+            const res = fetch('/api/checkout_session',{
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+              },
+              body: JSON.stringify({
+                amount: getTotalAmount(),
+                addressId: address.id,
+              })
+            })
+            const checkoutSession: Stripe.Checkout.Session = await (await res).json();
+            console.log(checkoutSession);
+            const stripe = await getStripe();
+            const { error } = await stripe!.redirectToCheckout({
+              sessionId: checkoutSession.id,
+            });
+          }} disabled={false} className='bg-black text-white px-6 py-2'>Place Order</button>
           </>
         )}
       </div>
-    </div>
-
-
-
-    <div className="hidden">
-
-    {}
-    <div className="container mx-auto py-8">
-      <h2 className="text-2xl font-bold mb-4">Order Summary</h2>
-      {address && (
-        <div className="mb-4">
-          <h3 className="text-lg font-bold mb-2">Delivery Address</h3>
-          <p>{address.name}</p>
-          <p>{address.mobile}</p>
-          <p>{address.addressLine1}</p>
-          <p>{address.addressLine2}</p>
-          <p>{address.landmark}</p>
-          <p>
-            {address.city}, {address.state}, {address.country} - {address.pincode}
-          </p>
-        </div>
-      )}
-      <div>
-        <h3 className="text-lg font-bold mb-2">Order Items</h3>
-        {cartData.map((item) => (
-          <>
-          <div key={item._id} className="flex items-center mb-2">
-            {/* <img src={item.image} alt={item.name} className="w-12 h-12 mr-2" /> */}
-            <div>
-              <p>{item.name}</p>
-              <p>Price: ${item.price}</p>
-              <p>Quantity: {item.quantity}</p>
-              <p>
-                Variant:{" "}
-                {item.variant.map((v) => `${v.option}: ${v.value}`).join(", ")}
-              </p>
-            </div>
-          </div>
-          
-          </>
-        ))}
-      </div>
-      <div className="mt-4">
-        <h3 className="text-lg font-bold">Total Amount: ${getTotalAmount()}</h3>
-        <p>Order ID: {orderId}</p>
-        <p>Date of Order: {new Date().toLocaleDateString()}</p>
-      </div>
-    </div>
-    
     </div>
     </>
   );

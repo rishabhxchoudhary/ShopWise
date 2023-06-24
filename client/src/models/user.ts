@@ -4,7 +4,7 @@ interface IUser extends Document {
   email: string;
   name: string;
   image?: string;
-  addresses: string[];
+  addresses: object[];
   isAdmin: boolean;
   cart: string;
   orders: number[];
@@ -26,7 +26,7 @@ const UserSchema: Schema = new Schema(
       default: "",
     },
     addresses: {
-      type: [String],
+      type: [Object],
       default: [],
     },
     isAdmin: {
@@ -38,7 +38,7 @@ const UserSchema: Schema = new Schema(
       required: true,
     },
     orders: {
-      type: [Number],
+      type: [String],
       default: [],
     },
   },

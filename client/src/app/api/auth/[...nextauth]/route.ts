@@ -10,13 +10,12 @@ export const authOptions = {
   secret: "1234",
   providers: [
     GoogleProvider({
-      clientId:
-        "739070115775-ji2de8gob2vacljoec76eeotkqp5hju1.apps.googleusercontent.com",
-      clientSecret: "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",
+      clientId: process.env.NEXT_APP_GOOGLE_CLIENT_ID || "",
+      clientSecret: process.env.NEXT_APP_GOOGLE_CLIENT_SECRET || "",
     }),
     FacebookProvider({
       clientId: "1380788252709063",
-      clientSecret: "f9c5e36d7c3d917ee212c8078ec05093",
+      clientSecret: process.env.NEXT_APP_FACEBOOK_CLIENT_SECRET || "",
     }),
     CredentialsProvider({
       name: "credentials",
@@ -46,7 +45,7 @@ export const authOptions = {
   pages: {
     signIn: "/login",
   },
-  database: "mongodb+srv://root:root@cluster0.smibz3t.mongodb.net/",
+  database: process.env.NEXT_APP_MONGO_URI,
   callbacks: {
     async session(session: any) {
       let user = session.session.user;
