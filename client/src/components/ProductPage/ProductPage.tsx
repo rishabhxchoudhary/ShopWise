@@ -1,6 +1,6 @@
 "use client"
 import { useSession } from "next-auth/react"
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import ProductPageCss from './ProductPage.module.css'
 import ImageCarousel from './ImageCarousal';
 import StarRating from './Star';
@@ -81,50 +81,33 @@ type VariantSelection = {
 
 type Prop = {
   id: string;
+  price: number;
+  name: string;
+  description: string;
+  variants: Variant[];
+  images: ImageUrls;
+  ratings: Rating;
+  reviews: Review[];
+  specifications: Specifications;
+  tags: string[];
 }
 
-const ProductPage = ({id}: Prop) => {
+const ProductPage = ({id, name, price, description, variants, images, ratings, reviews, specifications, tags }: Prop) => {
   const { data:session } = useSession();
-  const [product, setProduct] = useState<Product | null>(null);
   const [selection, setSelection] = useState<VariantSelection>({});
   const [quantity,setQuantity] = useState(1);
   const dispatch = useDispatch()
-
-
-  useEffect(() => {
-    const fetchProduct = async () => {
-      dispatch(start());
-      try {
-        
-        const response = await fetch(`/api/product/getProductDetails`,{
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                id: id
-            })});
-        const data = await response.json();
-        setProduct(data.data);
-      } catch (error) {
-        console.error('Error fetching product:', error);
-      }
-      dispatch(stop());
-    };
-    fetchProduct();
-
-  }, []);
 
   const AddtoCart = async () => {
     dispatch(start());
 
     const cur_product: CartProduct = {
-      _id: product?._id || "",
-      name: product?.name || "",
-      image: product?.images[Object.keys(product?.images)[0]] || "",
+      _id: id || "",
+      name: name || "",
+      image: images[Object.keys(images)[0]] || "",
       variant: [],
       quantity: quantity,
-      price: product?.price || 0,
+      price: price || 0,
     }
     Object.keys(selection).forEach((option) => {
       cur_product.variant.push({
@@ -158,10 +141,7 @@ const ProductPage = ({id}: Prop) => {
     console.log("Buy now clicked")
   }
 
-  if (!product) {
-    return <div className='min-h-[90vh]'></div>
-  }
-  const { name, description, variants, images, ratings, reviews, specifications, tags } = product;
+  // const { name, description, variants, images, ratings, reviews, specifications, tags } = product;
 
   return (
     <div className={ProductPageCss.main}>
@@ -180,7 +160,7 @@ const ProductPage = ({id}: Prop) => {
               </div>
             </div>
             <div className={ProductPageCss.Price}>
-                <div className={`${ProductPageCss.price} text-2xl font-semibold`}>Price: $ {product.price}</div>
+                <div className={`${ProductPageCss.price} text-2xl font-semibold`}>Price: $ {price}</div>
             </div>
             <div className={ProductPageCss.variants}>
               <Variants variants={variants} selection={selection} setSelection={setSelection}/>
@@ -191,7 +171,7 @@ const ProductPage = ({id}: Prop) => {
                 </div>
             </div>
             <div className={ProductPageCss.AddToCart}>
-                <CartActions totalAmount={Math.round((quantity * product.price * 1000)/1000)} onAddToCart={AddtoCart} onBuy={BuyNow} />
+                <CartActions totalAmount={Math.round((quantity * price * 1000)/1000)} onAddToCart={AddtoCart} onBuy={BuyNow} />
             </div>
         </div>
     </div>

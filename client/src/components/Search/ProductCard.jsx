@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+"use client"
+import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 export default function ProductCard({ product }) {
   const imageKeys = Object.keys(product.images);
-  const [currentImage, setCurrentImage] = useState(imageKeys[0]);
+  const currentImage = imageKeys[0];
 
   return (
     <motion.div

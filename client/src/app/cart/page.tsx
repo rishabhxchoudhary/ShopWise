@@ -67,14 +67,6 @@ const CartPage: React.FC = () => {
     
   },[session]);
 
-  // useEffect(() => {
-  //   dispatch(start());
-  //   if (cartData.length != 0) {
-  //     localStorage.setItem('cart', JSON.stringify(cartData));
-  //   }
-  //   dispatch(stop());
-  // }, [cartData]);
-
   const handleUpdateQuantity = async (product: CartProduct, newQuantity: number) => {
     if (!session) {
       const cart = JSON.parse(localStorage.getItem('cart') || '[]');

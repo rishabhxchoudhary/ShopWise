@@ -1,13 +1,10 @@
 "use client"
 import Link from 'next/link'
-import Image from 'next/image'
-import style from '../style/navbar.module.css'
+import style from './navbar.module.css'
 import { useRouter } from 'next/navigation'
 
 import { useState, useEffect } from 'react';
 import { useSession, signIn, signOut } from "next-auth/react"
-import { useDispatch } from "react-redux";
-import { start, stop } from "@/redux/features/loading/loadingSlice";
 
 
 import SearchIcon from '@mui/icons-material/Search';
@@ -27,17 +24,13 @@ export default function Navbar() {
   const [searchQuery, setSearchQuery] = useState('')
   const router = useRouter()
 
-  const dispatch = useDispatch()
-
   const [groupedProducts, setGroupedProducts] = useState<{ [key: string]: any[] }>({})
   useEffect(() => {
     async function getData(){
-      dispatch(start());
       const res = await fetch('/api/home');
       const data = await res.json();
       const products = data.data;
       setGroupedProducts(products);
-      dispatch(stop());
     }
     getData();
   },[])
