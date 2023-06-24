@@ -105,8 +105,8 @@ export default function Navbar() {
                 }
               </div>
             </div>
-            <Link href="/" className={searchActive ? style.navHide : style.navLink}>
-              <span>Link 1</span>
+            <Link href="/sell" className={searchActive ? style.navHide : style.navLink}>
+              <span>Sell</span>
             </Link>
             {/* search box with logo */}
             <div className={style.navSearch}>
