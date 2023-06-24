@@ -13,7 +13,7 @@ const CartActions: React.FC<CartActionsProps> = ({
 }) => {
   return (
     <div className="flex flex-col items-start justify-between">
-      <div className="text-lg font-bold">Total Amount: ${totalAmount}</div>
+      <div className="text-lg font-bold">Total Amount: ₹{totalAmount}</div>
       <div>
         <button
           className="px-4 py-2 mr-4 text-black border border-slate-950 bg-white rounded-lg"

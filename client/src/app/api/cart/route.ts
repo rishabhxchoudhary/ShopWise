@@ -9,7 +9,6 @@ export async function GET() {
     const cartId = session.user.cart;
     const data = await getCart(cartId);
     const cartData = data?.items;
-    cartData;
     return NextResponse.json({ data: cartData });
   } catch (error) {
     error;

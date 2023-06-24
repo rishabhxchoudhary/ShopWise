@@ -92,11 +92,11 @@ const Summary: React.FC<SummaryProps> = ({ address, paymentMethod }) => {
             {cartData.map((item) => (
               <div key={item._id} className="flex justify-start">
                 <span className="font-bold pr-2">{item.name}</span> {item.variant.map((variant) => ( <span className="pr-1" key={variant.option}> {variant.option}: {variant.value},</span>) )}
-                <span> {item.quantity} x ${item.price}</span>
+                <span> {item.quantity} x ₹{item.price}</span>
               </div>
             ))}
             </div>
-            <div className="py-2"> <span className="font-bold">Total Amount: </span>${getTotalAmount()}</div>
+            <div className="py-2"> <span className="font-bold">Total Amount: </span>₹{getTotalAmount()}</div>
           </div>
           <button onClick={async ()=>{
             const res = fetch('/api/checkout_session',{
@@ -106,12 +106,12 @@ const Summary: React.FC<SummaryProps> = ({ address, paymentMethod }) => {
               },
               body: JSON.stringify({
                 amount: getTotalAmount(),
+                addressId: address.id,
               })
             })
             const checkoutSession: Stripe.Checkout.Session = await (await res).json();
+            console.log(checkoutSession);
             const stripe = await getStripe();
-            console.log("checkoutSession",checkoutSession)
-            console.log("stripe",stripe)
             const { error } = await stripe!.redirectToCheckout({
               sessionId: checkoutSession.id,
             });

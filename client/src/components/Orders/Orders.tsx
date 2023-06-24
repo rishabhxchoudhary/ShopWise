@@ -1,8 +1,8 @@
-"use client"
-import { useState } from 'react';
+import Link from "next/link";
+import { redirect } from "next/navigation";
 
 type Order = {
-  orderId: string;
+  _id: string;
   orderDate: string;
   status: string;
   items: {
@@ -10,7 +10,10 @@ type Order = {
     name: string;
     quantity: number;
     price: number;
+    image: string;
   }[];
+  sessionId: string;
+  Address: Object;
 };
 
 type OrdersProps = {
@@ -18,16 +21,16 @@ type OrdersProps = {
 };
 
 const Orders: React.FC<OrdersProps> = ({ orders }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const ordersPerPage = 5;
+  // const [currentPage, setCurrentPage] = useState(1);
+  // const ordersPerPage = 5;
 
   // Calculate pagination indexes
-  const indexOfLastOrder = currentPage * ordersPerPage;
-  const indexOfFirstOrder = indexOfLastOrder - ordersPerPage;
-  const currentOrders = orders.slice(indexOfFirstOrder, indexOfLastOrder);
+  // const indexOfLastOrder = currentPage * ordersPerPage;
+  // const indexOfFirstOrder = indexOfLastOrder - ordersPerPage;
+  // const currentOrders = orders.slice(indexOfFirstOrder, indexOfLastOrder);
 
   // Change page
-  const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
+  // const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   // Define box color based on status
   const getStatusColor = (status: string) => {
@@ -46,14 +49,15 @@ const Orders: React.FC<OrdersProps> = ({ orders }) => {
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8">
       <h1 className="text-2xl font-bold mb-4">Your Orders</h1>
-      {currentOrders.map((order) => (
+      {orders.map((order) => (
+        <Link href={`/orders/${order._id}`} key={order._id}>
         <div
-          key={order.orderId}
+          
           className={`bg-white p-4 mb-4 shadow`}
         >
           <div className="flex items-center justify-between mb-2">
-            <h2 className="text-lg font-semibold">Order #{order.orderId}</h2>
-            <p className="text-sm">{order.orderDate}</p>
+            <h2 className="text-lg font-semibold">Order #{order._id}</h2>
+            <p className="text-sm">{new Date(order.orderDate).toDateString()}</p>
           </div>
           <div className="mb-2">
             <h3 className={`text-sm font-semibold`}>Status: <span className={`${getStatusColor(order.status)}`}>{order.status}</span></h3>
@@ -68,10 +72,11 @@ const Orders: React.FC<OrdersProps> = ({ orders }) => {
             ))}
           </ul>
         </div>
+        </Link>
       ))}
 
     {/* Pagination */}
-    <div className="flex justify-center py-10">
+    {/* <div className="flex justify-center py-10">
         {currentPage > 1 && (
           <button
             className="mx-1 px-2 py-1 rounded bg-black text-white"
@@ -115,7 +120,7 @@ const Orders: React.FC<OrdersProps> = ({ orders }) => {
             Next
           </button>
         )}
-      </div>
+      </div> */}
     </div>
 
   );

@@ -38,7 +38,7 @@ const UserSchema: Schema = new Schema(
       required: true,
     },
     orders: {
-      type: [Number],
+      type: [String],
       default: [],
     },
   },

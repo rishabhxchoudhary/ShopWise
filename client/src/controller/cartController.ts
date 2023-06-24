@@ -57,4 +57,9 @@ async function mergeCarts(oldCart: any, newCart: any) {
   return oldCart;
 }
 
-export { getCart, updateCart, mergeCarts };
+async function clearCart(id: string) {
+  await connectToDatabase();
+  const data = await Cart.updateOne({ _id: id }, { items: [] });
+  return data;
+}
+export { getCart, updateCart, mergeCarts, clearCart };
