@@ -18,30 +18,21 @@ interface CartProduct {
   price: number;
   quantity: number;
 }
+interface CartPageProps {
+  cartdata: CartProduct[];
+  session: any;
+}
 
-const CartPage: React.FC = ({ session, cartdata }: any) => {
+const CartPage: React.FC<CartPageProps> = ({ session, cartdata }) => {
+  console.log("cart: ", session);
   const dispatch = useDispatch();
-  const [cartData, setCartData] = useState<CartProduct[]>(cartdata);
+  const [cartData, setCartData] = useState(cartdata);
 
   useEffect(() => {
     if (!session) {
       setCartData(JSON.parse(localStorage.getItem("cart") || "[]"));
       return;
     }
-
-    const getcart = async () => {
-      dispatch(start());
-      const cart = await fetch("/api/cart", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const cartData = await cart.json();
-      setCartData(cartData.data);
-      dispatch(stop());
-    };
-
     if (localStorage.getItem("cart")) {
       const mergeCart = async () => {
         const cart = JSON.parse(localStorage.getItem("cart") || "[]");
@@ -60,7 +51,6 @@ const CartPage: React.FC = ({ session, cartdata }: any) => {
       mergeCart();
       console.log("cart merged");
     }
-    getcart();
   }, [session]);
 
   const handleUpdateQuantity = async (
@@ -133,7 +123,7 @@ const CartPage: React.FC = ({ session, cartdata }: any) => {
       ) : (
         <>
           <div className={`${CSS.left} lg:max-h-[80vh]`}>
-            {cartData?.map((product) => (
+            {cartData?.map((product: any) => (
               <div
                 key={product._id}
                 className="flex flex-wrap items-center border-b py-4"
@@ -182,7 +172,7 @@ const CartPage: React.FC = ({ session, cartdata }: any) => {
                       </svg>
                     </button>
                   </h2>
-                  {product.variant?.map((option) => (
+                  {product.variant?.map((option: any) => (
                     <p key={option.option} className="text-sm mb-1">
                       {option.option}: {option.value}
                     </p>
