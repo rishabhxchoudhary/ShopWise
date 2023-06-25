@@ -65,7 +65,7 @@ export default function Navbar() {
   }
 
   const handleSubmit = (e: any) => {
-    console.log(searchQuery)
+    // console.log(searchQuery)
     e.preventDefault()
     router.push(`/searchresults/${searchQuery}`)
   }

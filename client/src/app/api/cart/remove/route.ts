@@ -15,7 +15,7 @@ export async function POST(req: Request) {
     await updateCart(cartId, updatedCart);
     return NextResponse.json({ data: updatedCart });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return NextResponse.json({ data: [] });
   }
 }

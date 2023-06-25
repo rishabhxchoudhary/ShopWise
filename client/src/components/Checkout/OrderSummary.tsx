@@ -110,7 +110,7 @@ const Summary: React.FC<SummaryProps> = ({ address, paymentMethod }) => {
               })
             })
             const checkoutSession: Stripe.Checkout.Session = await (await res).json();
-            console.log(checkoutSession);
+            // console.log(checkoutSession);
             const stripe = await getStripe();
             const { error } = await stripe!.redirectToCheckout({
               sessionId: checkoutSession.id,

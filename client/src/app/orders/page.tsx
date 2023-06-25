@@ -8,7 +8,7 @@ export default async function OrdersPage() {
   const session = await getServerSession(authOptions);
   if (session?.user.email){
     const orders: any[]  = await getOrdersByUser(session.user.email);
-    console.log(orders);
+    // console.log(orders);
     return (
         <div>
           <Orders orders={orders} />

@@ -7,7 +7,6 @@ export async function POST(req: Request) {
   try {
     const body = await req.json();
     const { newAddress } = body;
-    console.log(newAddress);
     const session = await getServerSession(authOptions);
     const email = session.user.email;
     await addNewAddress(email, newAddress);

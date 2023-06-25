@@ -15,7 +15,7 @@ const OrderPage = async ({ params }) => {
 
           <div className="bg-gray-100 p-6 mb-6">
             <h2 className="text-xl font-semibold mb-4">
-              Order ID: {order._id}
+              Order ID: {String(order._id)}
             </h2>
             <p className="text-sm text-gray-500">
               Order Date: {order.orderDate.toLocaleDateString()}
