@@ -3,10 +3,10 @@ import { NextPage } from "next";
 import Image from "next/image";
 import Link from "next/link";
 
-const OrderPage = async ({ params }) => {
+const OrderPage = async ({ params }: any) => {
   const { id } = params;
   try {
-    const order = await getOrderById(id);
+    const order: any = await getOrderById(id);
 
     if (order) {
       return (
@@ -63,7 +63,7 @@ const OrderPage = async ({ params }) => {
 
           <div className="bg-gray-100 p-6 mb-6">
             <h2 className="text-xl font-semibold mb-4">Items</h2>
-            {order.items.map((item: OrderItem) => (
+            {order.items.map((item: any) => (
               <Link href={`/product/${item._id}`} key={item._id}>
                 <div key={item._id} className="flex items-center mb-4">
                   <Image
@@ -81,7 +81,7 @@ const OrderPage = async ({ params }) => {
                     <p className="text-sm text-gray-500">
                       Variant:{" "}
                       {item.variant
-                        .map((v) => `${v.option}: ${v.value}`)
+                        .map((v: any) => `${v.option}: ${v.value}`)
                         .join(", ")}
                     </p>
                     <p className="text-sm text-gray-500">
