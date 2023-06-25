@@ -48,6 +48,7 @@ export const authOptions = {
   database: process.env.NEXT_APP_MONGO_URI,
   callbacks: {
     async session(session: any) {
+      console.log("Inside session callback");
       let user = session.session.user;
       if (user && user.email) {
         await connectToDatabase();
