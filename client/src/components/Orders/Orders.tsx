@@ -35,14 +35,14 @@ const Orders: React.FC<OrdersProps> = ({ orders }) => {
   // Define box color based on status
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'On the way':
-        return 'text-blue-500';
-      case 'Delivered':
-        return 'text-green-500';
-      case 'Cancelled':
-        return 'text-red-500';
+      case "On the way":
+        return "text-blue-500";
+      case "Delivered":
+        return "text-green-500";
+      case "Cancelled":
+        return "text-red-500";
       default:
-        return 'text-gray-500';
+        return "text-gray-500";
     }
   };
 
@@ -51,32 +51,39 @@ const Orders: React.FC<OrdersProps> = ({ orders }) => {
       <h1 className="text-2xl font-bold mb-4">Your Orders</h1>
       {orders.map((order) => (
         <Link href={`/orders/${order._id}`} key={order._id}>
-        <div
-          
-          className={`bg-white p-4 mb-4 shadow`}
-        >
-          <div className="flex items-center justify-between mb-2">
-            <h2 className="text-lg font-semibold">Order #{order._id}</h2>
-            <p className="text-sm">{new Date(order.orderDate).toDateString()}</p>
+          <div className={`bg-white p-4 mb-4 shadow`}>
+            <div className="flex items-center justify-between mb-2">
+              <h2 className="text-lg font-semibold">
+                Order #{String(order._id)}
+              </h2>
+              <p className="text-sm">
+                {new Date(order.orderDate).toDateString()}
+              </p>
+            </div>
+            <div className="mb-2">
+              <h3 className={`text-sm font-semibold`}>
+                Status:{" "}
+                <span className={`${getStatusColor(order.status)}`}>
+                  {order.status}
+                </span>
+              </h3>
+            </div>
+            <ul>
+              {order.items.map((item) => (
+                <li key={item.productId} className="mb-1">
+                  <p className="text-sm">
+                    {item.name} - Quantity: {item.quantity} - Price: $
+                    {item.price}
+                  </p>
+                </li>
+              ))}
+            </ul>
           </div>
-          <div className="mb-2">
-            <h3 className={`text-sm font-semibold`}>Status: <span className={`${getStatusColor(order.status)}`}>{order.status}</span></h3>
-          </div>
-          <ul>
-            {order.items.map((item) => (
-              <li key={item.productId} className="mb-1">
-                <p className="text-sm">
-                  {item.name} - Quantity: {item.quantity} - Price: ${item.price}
-                </p>
-              </li>
-            ))}
-          </ul>
-        </div>
         </Link>
       ))}
 
-    {/* Pagination */}
-    {/* <div className="flex justify-center py-10">
+      {/* Pagination */}
+      {/* <div className="flex justify-center py-10">
         {currentPage > 1 && (
           <button
             className="mx-1 px-2 py-1 rounded bg-black text-white"
@@ -122,7 +129,6 @@ const Orders: React.FC<OrdersProps> = ({ orders }) => {
         )}
       </div> */}
     </div>
-
   );
 };
 
