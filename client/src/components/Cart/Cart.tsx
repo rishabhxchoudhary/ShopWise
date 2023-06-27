@@ -23,6 +23,7 @@ interface CartPageProps {
   session: any;
 }
 
+
 const CartPage: React.FC<CartPageProps> = ({ session, cartdata }) => {
   console.log("cart: ", session);
   const dispatch = useDispatch();
