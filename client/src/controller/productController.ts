@@ -33,4 +33,10 @@ async function getProductsBySearchString(searchString: string) {
   return data;
 }
 
-export { getProductById, getHomeProducts, getProductsBySearchString };
+async function addProduct(product: any) {
+  await connectToDatabase();
+  const data = await Product.create(product);
+  return data;
+}
+
+export { getProductById, getHomeProducts, getProductsBySearchString, addProduct};
