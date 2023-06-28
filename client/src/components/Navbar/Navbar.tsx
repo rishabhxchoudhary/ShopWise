@@ -12,6 +12,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import PersonIcon from '@mui/icons-material/Person';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CategoryIcon from '@mui/icons-material/Category';
+import MobileNavbar from './MobileNavbar';
 
 
 export default function Navbar() {
@@ -37,11 +38,6 @@ export default function Navbar() {
 
   const searchFocus = () => {
     setSearchActive(!searchActive)
-    setCategoryActive(false)
-  }
-
-  const categoryFocus = () => {
-    setCategoryActive(!categoryActive)
   }
 
   const accountFocus = () => {
@@ -50,10 +46,6 @@ export default function Navbar() {
 
   const searchBlur = () => {
     setSearchActive(false)
-  }
-
-  const categoryBlur = () => {
-    setCategoryActive(false)
   }
 
   const accountBlur = () => {
@@ -82,22 +74,6 @@ export default function Navbar() {
             </Link>
           </div>
           <div className={style.navSection}>
-            <div onClick={categoryFocus} onBlur={categoryBlur} className={searchActive ? style.navHide : style.navLink}>
-              <span>Categories</span>
-              <KeyboardArrowDownIcon />
-              <div className={categoryActive ? style.categoryDrop : style.navHide}>
-                {
-                  groupedProducts && Object.entries(groupedProducts).map(([category, products]) => (
-
-                    <div className={style.categoryDropItem} key={category}>
-                      <Link href="/">
-                        {category}
-                      </Link>
-                    </div>
-                  ))
-                }
-              </div>
-            </div>
             <Link href="/sell" className={searchActive ? style.navHide : style.navLink}>
               <span>Sell</span>
             </Link>
@@ -140,56 +116,7 @@ export default function Navbar() {
           </div>
         </div>
         <div className={style.mobNavbarContainer}>
-          <div onClick={categoryFocus}>
-            <CategoryIcon fontSize='large' />
-            <div className={categoryActive ? style.mobDrop : style.navHide}>
-              {
-                groupedProducts && Object.entries(groupedProducts).map(([category, products]) => (
-                  <div className={style.mobDropItem} key={category}>
-                    <Link href="/">
-                      {category}
-                    </Link>
-                  </div>
-                ))
-              }
-            </div>
-          </div>
-          <div className={style.mobSideSection}>
-            <div className={style.mobSearch}>
-              <form onSubmit={handleSubmit}>
-              <input onChange={(e) => {searchHandler(e)}} className={searchActive ? style.searchBoxFocus : style.searchBoxBlur} type="text" placeholder="Search Products" name="search" autoComplete='off' />
-              <button type="submit"><SearchIcon onClick={searchFocus} fontSize='large'/></button>
-              </form>
-              </div>
-            <div onClick={accountFocus}>
-              <PersonIcon fontSize='large' />
-              <div className={accountActive ? style.mobSearch : style.navHide}>
-                {
-                  session ? (
-                    <div className={style.mobDrop}  style={{left: 'auto', right: '0'}}>
-                      <Link href="/orders" className={style.mobDropItem}>
-                        <span>Your Orders</span>
-                      </Link>
-                      <div className={style.mobDropItem}>
-                        <div onClick={() => signOut()}>Sign Out</div>
-                      </div>
-                    </div>
-                  ) : (
-                    <div className={style.mobDrop}>
-                      <div className={style.mobDropItem}>
-                        <div onClick={() => signIn()}>Sign In</div>
-                      </div>
-                    </div>
-                  )
-                }
-
-              </div>
-            </div>
-            <Link href="/cart">
-              <ShoppingCartIcon fontSize='large' />
-            </Link>
-          </div>
-
+          <MobileNavbar/>
         </div>
 
       </div>
