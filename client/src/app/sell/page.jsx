@@ -116,43 +116,84 @@ const handleAddVariantValue = (index) => {
     setFormData({ ...formData, reviews: updatedReviews });
   };
 
-  const handleAddSpecification = (name) => {
-    setFormData((prevData) => ({
-      ...prevData,
-      specifications: {
-        ...prevData.specifications,
-        [name]: [],
-      },
-    }));
-  };
-
-const handleSpecificationChange = (name, index, e) => {
-    const value = e.target.value;
-    const updatedSpecifications = [...formData.specifications[name]];
-    updatedSpecifications[index] = value;
-  
-    setFormData((prevFormData) => ({
+// Function to handle specification name change
+const handleSpecificationNameChange = (oldName, newName) => {
+  setFormData((prevFormData) => {
+    const updatedSpecifications = { ...prevFormData.specifications };
+    const values = updatedSpecifications[oldName];
+    delete updatedSpecifications[oldName];
+    updatedSpecifications[newName] = values;
+    return {
       ...prevFormData,
-      specifications: {
-        ...prevFormData.specifications,
-        [name]: updatedSpecifications,
-      },
-    }));
-  };
-
-const handleAddSpecificationValue = (name) => {
-  const updatedSpecifications = {
-    ...formData.specifications,
-    [name]: [...formData.specifications[name], ''],
-  };
-
-  setFormData((prevFormData) => ({
-    ...prevFormData,
-    specifications: updatedSpecifications,
-  }));
+      specifications: updatedSpecifications,
+    };
+  });
 };
 
-  
+// Function to handle specification value change
+const handleSpecificationValueChange = (name, index, event) => {
+  const { value } = event.target;
+  setFormData((prevFormData) => {
+    const updatedSpecifications = { ...prevFormData.specifications };
+    updatedSpecifications[name][index] = value;
+    return {
+      ...prevFormData,
+      specifications: updatedSpecifications,
+    };
+  });
+};
+
+// Function to add a new specification
+const handleAddSpecification = () => {
+  setFormData((prevFormData) => {
+    const updatedSpecifications = {
+      ...prevFormData.specifications,
+      [`${Date.now()}`]: [],
+    };
+    return {
+      ...prevFormData,
+      specifications: updatedSpecifications,
+    };
+  });
+};
+
+// Function to add a new value for a specification
+const handleAddSpecificationValue = (name) => {
+  setFormData((prevFormData) => {
+    const updatedSpecifications = {
+      ...prevFormData.specifications,
+      [name]: [...prevFormData.specifications[name], ""],
+    };
+    return {
+      ...prevFormData,
+      specifications: updatedSpecifications,
+    };
+  });
+};
+
+// Function to remove a specification
+const handleRemoveSpecification = (name) => {
+  setFormData((prevFormData) => {
+    const updatedSpecifications = { ...prevFormData.specifications };
+    delete updatedSpecifications[name];
+    return {
+      ...prevFormData,
+      specifications: updatedSpecifications,
+    };
+  });
+};
+
+// Function to remove a value from a specification
+const handleRemoveSpecificationSubValue = (name, index) => {
+  setFormData((prevFormData) => {
+    const updatedSpecifications = { ...prevFormData.specifications };
+    updatedSpecifications[name].splice(index, 1);
+    return {
+      ...prevFormData,
+      specifications: updatedSpecifications,
+    };
+  });
+};
 
 
   const handleSubmit = (e) => {
@@ -414,18 +455,17 @@ const handleAddSpecificationValue = (name) => {
             Add Review
           </button>
         </div>
-
-              {/* Specifications */}
+{/* Specifications */}
 <div className="mb-6">
   <label className="block text-sm font-medium text-gray-700">Specifications</label>
-  {Object.entries(formData.specifications).map(([name, values]) => (
-    <div key={name} className="mt-3">
+  {Object.entries(formData.specifications).map(([name, values], index) => (
+    <div key={index} className="mt-3">
       <div className="flex items-center mb-2">
         <input
           type="text"
           placeholder="Specification Name"
           value={name}
-          onChange={(e) => handleSpecificationNameChange(name, e)}
+          onChange={(e) => handleSpecificationNameChange(name, e.target.value)}
           required
           className="flex-1 mr-2 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
         />
@@ -437,34 +477,50 @@ const handleAddSpecificationValue = (name) => {
           Remove Specification
         </button>
       </div>
-      {values.map((value, index) => (
-        <input
-          key={index}
-          type="text"
-          placeholder="Value"
-          value={value}
-          onChange={(e) => handleSpecificationChange(name, index, e)}
-          required
-          className="mb-2 mr-2 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-        />
+      {values.map((value, subIndex) => (
+        <div key={subIndex} className="flex items-center space-x-3">
+          <input
+            type="text"
+            placeholder="Value"
+            value={value}
+            onChange={(e) => handleSpecificationValueChange(name, subIndex, e)}
+            required
+            className="flex-1 border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+          />
+          <button
+            type="button"
+            onClick={() => handleRemoveSpecificationSubValue(name, subIndex)}
+            className="px-2 py-1 bg-red-500 text-white rounded hover:bg-red-600 focus:outline-none focus:ring-red-500 focus:border-red-500"
+          >
+            Remove Value
+          </button>
+        </div>
       ))}
-      <button
-        type="button"
-        onClick={() => handleAddSpecificationValue(name)}
-        className="mt-2 px-2 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-      >
-        Add Value
-      </button>
+      <div className="flex items-center mt-2">
+        <button
+          type="button"
+          onClick={() => handleAddSpecificationValue(name)}
+          className="px-2 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+        >
+          Add Value
+        </button>
+      </div>
     </div>
   ))}
-  <button
-    type="button"
-    onClick={handleAddSpecification}
-    className="mt-2 px-2 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-  >
-    Add Specification
-  </button>
+  <div className="mt-3">
+    <button
+      type="button"
+      onClick={handleAddSpecification}
+      className="px-2 py-1 bg-blue-500 text-white rounded hover:bg-blue-600 focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+    >
+      Add Specification
+    </button>
+  </div>
 </div>
+
+
+
+
 
 
         {/* Tags */}

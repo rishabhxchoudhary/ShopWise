@@ -171,60 +171,8 @@
 
     .mobNavbarContainer{
         display: flex;
-        padding: 1rem;
+        flex-direction: column;
         justify-content: space-between;
     }
-
-    .mobDrop{
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        top: 59px;
-        left: 0;
-        width: auto;
-        background-color: #fff;
-        justify-content: space-around;
-        align-items: flex-start;
-        box-shadow: 0px 5px 5px 5px rgba(0,0,0,0.05);
-        padding: 1rem;
-        gap: 1rem;
-    }
-
-    .mobDropItem{
-        color: #555;
-        font-size: 1rem;
-        font-weight: 300;
-        cursor: pointer;
-        text-decoration: none;
-        white-space: nowrap;
-    }
-
-    .mobDropItem:hover{
-        color: #333;
-        font-weight: 500;
-        border-bottom: 1px solid #333;
-    }
-
-    .mobSideSection{
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-    }
-
-    .mobSearch{
-        display: flex;
-    }
-
-    .searchBoxBlur{
-        display: none;
-    }
-
-    .searchBoxFocus{
-        display: block;
-        width: 10rem;
-        /* margin-left: 5px; */
-    }
-
-
 
 }
