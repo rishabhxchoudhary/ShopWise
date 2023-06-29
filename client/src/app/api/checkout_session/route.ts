@@ -38,7 +38,7 @@ export async function POST(req: NextRequest) {
     checkoutSession.cancel_url = `${req.nextUrl.origin}/payment/${CHECKOUT_SESSION_ID}`;
     return NextResponse.json(checkoutSession);
   } catch (error) {
-    // console.log(error);
+    console.log(error);
     return NextResponse.error();
   }
   // return NextResponse.json({ data: [] });

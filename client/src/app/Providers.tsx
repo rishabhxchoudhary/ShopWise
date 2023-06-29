@@ -37,6 +37,16 @@ export const SessionProvider2 = ({ children }: any) => {
       setCookie("uuid", json.data, { path: "/" });
     };
 
+    const merge = async () => {
+      await fetch("/api/cart/merge", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ uuid: cookies.uuid }),
+      });
+    };
+
     if (status == "unauthenticated") {
       if (cookies.uuid) {
         // do nothing
@@ -46,13 +56,12 @@ export const SessionProvider2 = ({ children }: any) => {
     } else if (status == "authenticated") {
       if (cookies.uuid) {
         // merge the card and remove this uuid.
-
+        merge();
         removeCookie("uuid", { path: "/" });
       } else {
         // do nothing.
       }
     }
-    console.log("UUID: ", cookies.uuid);
   }, [session, status, setCookie, cookies.uuid, removeCookie]);
 
   return (

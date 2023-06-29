@@ -1,16 +1,16 @@
-"use client"
-import { useSession } from "next-auth/react"
-import { useState } from 'react';
-import ProductPageCss from './ProductPage.module.css'
-import ImageCarousel from './ImageCarousal';
-import StarRating from './Star';
-import Variants from './Variant';
-import Quantity from './Quantity';
-import CartActions from './CartAction';
-import Specifications from './Specifications';
-import Reviews from './Reviews';
+"use client";
+import { useState } from "react";
+import ProductPageCss from "./ProductPage.module.css";
+import ImageCarousel from "./ImageCarousal";
+import StarRating from "./Star";
+import Variants from "./Variant";
+import Quantity from "./Quantity";
+import CartActions from "./CartAction";
+import Specifications from "./Specifications";
+import Reviews from "./Reviews";
 import { useDispatch } from "react-redux";
 import { start, stop } from "@/redux/features/loading/loadingSlice";
+import { useCookies } from "react-cookie";
 
 interface Variant {
   option: string;
@@ -90,17 +90,28 @@ type Prop = {
   reviews: Review[];
   specifications: Specifications;
   tags: string[];
-}
+};
 
-const ProductPage = ({id, name, price, description, variants, images, ratings, reviews, specifications, tags }: Prop) => {
-  const { data:session } = useSession();
+const ProductPage = ({
+  id,
+  name,
+  price,
+  description,
+  variants,
+  images,
+  ratings,
+  reviews,
+  specifications,
+  tags,
+}: Prop) => {
   const [selection, setSelection] = useState<VariantSelection>({});
-  const [quantity,setQuantity] = useState(1);
-  const dispatch = useDispatch()
+  const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
+  const [cookies] = useCookies(["uuid"]);
+  const uuid = cookies.uuid;
 
   const AddtoCart = async () => {
     dispatch(start());
-
     const cur_product: CartProduct = {
       _id: id || "",
       name: name || "",
@@ -108,75 +119,87 @@ const ProductPage = ({id, name, price, description, variants, images, ratings, r
       variant: [],
       quantity: quantity,
       price: price || 0,
-    }
+    };
     Object.keys(selection).forEach((option) => {
       cur_product.variant.push({
         option,
         value: selection[option],
       });
     });
-
-    if (!session) {
-      const cart = JSON.parse(localStorage.getItem('cart') || '[]');
-      cart.push(cur_product);
-      localStorage.setItem('cart', JSON.stringify(cart));
-      dispatch(stop());
-      return;
-    }
-
     // Push cur_product to the backend api usng fetch
-    await fetch(`/api/cart/add`,{
-      method: 'POST',
+    await fetch(`/api/cart/add`, {
+      method: "POST",
       headers: {
-          'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
-          product: cur_product
-      })});
+        product: cur_product,
+        uuid: uuid,
+      }),
+    });
     dispatch(stop());
   };
-  
 
-  function BuyNow(){
-    console.log("Buy now clicked")
+  function BuyNow() {
+    console.log("Buy now clicked");
   }
 
   // const { name, description, variants, images, ratings, reviews, specifications, tags } = product;
 
   return (
     <div className={ProductPageCss.main}>
-    <div className={`p-4  flex gap-5 flex-wrap`}>Tags: {tags.map((tag,index)=>{return <span className={`${ProductPageCss.tags}`} key={index}>{tag}{" "}</span>})}</div>
-    <div className={`${ProductPageCss.content} flex-col md:flex-row md:gap-10 overflow-scroll`}>
-      
+      <div className={`p-4  flex gap-5 flex-wrap`}>
+        Tags:{" "}
+        {tags.map((tag, index) => {
+          return (
+            <span className={`${ProductPageCss.tags}`} key={index}>
+              {tag}{" "}
+            </span>
+          );
+        })}
+      </div>
+      <div
+        className={`${ProductPageCss.content} flex-col md:flex-row md:gap-10 overflow-scroll`}
+      >
         <div className={`${ProductPageCss.images} min-h-[300px]`}>
-            <ImageCarousel images={images} />
+          <ImageCarousel images={images} />
         </div>
         <div className={`${ProductPageCss.info} pt-28`}>
-            <div className='flex flex-col gap-2'>
-              <div className={ProductPageCss.name}>{name}</div>
-              <div className={ProductPageCss.description}>{description}</div>
-              <div className={ProductPageCss.rating}>
-                  <StarRating rating={ratings.average} /> {ratings.count} reviews
-              </div>
+          <div className="flex flex-col gap-2">
+            <div className={ProductPageCss.name}>{name}</div>
+            <div className={ProductPageCss.description}>{description}</div>
+            <div className={ProductPageCss.rating}>
+              <StarRating rating={ratings.average} /> {ratings.count} reviews
             </div>
-            <div className={ProductPageCss.Price}>
-                <div className={`${ProductPageCss.price} text-2xl font-semibold`}>Price: $ {price}</div>
+          </div>
+          <div className={ProductPageCss.Price}>
+            <div className={`${ProductPageCss.price} text-2xl font-semibold`}>
+              Price: $ {price}
             </div>
-            <div className={ProductPageCss.variants}>
-              <Variants variants={variants} selection={selection} setSelection={setSelection}/>
+          </div>
+          <div className={ProductPageCss.variants}>
+            <Variants
+              variants={variants}
+              selection={selection}
+              setSelection={setSelection}
+            />
+          </div>
+          <div className={ProductPageCss.Quantity}>
+            <div className={ProductPageCss.quantity}>
+              <Quantity quantity={quantity} onQuantityChange={setQuantity} />
             </div>
-            <div className={ProductPageCss.Quantity}>
-                <div className={ProductPageCss.quantity}>
-                  <Quantity quantity={quantity} onQuantityChange={setQuantity}  />
-                </div>
-            </div>
-            <div className={ProductPageCss.AddToCart}>
-                <CartActions totalAmount={Math.round((quantity * price * 1000)/1000)} onAddToCart={AddtoCart} onBuy={BuyNow} />
-            </div>
+          </div>
+          <div className={ProductPageCss.AddToCart}>
+            <CartActions
+              totalAmount={Math.round((quantity * price * 1000) / 1000)}
+              onAddToCart={AddtoCart}
+              onBuy={BuyNow}
+            />
+          </div>
         </div>
-    </div>
-    <Specifications specifications={specifications} />
-    <Reviews reviews={reviews} />
+      </div>
+      <Specifications specifications={specifications} />
+      <Reviews reviews={reviews} />
     </div>
   );
 };

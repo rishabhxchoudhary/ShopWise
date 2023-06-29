@@ -2,6 +2,7 @@
 import CSS from "@/components/Cart/Cart.module.css";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { useCookies } from "react-cookie";
 import { useDispatch } from "react-redux";
 import { start, stop } from "@/redux/features/loading/loadingSlice";
 import { useSession } from "next-auth/react";
@@ -21,64 +22,36 @@ interface CartProduct {
 
 const CartPage: React.FC = () => {
   const dispatch = useDispatch();
-  const { data: session } = useSession();
   const [cartData, setCartData] = useState<CartProduct[]>([]);
+  const [cookies] = useCookies(["uuid"]);
+  const uuid = cookies.uuid;
 
   useEffect(() => {
-    if (!session) {
-      setCartData(JSON.parse(localStorage.getItem("cart") || "[]"));
-      return;
-    }
-
     const getcart = async () => {
-      dispatch(start());
-      const cart = await fetch("/api/cart", {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      const cartData = await cart.json();
-      setCartData(cartData.data);
-      dispatch(stop());
-    };
-
-    if (localStorage.getItem("cart")) {
-      const mergeCart = async () => {
-        const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-        if (cart.length === 0) return;
-        const res = await fetch("/api/cart/merge", {
+      if (uuid) {
+        dispatch(start());
+        const cart = await fetch("/api/cart", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ newCart: cart }),
+          body: JSON.stringify({
+            uuid: uuid,
+          }),
         });
-        const data = await res.json();
-        setCartData(data.data);
-        localStorage.removeItem("cart");
-      };
-      mergeCart();
-      console.log("cart merged");
-    }
+        const cartData = await cart.json();
+        console.log("Cart: ", cartData);
+        setCartData(cartData.data);
+        dispatch(stop());
+      }
+    };
     getcart();
-  }, [session]);
+  }, [uuid, dispatch]);
 
   const handleUpdateQuantity = async (
     product: CartProduct,
     newQuantity: number
   ) => {
-    if (!session) {
-      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-      const index = cart.findIndex(
-        (item: CartProduct) => item._id === product._id
-      );
-      if (index === -1) return;
-      cart[index].quantity = newQuantity;
-      setCartData(cart);
-      localStorage.setItem("cart", JSON.stringify(cart));
-      return;
-    }
     if (newQuantity < 1) return;
     dispatch(start());
     const cart = await fetch("/api/cart/changequantity", {
@@ -87,6 +60,7 @@ const CartPage: React.FC = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        uuid: uuid,
         productid: product._id,
         quantity: newQuantity,
       }),
@@ -97,17 +71,6 @@ const CartPage: React.FC = () => {
   };
 
   const handleRemoveItem = async (product: CartProduct) => {
-    if (!session) {
-      const cart = JSON.parse(localStorage.getItem("cart") || "[]");
-      const index = cart.findIndex(
-        (item: CartProduct) => item._id === product._id
-      );
-      if (index === -1) return;
-      cart.splice(index, 1);
-      setCartData(cart);
-      localStorage.setItem("cart", JSON.stringify(cart));
-      return;
-    }
     dispatch(start());
     const cart = await fetch("/api/cart/remove", {
       method: "POST",
@@ -115,6 +78,7 @@ const CartPage: React.FC = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
+        uuid: uuid,
         productid: product._id,
       }),
     });

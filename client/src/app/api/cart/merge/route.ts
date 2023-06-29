@@ -8,9 +8,11 @@ export async function POST(req: Request) {
   const oldCartId = session.user.cart;
   const oldCart = await getCart(oldCartId);
   const body = await req.json();
-  const { newCart } = body;
-  const final = await mergeCarts(oldCart, newCart);
-  return NextResponse.json({ data: final.items });
+  const { uuid } = body;
+  const newCart = await getCart(uuid);
+  console.log(oldCart, newCart);
+  await mergeCarts(oldCart, newCart);
+  return NextResponse.json({ data: ["Done"] });
 }
 
 export const dynamic = "force-dynamic";

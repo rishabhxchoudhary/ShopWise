@@ -19,10 +19,15 @@ const isEqual = (
 };
 
 export async function POST(req: Request) {
-  const session = await getServerSession(authOptions);
-  const cart = session.user.cart;
   const body = await req.json();
-  const { product } = body;
+  const { product, uuid } = body;
+  let cart;
+  if (uuid) {
+    cart = String(uuid);
+  } else {
+    const session = await getServerSession(authOptions);
+    cart = session.user.cart;
+  }
   const cur_product = product;
   const data = await getCart(cart);
   const cartData = data?.items;
@@ -34,10 +39,8 @@ export async function POST(req: Request) {
   );
 
   if (existingItemIndex && existingItemIndex !== -1) {
-    // Item with the same variant already exists, increase the quantity
     if (cartData) cartData[existingItemIndex].quantity += cur_product.quantity;
   } else {
-    // Item with the same variant doesn't exist, add the new product to the cart
     cartData?.push(cur_product);
   }
 

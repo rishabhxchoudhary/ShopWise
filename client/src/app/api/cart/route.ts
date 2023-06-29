@@ -3,10 +3,17 @@ import { NextResponse } from "next/server";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]/route";
 
-export async function GET() {
+export async function POST(req: Request) {
   try {
-    const session = await getServerSession(authOptions);
-    const cartId = session.user.cart;
+    const body = await req.json();
+    const { uuid } = body;
+    let cartId;
+    if (uuid) {
+      cartId = String(uuid);
+    } else {
+      const session = await getServerSession(authOptions);
+      cartId = session.user.cart;
+    }
     const data = await getCart(cartId);
     const cartData = data?.items;
     return NextResponse.json({ data: cartData });

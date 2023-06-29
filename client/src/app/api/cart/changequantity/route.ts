@@ -6,9 +6,14 @@ import { authOptions } from "../../auth/[...nextauth]/route";
 export async function PUT(req: Request) {
   try {
     const body = await req.json();
-    const { productid, quantity } = body;
-    const session = await getServerSession(authOptions);
-    const cartId = session.user.cart;
+    const { productid, quantity, uuid } = body;
+    let cartId;
+    if (uuid) {
+      cartId = String(uuid);
+    } else {
+      const session = await getServerSession(authOptions);
+      cartId = session.user.cart;
+    }
     const data = await getCart(cartId);
     const cartData = data?.items;
     const updatedCart = cartData?.map((p) => {

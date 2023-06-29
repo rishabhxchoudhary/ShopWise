@@ -31,7 +31,7 @@ const isEqual = (
 async function mergeCarts(oldCart: any, newCart: any) {
   await connectToDatabase();
   const oldCartItems = oldCart.items;
-  const newCartItems = newCart;
+  const newCartItems = newCart.items;
 
   // Merge the two carts
   for (let i = 0; i < newCartItems.length; i++) {
