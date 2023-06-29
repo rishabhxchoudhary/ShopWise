@@ -28,22 +28,20 @@ const CartPage: React.FC = () => {
 
   useEffect(() => {
     const getcart = async () => {
-      if (uuid) {
-        dispatch(start());
-        const cart = await fetch("/api/cart", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            uuid: uuid,
-          }),
-        });
-        const cartData = await cart.json();
-        console.log("Cart: ", cartData);
-        setCartData(cartData.data);
-        dispatch(stop());
-      }
+      dispatch(start());
+      const cart = await fetch("/api/cart", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          uuid: uuid,
+        }),
+      });
+      const cartData = await cart.json();
+      console.log("Cart: ", cartData);
+      setCartData(cartData.data);
+      dispatch(stop());
     };
     getcart();
   }, [uuid, dispatch]);
