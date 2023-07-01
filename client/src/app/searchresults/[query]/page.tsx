@@ -6,6 +6,14 @@ import React from 'react';
 export default async function Page({params}:any) {
   const { query } = params;
   const searchData = await getProductsBySearchString(query);
+
+  if(searchData.length === 0) return (
+    <div className="container mx-auto pt-16 px-4">
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-3xl font-bold">No Such Products Found</h1>
+      </div>
+    </div>
+  );
   return (
     <div className="container mx-auto pt-16 px-4">
       <div className="flex justify-between items-center mb-6">
@@ -20,3 +28,6 @@ export default async function Page({params}:any) {
     </div>
   );
 }
+
+//terminal code to install stripe
+//npm install --save @stripe/react-stripe-js @stripe/stripe-js

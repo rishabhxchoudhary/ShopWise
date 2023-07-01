@@ -39,4 +39,10 @@ async function addProduct(product: any) {
   return data;
 }
 
-export { getProductById, getHomeProducts, getProductsBySearchString, addProduct};
+async function addReview(id: string, review: any) {
+  await connectToDatabase();
+  const data = await Product.updateOne({ _id: id }, { $set: { reviews: review } });
+  return data;
+}
+
+export { getProductById, getHomeProducts, getProductsBySearchString, addProduct, addReview};

@@ -199,7 +199,7 @@ const ProductPage = ({
         </div>
       </div>
       <Specifications specifications={specifications} />
-      <Reviews reviews={reviews} />
+      <Reviews reviews={reviews} id={id}/>
     </div>
   );
 };

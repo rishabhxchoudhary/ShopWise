@@ -7,11 +7,7 @@ import { useState, useEffect } from 'react';
 import { useSession, signIn, signOut } from "next-auth/react"
 
 
-import SearchIcon from '@mui/icons-material/Search';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import PersonIcon from '@mui/icons-material/Person';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import CategoryIcon from '@mui/icons-material/Category';
+import { Search, Person, ShoppingCart } from '@mui/icons-material'
 import MobileNavbar from './MobileNavbar';
 
 
@@ -81,11 +77,11 @@ export default function Navbar() {
             <div className={style.navSearch}>
               <form onSubmit={handleSubmit}>
               <input onFocus={searchFocus} onBlur={searchBlur} onChange={(e) => {searchHandler(e)}} className={searchActive ? style.searchBoxFocus : style.searchBoxBlur} type="text" placeholder="Search Products" name="search" autoComplete='off' />
-              <button type="submit"><SearchIcon /></button>
+              <button type="submit"><Search /></button>
               </form>
             </div>
             <div onClick={accountFocus} className={style.navLink}>
-              <PersonIcon />
+              <Person />
               <span>Account</span>
               <div className={accountActive ? style.accountTab : style.navHide}>
                 {
@@ -110,7 +106,7 @@ export default function Navbar() {
               </div>
             </div>
             <Link href="/cart" className={style.navLink}>
-              <ShoppingCartIcon />
+              <ShoppingCart />
               <span>Cart</span>
             </Link>
           </div>
